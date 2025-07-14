@@ -35,7 +35,7 @@ export default function NotFound() {
                             Lost in the clouds ?
                         </h2>
                         <p className="text-base sm:text-lg text-gray-700 mb-6 px-4 sm:px-0">
-                            The page you're looking for isn't here. It may have moved or never existed.
+                            {`The page you're looking for isn't here. It may have moved or never existed.`}
                         </p>
                     </div>
 

@@ -2,7 +2,7 @@ import Container from '@/components/ui/container';
 import React from 'react';
 import styles from './style.module.css';
 import SearchBox from '@/components/common/SearchBox';
-import Image from 'next/image';
+// import Image from 'next/image';
 import HeroSectionBanner from '../herosectionbanner';
 
 const HeroSection = () => {

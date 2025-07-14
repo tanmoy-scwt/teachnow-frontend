@@ -2,22 +2,22 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
 import styles from './style.module.css'
-import { FaLongArrowAltRight } from 'react-icons/fa';
+// import { FaLongArrowAltRight } from 'react-icons/fa';
 import { MdArrowRightAlt } from 'react-icons/md';
 const CarrerResourceBox = () => {
 
-    function getDaySuffix(dayNumber: number | string) {
-        let day = +dayNumber;
-        if (day < 1 || day > 31) return "";
-        if (day % 100 >= 11 && day % 100 <= 13) return day + "th";
+    // function getDaySuffix(dayNumber: number | string) {
+    //     let day = +dayNumber;
+    //     if (day < 1 || day > 31) return "";
+    //     if (day % 100 >= 11 && day % 100 <= 13) return day + "th";
 
-        switch (day % 10) {
-            case 1: return "st";
-            case 2: return "nd";
-            case 3: return "rd";
-            default: return "th";
-        }
-    }
+    //     switch (day % 10) {
+    //         case 1: return "st";
+    //         case 2: return "nd";
+    //         case 3: return "rd";
+    //         default: return "th";
+    //     }
+    // }
 
     return (
         <div className={styles.card}>
