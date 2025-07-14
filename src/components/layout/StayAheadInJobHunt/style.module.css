@@ -1,0 +1,28 @@
+.stayWrapper {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+}
+.stayAheadInJobHuntContainer {
+  background: linear-gradient(118.11deg, #9bc9ff 7.29%, #4e96ea 95.39%);
+  border-radius: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 55px 0px;
+  flex-direction: column;
+}
+.sectionContent h3 {
+  font-size: clamp(28px, 3vw, 40px);
+  color: #ffffff;
+  font-family: Poppins;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 40px;
+  line-height: clamp(32px, 5vw, 36.4px);
+  letter-spacing: 0%;
+  vertical-align: middle;
+  text-transform: capitalize;
+  text-shadow: 2px 2px 6px #00000040, 0 4px 10px #00000026;
+}

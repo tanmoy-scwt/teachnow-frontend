@@ -1,0 +1,107 @@
+.imageWrapper {
+  padding: 35px 40px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1.12px solid #0e0e0e1a;
+}
+
+.top {
+  padding-bottom: 15px;
+  border-bottom: 1px solid #dddddd;
+}
+.bottom {
+  padding-top: 10px;
+}
+
+.experienceYear {
+  padding: 8px 10px;
+  background: #9ac1f9;
+  border-radius: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.experienceYear span {
+  font-family: Poppins;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 14.38px;
+  line-height: 17.26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.featuredJobBox {
+  box-shadow: 0px 4px 29.9px 0px #0000001a;
+  background: #ffffff;
+  border-radius: 30px;
+  height: 100%;
+  width: 100%;
+  padding: 14px 15px;
+  transition: all ease-in-out 0.3s;
+}
+.featuredJobBox:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 40px rgba(14, 56, 177, 0.25);
+}
+.featuredJobBox h3 {
+  font-family: Poppins;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 20px;
+  line-height: 28.6px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+}
+.sectionContent {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.sectionContent span {
+  font-family: Poppins;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 14px;
+  line-height: 19.2px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  color: #949494;
+}
+.sectionContent h4 {
+  font-family: Poppins;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  color: #1e2d42;
+}
+.sectionContent strong {
+  font-family: Poppins;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 10.13px;
+  line-height: 11.58px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  color: #888888;
+}
+.sectionContent strong span:nth-child(2) {
+  background-color: #97c1ff;
+  border-radius: 8px;
+  padding: 4px 10px;
+  font-family: Poppins;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 10.13px;
+  line-height: 11.58px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  color: #888888;
+}

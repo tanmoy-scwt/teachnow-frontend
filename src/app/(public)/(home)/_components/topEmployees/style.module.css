@@ -1,0 +1,22 @@
+.topEmployeeSection {
+  background: linear-gradient(238.2deg, #c8bbff 8.27%, #b09dff 96%);
+}
+.topEmployeesTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.topEmployeesWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.sectionContent h2 {
+  font-family: Poppins;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: clamp(28px, 3vw, 48px);
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #ffffff;
+}

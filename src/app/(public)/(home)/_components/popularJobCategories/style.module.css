@@ -1,0 +1,17 @@
+.popularJobWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.sectionContent h2 {
+  font-size: clamp(28px, 3vw, 52px);
+  line-height: clamp(30px, 4vw, 66px);
+  font-family: Poppins;
+  font-weight: 700;
+  font-style: Bold;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  text-transform: capitalize;
+  color: var(--secondary-color);
+  text-align: center;
+}

@@ -1,0 +1,11 @@
+.logoName {
+  font-family: "Satoshi-Black";
+  font-size: clamp(12px, 5vw, 28px);
+  color: var(--secondary-color);
+  font-weight: 900;
+}
+.logoName span {
+  font-family: "Satoshi-Regular";
+  font-weight: 400;
+  text-transform: lowercase;
+}

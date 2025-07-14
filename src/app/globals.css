@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+
+  /* ---------------- main color ------------- */
+  --primary-color: #4679b5;
+  --secondary-color: #1e2d42;
+
+  --light-black: #262626;
+
+  --paragraph-light-color: #505050;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+p {
+  color: var(--paragraph-light-color);
+  font-size: 16px;
+  line-height: clamp(20px, 3vw, 26px);
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+} */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  /* ✅ Optional: smoother text rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent; /* 👈 removes click flash on mobile */
+  transition: background 0.3s ease, color 0.3s ease;
+}
+button {
+  cursor: pointer;
+}
+
+.section-content {
+  color: var(--secondary-color);
+}
+.section-content span {
+  color: var(--primary-color);
+}
+.section {
+  padding: 55px 0px;
+}
+
+.ringCircleBgElement {
+  position: absolute;
+  z-index: 1;
+}
+.rightBottomAlign {
+  right: 0px;
+  bottom: 0px;
+}
+.leftTopAlign {
+  top: 0px;
+  left: 0px;
+}
+
+.section-content h2 {
+  font-family: Poppins;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: clamp(28px, 3vw, 52px);
+  line-height: clamp(32px, 4vw, 66px);
+  letter-spacing: 0%;
+  vertical-align: middle;
+  text-transform: capitalize;
+  text-align: center;
+}
+.applyBtn {
+  padding: 0.2px;
+  padding: 5px !important;
+}
+.applyBtn svg {
+  width: 26px !important;
+  height: 26px !important;
+}

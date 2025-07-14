@@ -1,0 +1,62 @@
+.getAsJobSeekerWrapper {
+  gap: 21px;
+}
+.bannerContent {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.sectionContent h2 {
+  font-family: Poppins;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: clamp(28px, 3vw, 52px);
+  line-height: clamp(32px, 4vw, 66px);
+  letter-spacing: 0%;
+  vertical-align: middle;
+  text-transform: capitalize;
+}
+.sectionContent h3 {
+  font-family: DM Sans;
+  font-weight: 900;
+  font-style: Regular;
+  font-size: 18px;
+  line-height: 43px;
+  letter-spacing: 0%;
+  color: #505050;
+}
+.sectionContent h4 {
+  font-family: Poppins;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: clamp(18px, 3vw, 24px);
+  line-height: clamp(28px, 4vw, 43px);
+  letter-spacing: 0%;
+  color: var(--secondary-color);
+}
+
+.pointBox {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transition: all ease-in-out 0.4s;
+}
+.pointBox:hover {
+  transform: scale(1.02);
+  text-shadow: 0 12px 40px rgb(12, 73, 255);
+  cursor: text;
+}
+
+.pointBox:hover .icon {
+  animation: rotation 1s linear infinite;
+  border-radius: 50%;
+  box-shadow: 0 12px 40px rgb(12, 73, 255);
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
