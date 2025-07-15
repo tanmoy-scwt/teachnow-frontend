@@ -2,12 +2,14 @@
 
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 
 const SwiperCarousel = ({ children }: { children: React.ReactNode[] }) => {
     return (
         <div style={{ background: '#ffffff' }} className="py-10 px-4 sm:px-6 lg:px-8">
             <Swiper
+                modules={[Autoplay]}
                 spaceBetween={16}
                 slidesPerView={1}
                 breakpoints={{
@@ -19,6 +21,12 @@ const SwiperCarousel = ({ children }: { children: React.ReactNode[] }) => {
                     1280: { slidesPerView: 3 },
                 }}
                 className="pb-16 overflow-visible"
+                autoplay={{
+                    delay: 3000,
+                    disableOnInteraction: false,
+                }}
+                speed={600}
+                loop={true}
             >
                 {React.Children.map(children, (child, index) => (
                     <SwiperSlide key={index}>
