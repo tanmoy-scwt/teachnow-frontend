@@ -32,7 +32,7 @@
 
 .sectionContent span {
   font-size: clamp(20px, 3vw, 32px);
-  line-height: clamp(30px, 5vw, 42px);
+  line-height: clamp(30px, 3vw, 42px);
   letter-spacing: 0%;
   text-transform: capitalize;
   font-family: Poppins;
@@ -66,12 +66,14 @@
   position: relative;
   z-index: 100;
   height: 100%;
+  width: 100%;
   bottom: 0px;
   left: 0px;
 }
 .sectionContent > div {
-  height: 80%;
-  width: 90%;
+  height: 100%;
+  width: 100%;
+  padding: 14px 12px 17px 14px;
 }
 .bannerWrapperGrid > div:nth-child(1) {
   grid-column: 1 / span 3;
@@ -146,12 +148,6 @@
 }
 
 @media (max-width: 1200px) {
-  .sectionContent strong {
-    font-size: 18px;
-  }
-  .sectionContent strong span {
-    font-size: 18px;
-  }
   .bannerWrapperGrid > div:nth-child(1) > .bannnerBoxImage > div {
     height: 235px;
     width: 150px;
@@ -173,58 +169,100 @@
   }
 }
 
-/* @media (max-width: 1120px) {
-  .sectionContent strong {
-    font-size: 20px;
-  }
-  .sectionContent strong span {
-    font-size: 20px;
-  }
-  .bannerWrapperGrid > div:nth-child(1) > .bannnerBoxImage > div {
-    height: 257px;
-    width: 154px;
-    right: 0px;
-    top: -25px;
-  }
-
-  .bannerWrapperGrid > div:nth-child(2) > .bannnerBoxImage > div {
-    height: 173px;
-    width: 183px;
-    right: -20px;
-    bottom: -30px;
-  }
-  .bannerWrapperGrid > div:nth-child(3) > .bannnerBoxImage > div {
-    height: 142px;
-    width: 170px;
-    top: -1px;
-    right: 0px;
-    bottom: -30px;
-  }
-  .bannerWrapperGrid > div:nth-child(4) > .bannnerBoxImage > div {
-    height: 168px;
-    width: 153px;
-    top: -1px;
-    right: 0px;
-    bottom: -30px;
-  }
-} */
-
 @media (max-width: 1024px) {
   .bannerWrapperGrid {
-    gap: 15px;
+    gap: 30px;
+  }
+  .sectionContent > div {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 760px) {
+  .bannerWrapperGrid > div {
+    height: 190px;
+  }
+  .bannerWrapperGrid > div:nth-child(1) > .bannnerBoxImage > div {
+    height: 210px;
+    width: 130px;
+  }
+  .bannerWrapperGrid > div:nth-child(2) > .bannnerBoxImage > div {
+    height: 140px;
+    width: 145px;
+  }
+  .bannerWrapperGrid > div:nth-child(3) > .bannnerBoxImage > div {
+    height: 95px;
+    width: 138px;
+  }
+  .bannerWrapperGrid > div:nth-child(4) > .bannnerBoxImage > div {
+    height: 148px;
+    width: 133px;
+    top: 15px;
+  }
+}
+
+@media (max-width: 560px) {
+  .bannerWrapperGrid {
+    gap: 20px;
+  }
+  .bannerWrapperGrid > div {
+    border-radius: 25px;
+    height: 170px;
+  }
+  .bannerWrapperGrid > div:nth-child(1) > .bannnerBoxImage > div {
+    height: 190px;
+    width: 110px;
+  }
+  .bannerWrapperGrid > div:nth-child(2) > .bannnerBoxImage > div {
+    height: 120px;
+    width: 125px;
+  }
+  .bannerWrapperGrid > div:nth-child(3) > .bannnerBoxImage > div {
+    height: 75px;
+    width: 118px;
+  }
+  .bannerWrapperGrid > div:nth-child(4) > .bannnerBoxImage > div {
+    height: 115px;
+    width: 105px;
+    top: 45px;
   }
 }
 
 @media (max-width: 460px) {
-  /* .containerWrapper {
-    gap: 0px;
+  .bannerWrapperGrid > div {
+    height: 150px;
   }
   .bannerWrapperGrid {
-    display: flex;
-    flex-direction: column;
-  } */
-  .bannerWrapperGrid > div {
-    border-radius: 25px;
-    height: 150px;
+    gap: 10px;
+  }
+  .sectionContent > div {
+    padding: 10px;
+  }
+  .bannerWrapperGrid > div:nth-child(1) > .bannnerBoxImage > div {
+    height: 130px;
+    width: 85px;
+    top: -10px;
+  }
+  .bannerWrapperGrid > div:nth-child(2) > .bannnerBoxImage > div {
+    height: 80px;
+    width: 95px;
+    top: -12px;
+  }
+  .bannerWrapperGrid > div:nth-child(3) > .bannnerBoxImage > div {
+    height: 65px;
+    width: 75px;
+  }
+  .bannerWrapperGrid > div:nth-child(4) > .bannnerBoxImage > div {
+    height: 85px;
+    width: 75px;
+    top: 70px;
+  }
+  .sectionContent span {
+    font-size: clamp(16px, 3vw, 32px);
+    line-height: clamp(20px, 3vw, 42px);
+  }
+  .smallFontSize {
+    font-size: clamp(14px, 3vw, 22px) !important;
+    line-height: clamp(20px, 3vw, 28px) !important;
   }
 }

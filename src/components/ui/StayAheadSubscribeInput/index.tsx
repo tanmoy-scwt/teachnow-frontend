@@ -4,7 +4,7 @@ import styles from './style.module.css'
 
 const StayAheadSubscribeInput = () => {
     return (
-        <div className='w-[60%]'>
+        <div className="w-[85%] sm:w-[80%] md:w-[70%] lg:w-[60%]">
             <div className={`flex items-center justify-between ${styles.subscribeInputBox}`} >
                 <input className={`${styles.inputBox}`} type="email" placeholder='Enter your email address' />
                 <button className={styles.btnBox}>

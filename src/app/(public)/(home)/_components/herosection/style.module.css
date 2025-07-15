@@ -6,13 +6,6 @@
   height: 100%;
   padding: 25px 0px;
 }
-.sectionContent {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: 30px;
-}
 .bannerContentWrapper {
   display: flex;
   flex-direction: column;
@@ -20,6 +13,13 @@
   justify-content: flex-start;
   align-items: flex-start;
   margin: 50px 0px;
+}
+.sectionContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 30px;
 }
 .sectionContent h1 {
   font-size: clamp(36px, 5vw, 52px);
@@ -50,6 +50,13 @@
   .sectionContent {
     text-align: center;
     align-items: center;
+    justify-content: center;
+  }
+  .sectionContents {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
   }
   .bannerContentWrapper {
     justify-content: center;
@@ -64,6 +71,5 @@
   .mobileMenuIcon {
     width: 28px;
     height: 28px;
-    border: 1px solid red;
   }
 }

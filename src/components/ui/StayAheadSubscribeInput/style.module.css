@@ -40,3 +40,36 @@
   transform: scale(1.05);
   box-shadow: 0 12px 40px rgba(14, 56, 177, 0.25);
 }
+@media (max-width: 768px) {
+  .subscribeInputBox {
+    padding-right: 10px;
+    padding-left: 20px;
+  }
+  .inputBox {
+    padding: 18px 1px;
+  }
+  .btnBox {
+    padding: 8px;
+  }
+  .btnBox svg {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+@media (max-width: 576px) {
+  .subscribeInputBox {
+    padding-right: 5px;
+    padding-left: 20px;
+  }
+  .inputBox {
+    padding: 12px 1px;
+  }
+  .btnBox {
+    padding: 8px;
+  }
+  .btnBox svg {
+    width: 22px;
+    height: 22px;
+  }
+}
