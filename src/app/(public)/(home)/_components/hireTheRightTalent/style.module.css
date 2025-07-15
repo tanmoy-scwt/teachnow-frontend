@@ -2,6 +2,8 @@
   background: linear-gradient(238.2deg, #c8bbff 8.27%, #b09dff 96%);
   padding: 55px 45px;
   border-radius: 40px;
+  display: flex;
+  justify-content: space-between;
 }
 .sectionContent {
   display: flex;
@@ -26,4 +28,67 @@
 .imageWrapper img {
   position: absolute;
   top: -110%;
+}
+
+.imageWrapperContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.sectionBtn {
+  display: none;
+}
+@media (max-width: 1200px) {
+  .imageBtn {
+    display: none;
+  }
+  .imageWrapperContainer {
+    justify-content: flex-end;
+  }
+  .sectionBtn {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .hireTheRightTalent {
+    padding: 20px;
+    padding-top: 45px;
+    border-radius: 40px;
+  }
+  .imageWrapper {
+    position: relative;
+    height: auto;
+    width: 330px;
+  }
+  .imageWrapper img {
+    position: relative;
+    top: 0%;
+  }
+  .hireTheRightTalent {
+    padding: 35px 25px;
+    padding-bottom: 0px;
+    border-radius: 40px;
+    flex-direction: column;
+  }
+}
+@media (max-width: 576px) {
+  .hireTheRightTalent {
+    padding: 35px 20px;
+    padding-bottom: 0px;
+    border-radius: 40px;
+    flex-direction: column;
+  }
+}
+@media (max-width: 460px) {
+  .imageWrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .imageWrapper img {
+    height: 225px;
+    width: 250px;
+  }
 }

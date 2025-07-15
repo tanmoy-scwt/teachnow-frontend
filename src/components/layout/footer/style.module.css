@@ -6,8 +6,9 @@
   padding-bottom: 10px;
 }
 .Logo {
-  font-size: clamp(28px, 3vw, 52px);
-  font-weight: 900;
+  font-family: Poppins;
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 900 !important;
 }
 .footerWrapper {
   display: flex;
@@ -45,7 +46,7 @@
   font-family: Poppins;
   font-weight: 700;
   font-style: Bold;
-  font-size: clamp(16px, 3vw, 24px);
+  font-size: clamp(18px, 4vw, 24px);
   line-height: 26px;
   letter-spacing: 0%;
   color: #262626;
@@ -54,8 +55,8 @@
   font-family: Poppins;
   font-weight: 400;
   font-style: Regular;
-  font-size: 16px;
-  line-height: 26px;
+  font-size: clamp(12px, 4vw, 16px);
+  line-height: clamp(24px, 5vw, 26px);
   letter-spacing: 0%;
   color: #262626;
   transition: all ease-in-out 0.3s;
@@ -77,4 +78,39 @@
 .StayAheadInJobHuntWrapper {
   position: relative;
   height: 219px;
+}
+.socialFollowWrapper {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+@media (max-width: 576px) {
+  .bottomLine {
+    flex-direction: column;
+    padding-bottom: 30px;
+  }
+  .socialFollowWrapper {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .socialFollowWrapper .sectiionContent h4 {
+    font-weight: 400;
+  }
+  .topLine {
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+  }
+  .topLine .sectiionContent p,
+  .topLine .sectiionContent li a {
+    font-size: clamp(12px, 4vw, 16px);
+  }
+  .sectiionContent {
+    gap: 10px;
+  }
+  .footerContactLink {
+    width: 80vw;
+    position: relative;
+  }
 }

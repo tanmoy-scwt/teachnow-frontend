@@ -11,12 +11,12 @@ const page = () => {
     return (
         <>
             <HeroSection />
-            {/* <PopularJobCategories /> */}
-            {/* <TopEmployees /> */}
-            {/* <GetAsJobSeeker /> */}
-            {/* <FeaturedJobs /> */}
-            {/* <HireTheRightTalent /> */}
-            {/* <CarrerResourceTips /> */}
+            <PopularJobCategories />
+            <TopEmployees />
+            <GetAsJobSeeker />
+            <FeaturedJobs />
+            <HireTheRightTalent />
+            <CarrerResourceTips />
         </>
     )
 }

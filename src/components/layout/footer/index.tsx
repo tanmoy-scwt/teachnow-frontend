@@ -85,7 +85,7 @@ const Footer = () => {
                     <div className={styles.footerWrapper}>
                         <div className={`flex items-center justify-between ${styles.bottomLine}`}>
                             <Logo className={styles.Logo} />
-                            <div className="flex items-center gap-10">
+                            <div className={styles.socialFollowWrapper}>
                                 <div className={`${styles.sectiionContent}`} >
                                     <h4>Follow Us</h4>
                                 </div>
@@ -96,7 +96,7 @@ const Footer = () => {
                                 </ul>
                             </div>
                         </div>
-                        <div className="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+                        <div className="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4 sm:gap-6 md:gap-8 xl:gap-8">
                             {footerLinks.map((section, index) => (
                                 <div key={index} className={`${styles.sectiionContent} section-content`}>
                                     <h4>{section.title}</h4>
@@ -118,7 +118,7 @@ const Footer = () => {
                                             <li className="flex items-center gap-2">
                                                 <FiPhone className="shrink-0" />
                                                 <Link href={`tel:${section.contact.phone}`}>
-                                                    <span>{section.contact.phone}</span>
+                                                    {section.contact.phone}
                                                 </Link>
                                             </li>
                                         </ul>

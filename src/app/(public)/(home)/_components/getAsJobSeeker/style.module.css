@@ -6,22 +6,27 @@
   flex-direction: column;
   gap: 30px;
 }
+.sectionPoint ul li {
+  padding-bottom: 20px;
+}
 .sectionContent h2 {
   font-family: Poppins;
   font-weight: 700;
   font-style: Bold;
-  font-size: clamp(28px, 3vw, 52px);
-  line-height: clamp(32px, 4vw, 66px);
+  font-size: clamp(28px, 4vw, 52px);
+  line-height: clamp(32px, 5vw, 66px);
   letter-spacing: 0%;
   vertical-align: middle;
   text-transform: capitalize;
+  width: 70%;
+  text-align: left;
 }
 .sectionContent h3 {
   font-family: DM Sans;
   font-weight: 900;
   font-style: Regular;
-  font-size: 18px;
-  line-height: 43px;
+  font-size: clamp(14px, 2vw, 18px);
+  line-height: 20px;
   letter-spacing: 0%;
   color: #505050;
 }
@@ -37,7 +42,7 @@
 
 .pointBox {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 15px;
   transition: all ease-in-out 0.4s;
 }
@@ -58,5 +63,17 @@
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 1024px) {
+  .sectionContent h2 {
+    text-align: center;
+    width: 100%;
+  }
+}
+@media (max-width: 576px) {
+  .sectionPoint ul li {
+    padding-bottom: 8px;
   }
 }

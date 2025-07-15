@@ -22,10 +22,15 @@ const TopEmployees = () => {
                         <div className={`${styles.sectionContent} section-content`}>
                             <h2>Top Employers</h2>
                         </div>
-                        <ButtonRound name='view all' type='radio' className='bgOutlined' />
+                        <div className={styles.topEmployeesBtnWrapper}>
+                            <ButtonRound name='view all' type='radio' className='bgOutlined' />
+                        </div>
                     </div>
                     <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 p-4">
                         {employeesLogo?.map((item, index) => (<EmployeeLogo key={`employeelogo${index}`} employeeLogo={item} />))}
+                    </div>
+                    <div className={styles.topEmployeesBtnWrapperMbl}>
+                        <ButtonRound name='view all' type='radio' className='bgOutlined' />
                     </div>
                 </div>
             </Container>

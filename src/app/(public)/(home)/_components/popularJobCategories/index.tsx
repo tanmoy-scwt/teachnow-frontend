@@ -47,7 +47,7 @@ const PopularJobCategories = () => {
                     <div className={`${styles.sectionContent} section-content`}>
                         <h2>Most <span>Popular job</span> Categories</h2>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4 transition-all duration-300 ease-in-out">
+                    <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-4 transition-all duration-300 ease-in-out">
                         {Categories?.map((item, index) => (
                             <PopularCategoryBox key={`popularCategoryBox${index}`} categoryName={item?.categoryName} categoryIcon={item?.categoryIcon} />
                         ))}

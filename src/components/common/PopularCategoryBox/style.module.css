@@ -2,8 +2,8 @@
   font-family: Poppins;
   font-weight: 700;
   font-style: Bold;
-  font-size: clamp(16px, 3vw, 18px);
-  line-height: 25px;
+  font-size: clamp(11px, 3vw, 18px);
+  line-height: clamp(12px, 4vw, 25px);
   letter-spacing: 0%;
   vertical-align: middle;
   color: #1e2d42;
@@ -32,4 +32,29 @@
 .icons img {
   width: 100%;
   height: 100%;
+}
+
+@media (max-width: 1200px) {
+  .categoryBox {
+    gap: 20px;
+    padding: 28px;
+  }
+}
+@media (max-width: 960px) {
+  .categoryBox {
+    gap: 20px;
+    padding: 24px;
+  }
+}
+@media (max-width: 576px) {
+  .categoryBox {
+    gap: 8px;
+    padding: 20px 17px;
+    border-radius: 12px;
+  }
+  .icons {
+    width: 21px;
+    height: 21px;
+    position: relative;
+  }
 }

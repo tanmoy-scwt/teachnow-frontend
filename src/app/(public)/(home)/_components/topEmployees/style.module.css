@@ -15,8 +15,33 @@
   font-family: Poppins;
   font-weight: 700;
   font-style: Bold;
-  font-size: clamp(28px, 3vw, 48px);
+  font-size: clamp(28px, 6vw, 48px);
   line-height: 100%;
   letter-spacing: 0%;
   color: #ffffff;
+}
+.topEmployeesBtnWrapperMbl {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .topEmployeeSection {
+    background: none;
+  }
+  .topEmployeesWrapper {
+    background: linear-gradient(238.2deg, #c8bbff 8.27%, #b09dff 96%);
+    padding: 30px 24px;
+    border-radius: 40px;
+  }
+  .topEmployeesBtnWrapper {
+    display: none;
+  }
+  .topEmployeesBtnWrapperMbl {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .topEmployeesTop {
+    justify-content: center;
+  }
 }

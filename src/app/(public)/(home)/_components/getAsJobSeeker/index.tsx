@@ -16,13 +16,13 @@ const GetAsJobSeeker = () => {
     return (
         <section className='section'>
             <Container >
-                <div className={`${styles.getAsJobSeekerWrapper} flex justify-between items-center lg:flex-row md:flex-col sm:flex-col`}>
-                    <div className={`${styles.bannerWrapper} md:order-2 sm:order-2 lg:order-1`}>
+                <div className={`${styles.getAsJobSeekerWrapper} flex flex-col justify-between items-center md:flex-col lg:flex-row`}>
+                    <div className={`${styles.bannerWrapper} order-2 lg:order-1`}>
                         <div className={styles.banner}>
                             <Image src={'/image/jobseekerbanner.png'} height={588} width={555} alt='Job Seeker Banner' />
                         </div>
                     </div>
-                    <div className={`${styles.bannerContent} lg:flex-row md:order-1 sm:order-1 lg:order-2`}>
+                    <div className={`${styles.bannerContent} order-1 lg:order-2`}>
                         <div className={`${styles.sectionContent} section-content`}>
                             <h2>What You Get as a <span>Job Seeker</span></h2>
                         </div>
