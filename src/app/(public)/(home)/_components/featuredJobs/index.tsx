@@ -2,7 +2,7 @@ import Container from '@/components/ui/container'
 import React from 'react'
 import styles from './style.module.css'
 import FeaturedJobBox from '@/components/common/FeaturedJobBox'
-import EmblaCarousel from '@/components/layout/EmblaCarousel'
+// import EmblaCarousel from '@/components/layout/EmblaCarousel'
 import ButtonRound from '@/components/ui/button'
 import SwiperCarousel from '@/components/layout/SwiperCarousel'
 
