@@ -93,6 +93,7 @@ button {
 .applyBtn {
   padding: 0.2px;
   padding: 5px !important;
+  padding-left: 12px !important;
 }
 .applyBtn svg {
   width: 26px !important;

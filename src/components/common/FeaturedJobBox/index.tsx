@@ -14,14 +14,14 @@ const FeaturedJobBox = () => {
                 <div className={styles.sectionContent}>
                     <h3>ABC School</h3>
                     <div className='flex gap-1 items-center'>
-                        <FaLocationDot size={15} />
+                        <FaLocationDot size={14} color='#949494' />
                         <span>Copenhagen, India</span>
                     </div>
                     <h4>Senior Accountant Tally & GST</h4>
-                    <div>
+                    <div className={styles.itsder}>
                         <strong>Full Time</strong>
                         <strong>
-                            <span>Opening</span>
+                            Openings:
                             <span>20</span>
                         </strong>
                     </div>

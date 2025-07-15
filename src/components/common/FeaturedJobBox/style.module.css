@@ -94,10 +94,10 @@
   vertical-align: middle;
   color: #888888;
 }
-.sectionContent strong span:nth-child(2) {
+.sectionContent strong span {
   background-color: #97c1ff;
-  border-radius: 8px;
-  padding: 4px 10px;
+  border-radius: 6px;
+  padding: 4px 8px;
   font-family: Poppins;
   font-weight: 700;
   font-style: Bold;
@@ -105,5 +105,19 @@
   line-height: 11.58px;
   letter-spacing: 0%;
   vertical-align: middle;
-  color: #888888;
+  color: #fffcfc;
+}
+.itsder {
+  display: flex;
+  /* justify-content: space-between; */
+  gap: 10px;
+  align-items: center;
+}
+.itsder strong:nth-child(2) {
+  display: flex;
+  gap: 0.2rem;
+  align-items: center;
+  border-left: 1px solid var(--primary-color);
+  justify-content: flex-end;
+  padding-left: 10px;
 }
