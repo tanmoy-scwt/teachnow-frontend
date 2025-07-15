@@ -63,7 +63,7 @@ button {
   color: var(--primary-color);
 }
 .section {
-  padding: 55px 0px;
+  padding: clamp(30px, 5vw, 55px) 0;
 }
 
 .ringCircleBgElement {

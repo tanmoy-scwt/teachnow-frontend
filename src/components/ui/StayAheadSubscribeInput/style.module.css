@@ -26,6 +26,8 @@
   letter-spacing: 0%;
   vertical-align: middle;
   color: #50505081;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .btnBox {
@@ -39,6 +41,7 @@
   color: #ffffff;
   padding: 12px;
   transition: all ease-in-out 0.3s;
+  flex-shrink: 0;
 }
 .btnBox:hover {
   transform: scale(1.05);
