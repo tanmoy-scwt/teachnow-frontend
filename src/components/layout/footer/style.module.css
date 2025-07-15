@@ -113,4 +113,8 @@
     width: 80vw;
     position: relative;
   }
+  .StayAheadInJobHuntWrapper {
+    position: relative;
+    height: 155px;
+  }
 }
