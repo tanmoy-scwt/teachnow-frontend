@@ -31,8 +31,8 @@
 }
 
 .sectionContent span {
-  font-size: clamp(20px, 3vw, 32px);
-  line-height: clamp(30px, 3vw, 42px);
+  font-size: clamp(20px, 4vw, 32px);
+  line-height: clamp(25px, 4vw, 42px);
   letter-spacing: 0%;
   text-transform: capitalize;
   font-family: Poppins;
@@ -43,8 +43,8 @@
   font-family: Poppins;
   font-weight: 700;
   font-style: Bold;
-  font-size: clamp(18px, 3vw, 22px) !important;
-  line-height: clamp(20px, 3vw, 28px) !important;
+  font-size: clamp(18px, 4vw, 22px) !important;
+  line-height: clamp(20px, 4vw, 28px) !important;
   letter-spacing: 0%;
   text-transform: capitalize;
 }
@@ -210,59 +210,70 @@
     height: 170px;
   }
   .bannerWrapperGrid > div:nth-child(1) > .bannnerBoxImage > div {
-    height: 190px;
-    width: 110px;
+    height: 200px;
+    width: 145px;
   }
   .bannerWrapperGrid > div:nth-child(2) > .bannnerBoxImage > div {
-    height: 120px;
-    width: 125px;
+    height: 130px;
+    width: 140px;
+    right: -10px;
   }
   .bannerWrapperGrid > div:nth-child(3) > .bannnerBoxImage > div {
-    height: 75px;
-    width: 118px;
+    height: 95px;
+    width: 135px;
   }
   .bannerWrapperGrid > div:nth-child(4) > .bannnerBoxImage > div {
-    height: 115px;
-    width: 105px;
-    top: 45px;
+    height: 131px;
+    width: 130x;
+    top: 30px;
   }
 }
 
-@media (max-width: 460px) {
-  .bannerWrapperGrid > div {
-    height: 150px;
-  }
+@media (max-width: 500px) {
   .bannerWrapperGrid {
-    gap: 10px;
+    gap: 15px;
   }
+
+  .bannerWrapperGrid > div {
+    height: 160px;
+    border-radius: 22px;
+  }
+
   .sectionContent > div {
     padding: 10px;
   }
+
   .bannerWrapperGrid > div:nth-child(1) > .bannnerBoxImage > div {
-    height: 130px;
-    width: 85px;
-    top: -10px;
+    height: 175px;
+    width: 120px;
+    top: -8px;
   }
+
   .bannerWrapperGrid > div:nth-child(2) > .bannnerBoxImage > div {
-    height: 80px;
-    width: 95px;
-    top: -12px;
+    height: 105px;
+    width: 115px;
+    top: -10px;
+    right: -8px;
   }
+
   .bannerWrapperGrid > div:nth-child(3) > .bannnerBoxImage > div {
-    height: 65px;
-    width: 75px;
-  }
-  .bannerWrapperGrid > div:nth-child(4) > .bannnerBoxImage > div {
     height: 85px;
-    width: 75px;
-    top: 70px;
+    width: 120px;
   }
+
+  .bannerWrapperGrid > div:nth-child(4) > .bannnerBoxImage > div {
+    height: 115px;
+    width: 115px;
+    top: 35px;
+  }
+
   .sectionContent span {
-    font-size: clamp(16px, 3vw, 32px);
-    line-height: clamp(20px, 3vw, 42px);
+    font-size: clamp(16px, 3.5vw, 28px);
+    line-height: clamp(22px, 4vw, 36px);
   }
+
   .smallFontSize {
-    font-size: clamp(14px, 3vw, 22px) !important;
-    line-height: clamp(20px, 3vw, 28px) !important;
+    font-size: clamp(14px, 3vw, 20px) !important;
+    line-height: clamp(20px, 3.5vw, 28px) !important;
   }
 }

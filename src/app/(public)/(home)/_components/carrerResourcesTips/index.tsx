@@ -11,15 +11,9 @@ const CarrerResourceTips = () => {
                     <div className="section-content">
                         <h2>Career <span>Resources & Tips</span></h2>
                     </div>
-                    {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
-                        <CarrerResourceBox />
-                        <CarrerResourceBox />
-                        <CarrerResourceBox />
-                    </div> */}
                     <SwiperCarousel>
                         {[1, 2, 3, 4, 5, 6].map((num) => (
                             <div
-                                // className={styles.slidesDisplay}
                                 style={{ padding: '1rem 0rem', width: '100%', height: '100%' }}
                                 key={num}
                             >
