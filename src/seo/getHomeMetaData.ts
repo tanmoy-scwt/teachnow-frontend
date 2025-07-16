@@ -69,6 +69,7 @@ export async function getHomeMetadata(): Promise<Metadata> {
             },
         };
     } catch (error) {
+        console.log(error);
         return {
             metadataBase: new URL('https://teachnow-frontend.vercel.app'),
             title: {

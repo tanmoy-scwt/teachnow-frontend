@@ -6,7 +6,7 @@ import { MdArrowRightAlt } from 'react-icons/md';
 const CarrerResourceBox = () => {
 
     function getDaySuffix(dayNumber: number | string) {
-        let day = +dayNumber;
+        const day = +dayNumber;
         if (day < 1 || day > 31) return "";
         if (day % 100 >= 11 && day % 100 <= 13) return day + "th";
 
