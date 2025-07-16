@@ -1,13 +1,30 @@
 'use client';
 
-import React from 'react';
+import React, { useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 
 const SwiperCarousel = ({ children }: { children: React.ReactNode[] }) => {
+    const swiperRef = useRef<any>(null);
+    const handleMouseEnter = () => {
+        if (swiperRef.current) {
+            swiperRef.current.autoplay.stop();
+        }
+    };
+    const handleMouseLeave = () => {
+        if (swiperRef.current) {
+            swiperRef.current.autoplay.start();
+        }
+    };
+
     return (
-        <div style={{ background: '#ffffff' }} className="py-10 px-4 sm:px-6 lg:px-8">
+        <div
+            style={{ background: '#ffffff' }}
+            className="py-10 px-4 sm:px-6 lg:px-8"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+        >
             <Swiper
                 modules={[Autoplay]}
                 spaceBetween={16}
@@ -27,6 +44,9 @@ const SwiperCarousel = ({ children }: { children: React.ReactNode[] }) => {
                 }}
                 speed={600}
                 loop={true}
+                onSwiper={(swiper) => {
+                    swiperRef.current = swiper;
+                }}
             >
                 {React.Children.map(children, (child, index) => (
                     <SwiperSlide key={index}>
