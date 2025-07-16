@@ -14,7 +14,8 @@ const HeroSectionBanner = () => {
                     </div>
                     <div className={styles.bannnerBoxImage}>
                         <div>
-                            <Image src="/image/box1.png" fill alt="Box 1" />
+                            <Image src="/image/box1.png" fill alt="Box 1" priority
+                                unoptimized={false} />
                         </div>
                     </div>
                 </div>
@@ -26,7 +27,8 @@ const HeroSectionBanner = () => {
                     </div>
                     <div className={styles.bannnerBoxImage}>
                         <div>
-                            <Image src="/image/box2.png" fill alt="Box 1" />
+                            <Image src="/image/box2.png" fill alt="Box 1" priority
+                                unoptimized={false} />
 
                         </div>
                     </div>
@@ -34,7 +36,8 @@ const HeroSectionBanner = () => {
                 <div className="box">
                     <div className={styles.bannnerBoxImage}>
                         <div>
-                            <Image src="/image/box3.png" fill alt="Box 1" />
+                            <Image src="/image/box3.png" fill alt="Box 1" priority
+                                unoptimized={false} />
                         </div>
                     </div>
                     <div className={styles.sectionContent}>
@@ -51,7 +54,8 @@ const HeroSectionBanner = () => {
                     </div>
                     <div className={styles.bannnerBoxImage}>
                         <div>
-                            <Image src="/image/box4.png" fill alt="Box 1" />
+                            <Image src="/image/box4.png" fill alt="Box 1" priority
+                                unoptimized={false} />
                         </div>
                     </div>
                 </div>
