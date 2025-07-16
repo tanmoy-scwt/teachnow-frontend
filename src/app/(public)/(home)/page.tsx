@@ -1,12 +1,10 @@
 import React from 'react'
-import HeroSection from './_components/herosection'
-import PopularJobCategories from './_components/popularJobCategories'
-import TopEmployees from './_components/topEmployees'
-import GetAsJobSeeker from './_components/getAsJobSeeker'
-import FeaturedJobs from './_components/featuredJobs'
-import CarrerResourceTips from './_components/carrerResourcesTips'
-import HireTheRightTalent from './_components/hireTheRightTalent'
+import { CarrerResourceTips, FeaturedJobs, GetAsJobSeeker, HeroSection, HireTheRightTalent, PopularJobCategories, TopEmployees, } from './_components'
 
+import { getHomeMetadata } from '@/seo/getHomeMetaData';
+export async function generateMetadata() {
+    return await getHomeMetadata();
+}
 const page = () => {
     return (
         <>

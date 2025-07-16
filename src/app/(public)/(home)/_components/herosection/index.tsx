@@ -2,7 +2,8 @@ import Container from '@/components/ui/container';
 import React from 'react';
 import styles from './style.module.css';
 import SearchBox from '@/components/common/SearchBox';
-import HeroSectionBanner from '../herosectionbanner';
+import HeroSectionBanner from '@/components/common/herosectionbanner';
+import HtmlRender from '@/components/ui/htmlRender';
 
 const HeroSection = () => {
     return (
@@ -11,9 +12,9 @@ const HeroSection = () => {
                 <div className={styles.containerWrapper}>
                     <div className={styles.bannerContentWrapper}>
                         <div className={styles.sectionContent}>
-                            <h1>
+                            <HtmlRender htmlString='<h1>
                                 Explore <span>Top Job</span> Opportunities In <span>Education</span>
-                            </h1>
+                            </h1>' />
                             <p>Your one-stop job portal for teaching, training & education</p>
                         </div>
                         <SearchBox />

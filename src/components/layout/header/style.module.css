@@ -165,13 +165,13 @@
 @media (max-width: 768px) {
   .navbarList {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     gap: 1rem;
     width: 100%;
   }
 }
 
-@media (max-width: 576px) {
+/* @media (max-width: 576px) {
   .navbarList {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -187,4 +187,4 @@
     gap: 1rem;
     width: 100%;
   }
-}
+} */

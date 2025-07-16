@@ -28,7 +28,6 @@ const navItems = [
 const Header = () => {
     const pathname = usePathname();
     const [isMenuOpen, setMenuOpen] = useState(false);
-
     const toggleMenu = () => setMenuOpen(prev => !prev);
 
     return (

@@ -20,6 +20,7 @@
   font-size: clamp(16px 4vw, 18px);
 }
 .searchBoxInputWrapper input {
+  font-family: Poppins;
   height: 100%;
   outline: none;
   width: 100%;
@@ -50,7 +51,9 @@
   display: none;
 }
 .filteredDropDown ul li {
+  font-family: Poppins;
   font-size: 13px;
+  font-weight: 500;
   color: var(--secondary-color);
   padding: 8px;
   cursor: pointer;
@@ -59,7 +62,7 @@
 .filteredDropDown ul li:hover {
   background-color: #fafafa;
   color: var(--primary-color);
-  transform: scale(1.1);
+  transform: scale(1.03);
 }
 @media (max-width: 576px) {
   .searchBoxContainer {

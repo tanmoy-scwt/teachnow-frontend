@@ -3,9 +3,14 @@
   font-size: clamp(12px, 5vw, 28px);
   color: var(--secondary-color);
   font-weight: 900;
+  transition: all ease-in-out 0.3s;
 }
 .logoName span {
   font-family: "Satoshi-Regular";
   font-weight: 400;
   text-transform: lowercase;
+}
+.logoName:hover {
+  text-shadow: 0 12px 40px rgba(13, 69, 236, 0.5);
+  transform: scale(1.05);
 }

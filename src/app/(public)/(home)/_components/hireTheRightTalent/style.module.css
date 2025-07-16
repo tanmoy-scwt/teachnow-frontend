@@ -24,10 +24,12 @@
   position: relative;
   height: 100px;
   width: 330px;
+  aspect-ratio: 1.13;
 }
 .imageWrapper img {
   position: absolute;
   top: -110%;
+  object-fit: cover;
 }
 
 .imageWrapperContainer {

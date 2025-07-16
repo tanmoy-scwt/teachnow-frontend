@@ -43,12 +43,8 @@ const SearchBox = () => {
     const [isJobTitleDropdownActive, setJobTitleDropdownActive] = useState(false);
     const [isLocationDropdownActive, setLocationDropdownActive] = useState(false);
 
-    const handleInputChange = (
-        e: React.ChangeEvent<HTMLInputElement>,
-        type: "jobTitle" | "location"
-    ) => {
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>, type: "jobTitle" | "location") => {
         const value = e.target.value;
-
         if (type === "jobTitle") {
             setJobTitleValue(value);
             setFilteredJobTitle(filterList(jobTitles, value));
