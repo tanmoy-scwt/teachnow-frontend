@@ -3,10 +3,11 @@
 import React, { useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
+import type { Swiper as SwiperType } from 'swiper';
 import 'swiper/css';
 
 const SwiperCarousel = ({ children }: { children: React.ReactNode[] }) => {
-    const swiperRef = useRef<any>(null);
+    const swiperRef = useRef<SwiperType | null>(null);
     const handleMouseEnter = () => {
         if (swiperRef.current) {
             swiperRef.current.autoplay.stop();
