@@ -21,7 +21,7 @@ import { HiMenu } from 'react-icons/hi';
 const navItems = [
     { itemName: "Find Jobs", navLinks: "/jobs" },
     { itemName: "Free Resume Builder", navLinks: "/resume-builder" },
-    { itemName: "Teaching Resources", navLinks: "/resources" },
+    { itemName: "Teaching Resources", navLinks: "/teaching-resources" },
     { itemName: "Pricing", navLinks: "/pricing" },
 ];
 

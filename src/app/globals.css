@@ -11,6 +11,7 @@
   --light-black: #262626;
 
   --paragraph-light-color: #505050;
+  --box-shadow: 0 12px 40px #0e37b18a;
 }
 
 @theme inline {
@@ -59,6 +60,16 @@ button {
 .section-content {
   color: var(--secondary-color);
 }
+
+.section-content h1 {
+  font-size: clamp(36px, 5vw, 52px);
+  color: var(--secondary-color);
+  font-family: "Satoshi-Black";
+  font-weight: 900;
+  line-height: clamp(40px, 7vw, 66px);
+  letter-spacing: 0%;
+  vertical-align: middle;
+}
 .section-content span {
   color: var(--primary-color);
 }
@@ -98,4 +109,31 @@ button {
 .applyBtn svg {
   width: 26px !important;
   height: 26px !important;
+}
+
+/* --------------------- select box css --------------- */
+.selectBoxCSS .react-select__control {
+  border: 1px solid #9bc9ff;
+  border-radius: 50px;
+  min-height: 40px;
+  box-shadow: none;
+  font-weight: 400;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  line-height: 24px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  padding: 2px 10px;
+}
+
+.selectBoxCSS .react-select__placeholder,
+.selectBoxCSS .react-select__single-value {
+  font-weight: 400;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  line-height: 24px;
+  letter-spacing: 0%;
+  color: var(--primary-color);
 }

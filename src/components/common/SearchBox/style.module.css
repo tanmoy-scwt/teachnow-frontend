@@ -15,8 +15,10 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
+  flex: 1;
 }
 .searchBoxInputWrapper {
+  flex: 1;
   font-size: clamp(16px 4vw, 18px);
 }
 .searchBoxInputWrapper input {

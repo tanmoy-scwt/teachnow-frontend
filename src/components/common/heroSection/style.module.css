@@ -1,0 +1,44 @@
+.heroSectionContainer {
+  background: linear-gradient(238.2deg, #9bc9ff 8.27%, #4e96ea 96%);
+  position: relative;
+}
+.searchBox {
+  position: relative;
+  max-width: 760px;
+  background-color: #ffffff;
+  box-shadow: 0px 13px 30px 0px #0000001a;
+}
+.searchBoxContainer {
+  position: absolute;
+  width: 100%;
+  bottom: 0%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.sectionContent h1 {
+  color: #ffffff;
+  font-family: Poppins;
+  font-weight: 700;
+}
+.heroSectionContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  height: 100%;
+  padding-top: 52px;
+  padding-bottom: 95px;
+}
+
+@media (max-width: 576px) {
+  .heroSectionContent {
+    /* padding-top: 32px; */
+    padding-bottom: 120px;
+  }
+}

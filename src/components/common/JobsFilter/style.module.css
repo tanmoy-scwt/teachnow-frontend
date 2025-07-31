@@ -1,0 +1,61 @@
+.checkboxCSS {
+  padding: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.checkboxCSS input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #9ac1f9;
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+.checkboxCSS input[type="checkbox"]:checked {
+  background-color: #9ac1f9;
+}
+
+.checkboxCSS input[type="checkbox"]:focus {
+  box-shadow: 0 0 0 2px rgba(154, 193, 249, 0.3);
+}
+.checkboxCSS label {
+  font-family: Poppins;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #505050;
+  cursor: pointer;
+}
+.checkboxCSS:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 12px;
+  background-color: #d2e5ff52;
+}
+/* ---------------------- */
+
+.filterOptionLabel {
+  font-family: Poppins;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 22px;
+  line-height: 20px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  color: #1e2d42;
+}
+
+.jobsFilterContainer {
+  padding: 30px;
+  background-color: #f9f9f9;
+  border-radius: 40px;
+  box-shadow: 0px 4px 39.4px 0px #0000001a;
+}

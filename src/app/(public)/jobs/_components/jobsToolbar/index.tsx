@@ -1,0 +1,94 @@
+"use client"
+import React, { useEffect, useState, useCallback } from 'react';
+import SelectBoxComponent from '@/components/inputComponent/SelectBoxComponent';
+import { usePathname, useSearchParams, useRouter } from "next/navigation";
+import { generateQueryFromFilters } from "@/utils/generateQueryFromFilters";
+
+type OptionType = {
+    label: string;
+    value: string | number;
+};
+
+const SORT_OPTIONS: OptionType[] = [
+    { label: 'Default', value: 'default' },
+    { label: 'Latest', value: 'latest' },
+    { label: 'Oldest', value: 'oldest' },
+];
+
+const PER_PAGE_OPTIONS: OptionType[] = [
+    { label: '10 per page', value: 10 },
+    { label: '20 per page', value: 20 },
+    { label: '50 per page', value: 50 },
+];
+
+interface JobsToolbarProps {
+    total?: number;
+    page?: number;
+    perPage?: number;
+}
+
+const JobsToolbar = ({ total = 184, page = 1, perPage = 10 }: JobsToolbarProps) => {
+    const router = useRouter();
+    const pathName = usePathname();
+    const searchParams = useSearchParams();
+
+    const start = (page - 1) * perPage + 1;
+    const end = Math.min(page * perPage, total);
+
+    const [selectedPerPageOption, setSelectedPerPageOption] = useState<OptionType | null>(null);
+    const [selectedSortOption, setSelectedSortOption] = useState<OptionType | null>(null);
+
+    useEffect(() => {
+        const sortParam = searchParams.get("sort");
+        const perPageParam = searchParams.get("perPage");
+        if (sortParam) setSelectedSortOption(SORT_OPTIONS.find(option => option.value === sortParam) || null);
+        if (perPageParam) setSelectedPerPageOption(PER_PAGE_OPTIONS.find(option => option.value === +perPageParam) || null);
+
+    }, [searchParams]);
+    useEffect(() => {
+        const searchQuery = {
+            perPage: selectedPerPageOption?.value?.toString() || null,
+            sort: selectedSortOption?.value?.toString() || null
+        };
+        const query = generateQueryFromFilters(searchParams, searchQuery);
+        router.push(`${pathName}?${query}`);
+    }, [selectedPerPageOption, selectedSortOption, searchParams, pathName, router]);
+
+    const handlePerPageChange = useCallback((option: OptionType | null) => {
+        setSelectedPerPageOption(option);
+    }, []);
+
+    const handleSortChange = useCallback((option: OptionType | null) => {
+        setSelectedSortOption(option);
+    }, []);
+
+    return (
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div className='flex items-center gap-4'>
+                <p className="text-sm text-gray-800 font-medium">
+                    Showing {start}–{end} of {total} jobs
+                </p>
+            </div>
+            <div className="selectBoxCSS flex gap-2">
+                <SelectBoxComponent
+                    options={SORT_OPTIONS}
+                    value={selectedSortOption}
+                    onChange={handleSortChange}
+                    name="sort"
+                    className="react-select"
+                    classNamePrefix="react-select"
+                />
+                <SelectBoxComponent
+                    options={PER_PAGE_OPTIONS}
+                    value={selectedPerPageOption}
+                    onChange={handlePerPageChange}
+                    name="perPage"
+                    className="react-select"
+                    classNamePrefix="react-select"
+                />
+            </div>
+        </div>
+    );
+};
+
+export default JobsToolbar;

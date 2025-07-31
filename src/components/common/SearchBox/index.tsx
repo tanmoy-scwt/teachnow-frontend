@@ -3,6 +3,8 @@
 import React, { memo, useState } from "react";
 import styles from "./style.module.css";
 import ButtonRound from "@/components/ui/button";
+import { usePathname, useSearchParams, useRouter } from "next/navigation";
+import { generateQueryFromFilters } from "@/utils/generateQueryFromFilters";
 
 const jobTitles = [
     "Software Engineer",
@@ -33,13 +35,14 @@ const jobLocations = [
 const filterList = (list: string[], input: string): string[] =>
     list.filter((item) => item.toLowerCase().includes(input.toLowerCase()));
 
-const SearchBox = () => {
-    const [jobTitleValue, setJobTitleValue] = useState("");
-    const [locationValue, setLocationValue] = useState("");
-
+const SearchBox = ({ className }: { className?: string }) => {
+    const router = useRouter();
+    const pathname = usePathname();
+    const searchParams = useSearchParams();
+    const [jobTitleValue, setJobTitleValue] = useState(searchParams.get("title") || "");
+    const [locationValue, setLocationValue] = useState(searchParams.get("location") || "");
     const [filteredJobTitle, setFilteredJobTitle] = useState<string[]>([]);
     const [filteredLocation, setFilteredLocation] = useState<string[]>([]);
-
     const [isJobTitleDropdownActive, setJobTitleDropdownActive] = useState(false);
     const [isLocationDropdownActive, setLocationDropdownActive] = useState(false);
 
@@ -54,7 +57,32 @@ const SearchBox = () => {
             setFilteredLocation(filterList(jobLocations, value));
             setLocationDropdownActive(value.length > 0);
         }
+        if (type === "jobTitle" && value?.length === 0) {
+            const searchQuery = {
+                title: null,
+                location: locationValue || null
+            };
+            const newQuery = generateQueryFromFilters(searchParams, searchQuery);
+            router.push(`${pathname}?${newQuery}`);
+        }
+        if (type === "location" && value?.length === 0) {
+            const searchQuery = {
+                title: jobTitleValue || null,
+                location: null
+            };
+            const newQuery = generateQueryFromFilters(searchParams, searchQuery);
+            router.push(`${pathname}?${newQuery}`);
+        }
     };
+
+    const handleSearchButton = () => {
+        const searchQuery = {
+            title: jobTitleValue || null,
+            location: locationValue || null
+        };
+        const newQuery = generateQueryFromFilters(searchParams, searchQuery);
+        router.push(`${pathname}?${newQuery}`);
+    }
 
     const renderDropdown = (
         list: string[],
@@ -84,9 +112,8 @@ const SearchBox = () => {
             </div>
         );
     };
-
     return (
-        <div className={styles.searchBoxContainer}>
+        <div className={`${styles.searchBoxContainer} ${className}`}>
             <div className={styles.inputContainer}>
                 <div className={styles.searchBoxInputWrapper}>
                     <div className="relative w-full">
@@ -125,7 +152,7 @@ const SearchBox = () => {
             </div>
 
             <div className={styles.searchBtn}>
-                <ButtonRound type="button" name="Search" className="bgFilled" />
+                <ButtonRound type="button" name="Search" className="bgFilled" action={handleSearchButton} />
             </div>
         </div>
     );

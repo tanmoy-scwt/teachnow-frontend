@@ -3,21 +3,13 @@ import Link from 'next/link';
 import React from 'react'
 import styles from './style.module.css'
 import { MdArrowRightAlt } from 'react-icons/md';
-const CarrerResourceBox = () => {
-
-    function getDaySuffix(dayNumber: number | string) {
-        const day = +dayNumber;
-        if (day < 1 || day > 31) return "";
-        if (day % 100 >= 11 && day % 100 <= 13) return day + "th";
-
-        switch (day % 10) {
-            case 1: return "st";
-            case 2: return "nd";
-            case 3: return "rd";
-            default: return "th";
-        }
-    }
-
+import DateBadge from '@/components/ui/dateBadge';
+import ProfileImageWithName from '@/components/ui/profileImageWithName';
+interface CarrerResourceBoxProps {
+    isDateBadgeActive?: boolean;
+    isResourceOwnerProfileActive?: boolean;
+}
+const CarrerResourceBox = ({ isDateBadgeActive = true, isResourceOwnerProfileActive = false }: CarrerResourceBoxProps) => {
     return (
         <div className={styles.card}>
             <div className={styles.imageWrapper}>
@@ -27,21 +19,11 @@ const CarrerResourceBox = () => {
                     fill
                     className="absolute"
                 />
-                <div className={`${styles.dateBadge}`}>
-                    <div className={styles.date}>
-                        <div className="day">
-                            <span>20</span>
-                            <span>{getDaySuffix(20)}</span>
-                        </div>
-                        <span className="month">MAR</span>
-                    </div>
-                    <div className={styles.year}>2025</div>
-                </div>
+                {isDateBadgeActive && (<DateBadge date={20} month='MAR' year={2025} />)}
             </div>
-            <div className={styles.sectionContent}>
-                <Link href={""}>
-                    <h3>How to Answer: Tell Me About Yourself</h3>
-                </Link>
+            <div className={`${styles.sectionContent} ${isDateBadgeActive ? styles.badgePadding : styles.profilePadding}`}>
+                <Link href={""}><h3>How to Answer: Tell Me About Yourself</h3></Link>
+                {isResourceOwnerProfileActive && (<ProfileImageWithName />)}
                 <Link href="#" className="read-link flex gap-1 items-center">Read Details <MdArrowRightAlt size={20} /></Link>
             </div>
         </div>

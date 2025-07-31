@@ -1,0 +1,39 @@
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  font-size: 22px;
+  gap: 0.5rem;
+  color: #ffffff;
+}
+.breadcrumbLink {
+  position: relative;
+  display: inline-block;
+  color: #ffffff;
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+  text-transform: capitalize;
+  font-family: Poppins;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 22px;
+  letter-spacing: 0%;
+  text-align: center;
+  vertical-align: middle;
+  padding-right: 0.5rem;
+}
+
+.breadcrumbLink:hover {
+  color: var(--primary-color);
+}
+
+.breadcrumbLink:hover::after {
+  width: 100%;
+}
+
+.breadcrumbActive {
+  font-weight: 600;
+}
+
+.separator {
+  margin: 0 0.25rem;
+}
