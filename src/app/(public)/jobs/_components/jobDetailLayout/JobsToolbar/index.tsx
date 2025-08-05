@@ -3,6 +3,8 @@ import React, { useEffect, useState, useCallback } from 'react';
 import SelectBoxComponent from '@/components/inputComponent/SelectBoxComponent';
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import { generateQueryFromFilters } from "@/utils/generateQueryFromFilters";
+import { BiMenuAltLeft } from 'react-icons/bi';
+import MobileFilterDrawer from '../mobileFilterDrawer';
 
 type OptionType = {
     label: string;
@@ -37,7 +39,7 @@ const JobsToolbar = ({ total = 184, page = 1, perPage = 10 }: JobsToolbarProps) 
 
     const [selectedPerPageOption, setSelectedPerPageOption] = useState<OptionType | null>(null);
     const [selectedSortOption, setSelectedSortOption] = useState<OptionType | null>(null);
-
+    const [mobileFilterOpen, setMobileFilterOpen] = useState<boolean>(false);
     useEffect(() => {
         const sortParam = searchParams.get("sort");
         const perPageParam = searchParams.get("perPage");
@@ -63,8 +65,14 @@ const JobsToolbar = ({ total = 184, page = 1, perPage = 10 }: JobsToolbarProps) 
     }, []);
 
     return (
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div className="flex items-center justify-between gap-4">
             <div className='flex items-center gap-4'>
+                <button
+                    className="block lg:hidden bg-white border border-[#4679B5] rounded-lg px-4 py-2 shadow-inner hover:shadow-md active:translate-y-[1px] active:shadow-sm transition-all duration-150"
+                    onClick={() => setMobileFilterOpen(!mobileFilterOpen)}
+                >
+                    <BiMenuAltLeft size={30} color="#4679B5" />
+                </button>
                 <p className="text-sm text-gray-800 font-medium">
                     Showing {start}–{end} of {total} jobs
                 </p>
@@ -86,7 +94,14 @@ const JobsToolbar = ({ total = 184, page = 1, perPage = 10 }: JobsToolbarProps) 
                     className="react-select"
                     classNamePrefix="react-select"
                 />
+                <div className='block lg:hidden'>
+                    <MobileFilterDrawer
+                        open={mobileFilterOpen}
+                        setOpen={setMobileFilterOpen}
+                    />
+                </div>
             </div>
+
         </div>
     );
 };

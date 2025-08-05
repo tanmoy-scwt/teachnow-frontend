@@ -53,7 +53,7 @@ const Pagination: React.FC<PaginationProps> = ({
     };
 
     return (
-        <div className={styles.paginationContainer} role="navigation" aria-label="Pagination">
+        <div className={styles.paginationContainerWrapper} role="navigation" aria-label="Pagination">
             <Link
                 className={`${styles.iconButton} ${activePage === 1 ? styles.disabled : ''}`}
                 href={createPageUrl(Math.max(1, activePage - 1))}
@@ -63,25 +63,25 @@ const Pagination: React.FC<PaginationProps> = ({
                 <FiArrowDownLeft aria-hidden="true" />
                 <span className="sr-only">Previous Page</span>
             </Link>
-
-            {generatePages.map((page, idx) =>
-                page === "..." ? (
-                    <span key={`ellipsis-${idx}`} className={styles.ellipsis}>
-                        ...
-                    </span>
-                ) : (
-                    <Link
-                        key={`page-${page}`}
-                        href={createPageUrl(page)}
-                        className={`${styles.pageNumber} ${page === activePage ? styles.active : ""
-                            }`}
-                        scroll={false}
-                    >
-                        {page}
-                    </Link>
-                )
-            )}
-
+            <div className={styles.paginationContainer}>
+                {generatePages.map((page, idx) =>
+                    page === "..." ? (
+                        <span key={`ellipsis-${idx}`} className={styles.ellipsis}>
+                            ...
+                        </span>
+                    ) : (
+                        <Link
+                            key={`page-${page}`}
+                            href={createPageUrl(page)}
+                            className={`${styles.pageNumber} ${page === activePage ? styles.active : ""
+                                }`}
+                            scroll={false}
+                        >
+                            {page}
+                        </Link>
+                    )
+                )}
+            </div>
             <Link
                 className={`${styles.iconButton} ${activePage === totalPages ? styles.disabled : styles.iconActive
                     }`}

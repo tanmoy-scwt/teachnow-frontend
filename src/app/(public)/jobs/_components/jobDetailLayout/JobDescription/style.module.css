@@ -1,0 +1,32 @@
+.sectionContent h3 {
+  font-family: Poppins;
+  font-weight: 600;
+  font-style: SemiBold;
+  font-size: 28px;
+  line-height: 28.6px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  margin-bottom: 20px;
+}
+
+.sectionContent h4 {
+  font-family: Poppins;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0%;
+  margin-bottom: 3px;
+}
+
+.sectionContent > p,
+.sectionContent ul {
+  font-family: Poppins;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0%;
+  margin-bottom: 20px;
+  color: #000000;
+}

@@ -1,0 +1,124 @@
+.jobCard {
+  width: 100%;
+  height: 243px;
+  border-radius: 40px;
+  background: #ffffff;
+  border: 1px solid #0e0e0e1a;
+  box-shadow: 0px 2px 50px 0px #0e38b10d;
+  padding: 25px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  will-change: transform, box-shadow;
+  transform: translateZ(0);
+}
+
+.jobCard:hover {
+  transform: scale(1.01);
+  box-shadow: var(--box-shadow);
+}
+.sectionContent h2 {
+  font-family: Poppins;
+  font-weight: 700;
+  font-style: normal;
+  font-size: clamp(20px, 2vw, 32px); /* Desktop: 32px */
+  line-height: clamp(24px, 2.2vw, 28.6px);
+  letter-spacing: 0%;
+  vertical-align: middle;
+  text-transform: capitalize;
+}
+
+.sectionContent p:nth-child(1) {
+  font-family: Poppins;
+  font-weight: 700;
+  font-style: normal;
+  font-size: clamp(18px, 1.8vw, 24px); /* Desktop: 24px */
+  line-height: clamp(22px, 2vw, 28.6px);
+  letter-spacing: 0%;
+  vertical-align: middle;
+  color: #0e0e0e;
+  text-transform: capitalize;
+}
+
+.sectionContent p:nth-child(2) {
+  font-family: Poppins;
+  font-weight: 500;
+  font-style: normal;
+  font-size: clamp(14px, 1.6vw, 16px); /* Desktop: 16px */
+  line-height: clamp(18px, 2vw, 19.2px);
+  letter-spacing: 0%;
+  vertical-align: middle;
+  color: #1d1d1d;
+  text-transform: capitalize;
+}
+
+.sectionContent li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-transform: capitalize;
+}
+
+.sectionContent li span {
+  font-family: Poppins;
+  font-weight: 500;
+  font-style: normal;
+  font-size: clamp(12px, 1.4vw, 14px); /* Desktop: 14px */
+  line-height: clamp(16px, 2vw, 19.2px);
+  letter-spacing: 0%;
+  vertical-align: middle;
+  color: #949494;
+}
+
+.sectionContent li strong {
+  font-family: Poppins;
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(12px, 1.3vw, 14px); /* Desktop: 14px */
+  line-height: clamp(10px, 1.5vw, 11.58px);
+  letter-spacing: 0%;
+  vertical-align: middle;
+  color: #888888;
+}
+.jobMeta li label {
+  font-family: Poppins;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 14px;
+  line-height: 11.58px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  color: #888888;
+}
+.jobMeta li span {
+  font-family: Poppins;
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(12px, 1.4vw, 14px); /* Desktop: 14px */
+  line-height: clamp(14px, 1.6vw, 16px);
+  letter-spacing: 0%;
+  vertical-align: middle;
+  color: #000000;
+  padding: 0.3rem 1rem;
+  background: #9ac1f9;
+  border-radius: 5px;
+}
+
+.applyBtn {
+  padding: 4px 4px 4px 16px;
+}
+
+@media (max-width: 576px) {
+  .jobCard {
+    height: auto;
+    gap: 1.5rem;
+  }
+  .jobInfoAction,
+  .jobTopDetailsHeading {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}

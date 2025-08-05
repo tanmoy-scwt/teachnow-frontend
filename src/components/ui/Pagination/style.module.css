@@ -1,3 +1,11 @@
+.paginationContainerWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.paginationContainerWrapper a:nth-child(1) {
+  margin-right: 15px;
+}
 .paginationContainer {
   display: flex;
   align-items: center;

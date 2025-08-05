@@ -1,11 +1,3 @@
-.jobSection {
-  padding-top: 124px;
-  padding-bottom: 0px;
-  position: sticky;
-  top: 0px;
-  width: 100%;
-}
-
 .jobCard {
   width: 100%;
   height: 243px;
@@ -25,4 +17,11 @@
 .jobCard:hover {
   transform: scale(1.01);
   box-shadow: var(--box-shadow);
+}
+
+@media (max-width: 576px) {
+  .jobCard {
+    height: auto;
+    gap: 1.5rem;
+  }
 }

@@ -88,7 +88,7 @@ const JobsFilter = () => {
 
     return (
         <div className={style.jobsFilterContainer}>
-            <div className='flex flex-col gap-6'>
+            <div className="flex flex-col gap-6 overflow-y-auto overflow-x-hidden">
                 {filterOptions?.map((group) => (
                     <div key={group.paramKey} className='flex flex-col gap-4'>
                         <label className={style.filterOptionLabel}>{group.groupLabel}</label>
