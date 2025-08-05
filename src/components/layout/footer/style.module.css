@@ -77,7 +77,8 @@
 }
 .StayAheadInJobHuntWrapper {
   position: relative;
-  height: 219px;
+  height: 150px;
+  top: -30px;
 }
 .socialFollowWrapper {
   display: flex;

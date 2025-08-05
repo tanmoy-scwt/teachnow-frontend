@@ -1,0 +1,17 @@
+.imageCarousel {
+  height: 450px;
+}
+.imageCarousel div div:nth-child(2) div::-webkit-scrollbar {
+  display: none;
+}
+
+.imageCarousel div div:nth-child(2) div {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.sectionContent h2 {
+  text-align: start;
+}
+.resourceHeader {
+  padding-top: 80px;
+}

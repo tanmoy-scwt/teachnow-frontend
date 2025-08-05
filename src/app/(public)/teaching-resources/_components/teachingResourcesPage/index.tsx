@@ -1,37 +1,18 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import TeachingResourcesToolbar from "../teachingResourcesToolbar";
 import Container from "@/components/ui/container";
 import style from "./style.module.css"
 import CarrerResourceBox from "@/components/common/CarrerResourceBox";
 
 const TeachingResourcesPage = () => {
-    const [category, setCategory] = useState(null);
-    const [topic, setTopic] = useState(null);
-    const [classLevel, setClassLevel] = useState(null);
-    const [board, setBoard] = useState(null);
-    const [language, setLanguage] = useState(null);
-    const [perPage, setPerPage] = useState(10);
 
     return (
         <>
             <div className={style.teachingResourcesToolbar}>
                 <Container>
-                    <TeachingResourcesToolbar
-                        category={category}
-                        topic={topic}
-                        classLevel={classLevel}
-                        board={board}
-                        language={language}
-                        perPage={perPage}
-                        onChangeCategory={setCategory}
-                        onChangeTopic={setTopic}
-                        onChangeClassLevel={setClassLevel}
-                        onChangeBoard={setBoard}
-                        onChangeLanguage={setLanguage}
-                        onChangePerPage={(val) => setPerPage(val.value)}
-                    />
+                    <TeachingResourcesToolbar />
                 </Container>
             </div>
             <section className="section">

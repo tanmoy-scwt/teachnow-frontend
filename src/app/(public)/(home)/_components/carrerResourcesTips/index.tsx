@@ -11,12 +11,15 @@ const CarrerResourceTips = () => {
                     <div className="section-content">
                         <h2>Career <span>Resources & Tips</span></h2>
                     </div>
-                    <SwiperCarousel>
+                    <SwiperCarousel
+                        isDots={true}
+                        isNavigation={true}
+                        isLoop={false}
+                        autoplayDelay={5000}
+                        className="my-custom-carousel"
+                    >
                         {[1, 2, 3, 4, 5, 6].map((num) => (
-                            <div
-                                style={{ padding: '1rem 0rem', width: '100%', height: '100%' }}
-                                key={num}
-                            >
+                            <div key={num}>
                                 <CarrerResourceBox />
                             </div>
                         ))}

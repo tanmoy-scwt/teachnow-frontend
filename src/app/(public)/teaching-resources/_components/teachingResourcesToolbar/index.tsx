@@ -1,6 +1,7 @@
-"use client"
+'use client';
+
 import dynamic from 'next/dynamic';
-import React from 'react';
+import React, { useState } from 'react';
 
 const SelectBoxComponent = dynamic(() => import('@/components/inputComponent/SelectBoxComponent'), {
     ssr: false,
@@ -48,39 +49,25 @@ const perPageOptions = [
     { label: '50 per page', value: 50 },
 ];
 
-const TeachingResourcesToolbar = ({
-    category,
-    topic,
-    classLevel,
-    board,
-    language,
-    perPage,
-    onChangeCategory,
-    onChangeTopic,
-    onChangeClassLevel,
-    onChangeBoard,
-    onChangeLanguage,
-    onChangePerPage,
-}: {
-    category: any;
-    topic: any;
-    classLevel: any;
-    board: any;
-    language: any;
-    perPage: number;
-    onChangeCategory: (val: any) => void;
-    onChangeTopic: (val: any) => void;
-    onChangeClassLevel: (val: any) => void;
-    onChangeBoard: (val: any) => void;
-    onChangeLanguage: (val: any) => void;
-    onChangePerPage: (val: any) => void;
-}) => {
+interface OptionValueProps {
+    label: string;
+    value: string | number;
+}
+
+const TeachingResourcesToolbar = () => {
+    const [category, setCategory] = useState<OptionValueProps | null>(null);
+    const [topic, setTopic] = useState<OptionValueProps | null>(null);
+    const [classLevel, setClassLevel] = useState<OptionValueProps | null>(null);
+    const [board, setBoard] = useState<OptionValueProps | null>(null);
+    const [language, setLanguage] = useState<OptionValueProps | null>(null);
+    const [perPage, setPerPage] = useState<OptionValueProps | null>(perPageOptions[0]);
+
     return (
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6  gap-2 w-full selectBoxCSS">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 gap-2 w-full selectBoxCSS">
             <SelectBoxComponent
                 options={categoryOptions}
                 value={category}
-                onChange={onChangeCategory}
+                onChange={setCategory}
                 name="category"
                 placeholder="Category"
                 className="react-select"
@@ -89,7 +76,7 @@ const TeachingResourcesToolbar = ({
             <SelectBoxComponent
                 options={topicOptions}
                 value={topic}
-                onChange={onChangeTopic}
+                onChange={setTopic}
                 name="topic"
                 placeholder="Topic"
                 className="react-select"
@@ -98,7 +85,7 @@ const TeachingResourcesToolbar = ({
             <SelectBoxComponent
                 options={classLevelOptions}
                 value={classLevel}
-                onChange={onChangeClassLevel}
+                onChange={setClassLevel}
                 name="classLevel"
                 placeholder="Class Level"
                 className="react-select"
@@ -107,7 +94,7 @@ const TeachingResourcesToolbar = ({
             <SelectBoxComponent
                 options={boardOptions}
                 value={board}
-                onChange={onChangeBoard}
+                onChange={setBoard}
                 name="board"
                 placeholder="Board"
                 className="react-select"
@@ -116,7 +103,7 @@ const TeachingResourcesToolbar = ({
             <SelectBoxComponent
                 options={languageOptions}
                 value={language}
-                onChange={onChangeLanguage}
+                onChange={setLanguage}
                 name="language"
                 placeholder="Language"
                 className="react-select"
@@ -124,8 +111,8 @@ const TeachingResourcesToolbar = ({
             />
             <SelectBoxComponent
                 options={perPageOptions}
-                value={perPageOptions.find(opt => opt.value === perPage) || null}
-                onChange={onChangePerPage}
+                value={perPage}
+                onChange={setPerPage}
                 name="perPage"
                 placeholder="Results per page"
                 className="react-select"

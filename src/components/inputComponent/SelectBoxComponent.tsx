@@ -1,59 +1,50 @@
+"use client"
 import React from 'react';
-import dynamic from 'next/dynamic';
-import { Props as SelectProps } from 'react-select';
+import Select, { SingleValue } from 'react-select';
 
-const Select = dynamic(() => import('react-select'), {
-    ssr: false,
-    loading: () => <div>Loading...</div>
-});
-
-interface Option {
+interface OptionType {
     label: string;
     value: string | number;
 }
 
-interface SelectBoxProps extends Partial<SelectProps> {
-    options: Option[];
-    value: Option | Option[] | null;
-    onChange: (value: any) => void;
-    placeholder?: string;
-    isMulti?: boolean;
-    isDisabled?: boolean;
+interface SelectBoxComponentProps {
+    options: OptionType[];
+    value: OptionType | null;
+    onChange: (selectedOption: OptionType | null) => void;
     name?: string;
-    onBlur?: () => void;
-    error?: string;
+    placeholder?: string;
     className?: string;
+    classNamePrefix?: string;
+    isDisabled?: boolean;
+    isClearable?: boolean;
+    isSearchable?: boolean;
 }
 
-const SelectBoxComponent: React.FC<SelectBoxProps> = ({
+const SelectBoxComponent: React.FC<SelectBoxComponentProps> = ({
     options,
     value,
     onChange,
-    placeholder = 'Select...',
-    isMulti = false,
-    isDisabled = false,
     name,
-    onBlur,
-    error,
+    placeholder = 'Select...',
     className,
+    classNamePrefix,
+    isDisabled = false,
+    isClearable = false,
+    isSearchable = true,
 }) => {
     return (
-        <div>
-            <Select
-                inputId={name}
-                name={name}
-                isMulti={isMulti}
-                isDisabled={isDisabled}
-                options={options}
-                value={value}
-                onChange={onChange}
-                onBlur={onBlur}
-                className={className}
-                placeholder={placeholder}
-                classNamePrefix="react-select"
-            />
-            {error && <p className="text-sm text-red-500 mt-1">{error}</p>}
-        </div>
+        <Select
+            options={options}
+            value={value}
+            onChange={(option) => onChange(option as SingleValue<OptionType>)}
+            name={name}
+            placeholder={placeholder}
+            className={className}
+            classNamePrefix={classNamePrefix}
+            isDisabled={isDisabled}
+            isClearable={isClearable}
+            isSearchable={isSearchable}
+        />
     );
 };
 

@@ -1,4 +1,5 @@
-import React, { useMemo } from 'react';
+"use client";
+import React, { memo, useMemo } from 'react';
 
 interface CheckboxComponentProps extends React.InputHTMLAttributes<HTMLInputElement> {
     label?: string;
@@ -7,7 +8,7 @@ interface CheckboxComponentProps extends React.InputHTMLAttributes<HTMLInputElem
     className?: string;
 }
 
-const CheckboxComponent: React.FC<CheckboxComponentProps> = React.memo(({
+const CheckboxComponent: React.FC<CheckboxComponentProps> = ({
     value,
     checked,
     onChange,
@@ -26,7 +27,7 @@ const CheckboxComponent: React.FC<CheckboxComponentProps> = React.memo(({
 
     return (
         <div className={`checkbox-container ${className}`}>
-            <label htmlFor={checkboxId} className="checkbox-wrapper">
+            <div className="checkbox-wrapper flex items-center gap-2">
                 <input
                     type="checkbox"
                     id={checkboxId}
@@ -42,14 +43,17 @@ const CheckboxComponent: React.FC<CheckboxComponentProps> = React.memo(({
                 {label && (
                     <label
                         htmlFor={checkboxId}
-                        className={`text-sm ${disabled ? 'text-gray-400' : 'text-gray-800'} select-none`}
+                        className={`text-sm ${disabled ? 'text-gray-400' : 'text-gray-800'} select-none cursor-pointer`}
                     >
                         {label} {required && <span className="text-red-500">*</span>}
                     </label>
                 )}
-            </label>
+            </div>
         </div>
     );
-});
+};
 
-export default CheckboxComponent;
+const MemoizedCheckboxComponent = memo(CheckboxComponent);
+MemoizedCheckboxComponent.displayName = "CheckboxComponent";
+
+export default MemoizedCheckboxComponent;
