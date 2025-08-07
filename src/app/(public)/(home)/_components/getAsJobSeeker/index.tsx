@@ -15,36 +15,34 @@ const features = [
 const GetAsJobSeeker = () => {
     return (
         <section className='section'>
-            <Container >
-                <div className={`${styles.getAsJobSeekerWrapper} flex flex-col justify-between items-center md:flex-col lg:flex-row`}>
-                    <div className={`${styles.bannerWrapper} order-2 lg:order-1`}>
-                        <div className={styles.banner}>
-                            <Image src={'/image/jobseekerbanner.png'} height={588} width={555} alt='Job Seeker Banner' />
-                        </div>
+            <Container className={`${styles.getAsJobSeekerWrapper} flex flex-col justify-between items-center md:flex-col lg:flex-row`}>
+                <div className={`${styles.bannerWrapper} order-2 lg:order-1`}>
+                    <div className={styles.banner}>
+                        <Image src={'/image/jobseekerbanner.png'} height={588} width={555} alt='Job Seeker Banner' />
                     </div>
-                    <div className={`${styles.bannerContent} order-1 lg:order-2`}>
-                        <div className={`${styles.sectionContent} section-content`}>
-                            <h2>What You Get as a <span>Job Seeker</span></h2>
-                        </div>
-                        <div className={styles.sectionPoint}>
-                            <ul className="grid grid-cols-2 gap-2">
-                                {features?.map((item, index) => (
-                                    <li key={`featurePoint#${index}`}>
-                                        <div className={styles.pointBox}>
-                                            <div className={styles.icon}>
-                                                <FaCircleNotch size={18} color='#8DBCC7' />
-                                            </div>
-                                            <div className={styles.sectionContent}>
-                                                <h3>{item}</h3>
-                                            </div>
+                </div>
+                <div className={`${styles.bannerContent} order-1 lg:order-2`}>
+                    <div className={`${styles.sectionContent} section-content`}>
+                        <h2>What You Get as a <span>Job Seeker</span></h2>
+                    </div>
+                    <div className={styles.sectionPoint}>
+                        <ul className="grid grid-cols-2 gap-2">
+                            {features?.map((item, index) => (
+                                <li key={`featurePoint#${index}`}>
+                                    <div className={styles.pointBox}>
+                                        <div className={styles.icon}>
+                                            <FaCircleNotch size={18} color='#8DBCC7' />
                                         </div>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                        <div className={`${styles.sectionContent} section-content`}>
-                            <h4>100 % Free for Jobseekers</h4>
-                        </div>
+                                        <div className={styles.sectionContent}>
+                                            <h3>{item}</h3>
+                                        </div>
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                    <div className={`${styles.sectionContent} section-content`}>
+                        <h4>100 % Free for Jobseekers</h4>
                     </div>
                 </div>
             </Container>

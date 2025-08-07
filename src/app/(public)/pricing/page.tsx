@@ -1,7 +1,8 @@
 import React from 'react'
 import AccordionBox from '@/components/layout/AccordianBox';
-import Container from '@/components/ui/container';
 import SectionContent from '@/components/ui/SectionContent';
+import PricingCarousel from './_components/PricingCarousel';
+import HeroSection from '@/components/common/heroSection';
 
 const faqData = [
     {
@@ -30,15 +31,15 @@ const faqData = [
 
 const page = () => {
     return (
-        <div>
-            <section className='section'>
-                <Container>
-                    <SectionContent variant='h2' title='Frequently Asked Question' titleCSS='text-center'>
-                        <AccordionBox items={faqData} />
-                    </SectionContent>
-                </Container>
-            </section>
-        </div>
+        <>
+            <HeroSection title='<h1>Pricing</h1>' />
+            <SectionContent isContainerActive={false} variant='h2' title='Choose from our tailored plans.' titleCSS='text-center' className='section'>
+                <PricingCarousel />
+            </SectionContent>
+            <SectionContent variant='h2' title='Frequently Asked Question' titleCSS='text-center' className='section'>
+                <AccordionBox items={faqData} />
+            </SectionContent>
+        </>
     )
 }
 

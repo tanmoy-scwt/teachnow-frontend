@@ -23,6 +23,6 @@
     display: block;
   }
   .gridDisplay {
-    display: none;
+    display: none !important;
   }
 }

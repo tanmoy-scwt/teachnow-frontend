@@ -1,6 +1,7 @@
 .imageCarousel {
   min-height: 450px;
   height: 100%;
+  max-height: 650px;
 }
 .imageCarousel div div:nth-child(2) div::-webkit-scrollbar {
   display: none;

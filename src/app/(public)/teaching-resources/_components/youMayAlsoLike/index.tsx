@@ -6,7 +6,7 @@ import style from './style.module.css'
 
 const YouMayAlsoLike = () => {
     return (
-        <SectionContent variant='h2' title='You may also like' className={`${style.section}`}>
+        <SectionContent titleCSS='text-center' variant='h2' title='You may also like' className={`${style.section}`}>
             <SwiperCarousel
                 isDots={true}
                 isNavigation={false}
