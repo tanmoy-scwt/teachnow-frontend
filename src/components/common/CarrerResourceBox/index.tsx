@@ -22,9 +22,9 @@ const CarrerResourceBox = ({ isDateBadgeActive = true, isResourceOwnerProfileAct
                 {isDateBadgeActive && (<DateBadge date={20} month='MAR' year={2025} />)}
             </div>
             <div className={`${styles.sectionContent} ${isDateBadgeActive ? styles.badgePadding : styles.profilePadding}`}>
-                <Link href={""}><h3>How to Answer: Tell Me About Yourself</h3></Link>
+                <Link href={"/teaching-resources/how-to-answer"}><h3>How to Answer: Tell Me About Yourself</h3></Link>
                 {isResourceOwnerProfileActive && (<ProfileImageWithName />)}
-                <Link href="#" className="read-link flex gap-1 items-center">Read Details <MdArrowRightAlt size={20} /></Link>
+                <Link href="/teaching-resources/how-to-Answer" className="read-link flex gap-1 items-center">Read Details <MdArrowRightAlt size={20} /></Link>
             </div>
         </div>
     )

@@ -89,7 +89,6 @@ const ImageCarousel: React.FC<CarouselProps> = ({
                 togglePlayPause();
             }
         };
-
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [nextSlide, prevSlide]);
@@ -131,7 +130,7 @@ const ImageCarousel: React.FC<CarouselProps> = ({
     return (
         <div className={`relative flex flex-col h-full ${className} gap-5`}>
             {/* Main Image Container - Takes up remaining space */}
-            <div className="relative flex-grow overflow-hidden bg-gray-900 " style={{ borderRadius: '40px' }}>
+            <div className="relative flex-grow overflow-hidden bg-blue-300 " style={{ borderRadius: '40px' }}>
                 <div
                     className="flex h-full transition-transform duration-300 ease-in-out"
                     style={{ transform: `translateX(-${currentIndex * 100}%)` }}

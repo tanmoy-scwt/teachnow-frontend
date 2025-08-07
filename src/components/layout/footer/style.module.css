@@ -87,6 +87,9 @@
 }
 
 @media (max-width: 576px) {
+  .footer {
+    padding-top: 130px;
+  }
   .bottomLine {
     flex-direction: column;
     padding-bottom: 30px;

@@ -1,10 +1,15 @@
 "use client"
+import SelectBoxShimmer from '@/components/ui/shimmers/SelectBoxShimmer';
 import React, { useEffect, useState, useCallback } from 'react';
-import SelectBoxComponent from '@/components/inputComponent/SelectBoxComponent';
+import style from '../style.module.css'
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import { generateQueryFromFilters } from "@/utils/generateQueryFromFilters";
 import { BiMenuAltLeft } from 'react-icons/bi';
 import MobileFilterDrawer from '../mobileFilterDrawer';
+import dynamic from 'next/dynamic';
+const SelectBoxComponent = dynamic(() => import('@/components/inputComponent/SelectBoxComponent'), {
+    ssr: false, loading: () => <SelectBoxShimmer shimmerCSS={`${style.shimmerSelectBoxCSS}`} />
+})
 
 type OptionType = {
     label: string;
@@ -73,15 +78,16 @@ const JobsToolbar = ({ total = 184, page = 1, perPage = 10 }: JobsToolbarProps) 
                 >
                     <BiMenuAltLeft size={30} color="#4679B5" />
                 </button>
-                <p className="text-sm text-gray-800 font-medium">
+                <p style={{ fontSize: `clamp(11px , 1vw , 16px)` }} className={`text-gray-800 font-medium`}>
                     Showing {start}–{end} of {total} jobs
                 </p>
             </div>
-            <div className="selectBoxCSS flex gap-2">
+            <div className={`${style.selectBoxJobsToolBarWrapper} selectBoxCSS flex gap-2`}>
                 <SelectBoxComponent
                     options={SORT_OPTIONS}
                     value={selectedSortOption}
                     onChange={handleSortChange}
+                    placeholder='Default'
                     name="sort"
                     className="react-select"
                     classNamePrefix="react-select"
@@ -90,16 +96,17 @@ const JobsToolbar = ({ total = 184, page = 1, perPage = 10 }: JobsToolbarProps) 
                     options={PER_PAGE_OPTIONS}
                     value={selectedPerPageOption}
                     onChange={handlePerPageChange}
+                    placeholder='10 Per Page'
                     name="perPage"
                     className="react-select"
                     classNamePrefix="react-select"
                 />
-                <div className='block lg:hidden'>
-                    <MobileFilterDrawer
-                        open={mobileFilterOpen}
-                        setOpen={setMobileFilterOpen}
-                    />
-                </div>
+
+                <MobileFilterDrawer
+                    open={mobileFilterOpen}
+                    setOpen={setMobileFilterOpen}
+                />
+
             </div>
 
         </div>

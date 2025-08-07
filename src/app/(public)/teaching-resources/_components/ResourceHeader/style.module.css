@@ -1,5 +1,6 @@
 .imageCarousel {
-  height: 450px;
+  min-height: 450px;
+  height: 100%;
 }
 .imageCarousel div div:nth-child(2) div::-webkit-scrollbar {
   display: none;
@@ -12,6 +13,26 @@
 .sectionContent h2 {
   text-align: start;
 }
-.resourceHeader {
-  padding-top: 80px;
+.whatsInclude {
+  padding: 20px 37px;
+  border-radius: 20px;
+  box-shadow: 0px 4px 39.4px 0px #0000001a;
+  background-color: #ffffff;
+}
+.whatsInclude h3 {
+  font-family: Poppins;
+  font-style: Medium;
+  letter-spacing: 0%;
+  vertical-align: middle;
+
+  font-size: clamp(18px, 2vw, 20px);
+  line-height: 24px;
+  color: var(--primary-color);
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+@media (max-width: 768px) {
+  .sectionContent h2 {
+    text-align: center;
+  }
 }

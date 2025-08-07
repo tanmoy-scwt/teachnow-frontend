@@ -16,16 +16,18 @@ const CompanyHeader = () => {
                     <p>Copenhagen, India</p>
                 </div>
             </div>
-            <ul className={`flex items-center gap-4 ${style.jobMeta} ${style.sectionContent}`} aria-label="Job Details">
-                <li>
-                    <label htmlFor='openings'>Openings:</label>
-                    <span id="openings">1</span>
-                </li>
-                <li>
-                    <span>Full-time</span>
-                </li>
-
-            </ul>
+            <div className={style.jobMetaULDiv}>
+                <ul className={`flex items-center ${style.jobMeta} ${style.sectionContent}`} aria-label="Job Details">
+                    <li>
+                        <label htmlFor='openings'>Openings:</label>
+                        <span id="openings">1</span>
+                    </li>
+                    <li>
+                        <span>Full-time</span>
+                    </li>
+                </ul>
+            </div>
+            {/* <div className={style.jobMetaULDiv}></div> */}
         </div>
     )
 }

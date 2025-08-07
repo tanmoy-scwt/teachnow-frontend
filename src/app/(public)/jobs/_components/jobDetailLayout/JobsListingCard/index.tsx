@@ -7,7 +7,7 @@ const JobsListingCard = ({ className }: { className?: string }) => {
     return (
         <article className={`${style.jobCard} ${className}`}>
             <CompanyHeader />
-            <JobProfileInfoHeader />
+            <JobProfileInfoHeader className={style.jobProfileInfoHeader} />
         </article>
     )
 }

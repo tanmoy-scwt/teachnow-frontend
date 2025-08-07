@@ -24,7 +24,7 @@ const BreadCrumb = () => {
 
     return (
         <nav aria-label="breadcrumb">
-            {pathArray.length > 0 && (
+            {pathArray?.length > 0 && (
                 <ul className={styles.breadcrumb}>
                     <li className="flex items-center">
                         <Link href="/" className={styles.breadcrumbLink}>
@@ -32,7 +32,7 @@ const BreadCrumb = () => {
                         </Link>
                         <TbArrowBadgeRightFilled />
                     </li>
-                    {pathArray.map((path, index) => {
+                    {pathArray?.map((path, index) => {
                         const isLast = index === pathArray.length - 1;
                         return (
                             <li key={index} className="flex items-center">

@@ -19,9 +19,26 @@
   box-shadow: var(--box-shadow);
 }
 
-@media (max-width: 576px) {
+@media (max-width: 600px) {
+  .jobCard {
+    padding: 15px 20px;
+    border-radius: 25px;
+    height: auto;
+    gap: 2rem;
+  }
+  .jobProfileInfoHeader > div:nth-child(2) > div {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 500px) {
   .jobCard {
     height: auto;
     gap: 1.5rem;
+    padding: 10px 12px;
+    border-radius: 17px;
   }
 }

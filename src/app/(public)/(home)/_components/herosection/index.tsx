@@ -1,5 +1,5 @@
 import Container from '@/components/ui/container';
-import React from 'react';
+import React, { Suspense } from 'react';
 import styles from './style.module.css';
 import SearchBox from '@/components/common/SearchBox';
 import HeroSectionBanner from '@/components/common/herosectionbanner';
@@ -17,7 +17,9 @@ const HeroSection = () => {
                             </h1>' />
                             <p>Your one-stop job portal for teaching, training & education</p>
                         </div>
-                        <SearchBox />
+                        <Suspense fallback={<div>Loading filters...</div>}>
+                            <SearchBox />
+                        </Suspense>
                         <div className={styles.sectionContents}>
                             <p>Popular Search: <span>Teacher, Clerks, Accountants, Prinicipals</span></p>
                         </div>

@@ -8,8 +8,10 @@ const Page = () => {
     return (
         <>
             <HeroSection title='<h1>Epiphany Activity - Feast of the </h1>' />
-            <ResourceHeader />
-            <ResourceDescription />
+            <section className='section'>
+                <ResourceHeader />
+                <ResourceDescription />
+            </section>
             <YouMayAlsoLike />
         </>
     )

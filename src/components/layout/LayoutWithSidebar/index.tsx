@@ -17,7 +17,7 @@ const LayoutWithSidebar = ({ sidebar, main, asideOrder, mainOrder }: LayoutWithS
                     <aside className={`hidden lg:block w-[30%] ${asideOrder}`}>
                         {sidebar}
                     </aside>
-                    <main className={`w-full lg:w-[70%] z-10 ${mainOrder}`}>
+                    <main className={`w-full lg:w-[70%] ${mainOrder}`}>
                         {main}
                     </main>
                 </div>

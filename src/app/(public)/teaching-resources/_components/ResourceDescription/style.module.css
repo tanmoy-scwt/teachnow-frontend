@@ -8,6 +8,9 @@
   margin-bottom: clamp(1rem, 2vw, 20px);
   color: #4679b5;
 }
+.resDes {
+  padding: 1.5rem 0rem;
+}
 .sectionContent p {
   font-family: "DM Sans", sans-serif;
   font-weight: 400;

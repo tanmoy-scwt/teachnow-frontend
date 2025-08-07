@@ -1,10 +1,12 @@
 'use client';
 
+import SelectBoxShimmer from '@/components/ui/shimmers/SelectBoxShimmer';
 import dynamic from 'next/dynamic';
 import React, { useState } from 'react';
 
 const SelectBoxComponent = dynamic(() => import('@/components/inputComponent/SelectBoxComponent'), {
     ssr: false,
+    loading: () => <SelectBoxShimmer />
 });
 
 const categoryOptions = [

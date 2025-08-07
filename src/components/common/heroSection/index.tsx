@@ -3,8 +3,8 @@ import React from 'react';
 import styles from './style.module.css';
 import SearchBox from '@/components/common/SearchBox';
 import HtmlRender from '@/components/ui/htmlRender';
-import BreadCrumb from '@/components/ui/breadCrumb';
 import RingCircleBgElement from '@/components/ui/RingCircleBgElement';
+import ClientBreadcrumb from '@/components/ui/clientBreadCrumb';
 
 interface HeroSectionProps {
     isSearchBoxActive?: boolean;
@@ -12,15 +12,16 @@ interface HeroSectionProps {
 }
 
 const HeroSection = ({ isSearchBoxActive = false, title = "" }: HeroSectionProps) => {
+
     return (
         <div className={styles.heroSectionContainer}>
             <Container>
-                <div className='relative'>
-                    <div className={styles.heroSectionContent}>
+                <div className={`${styles.heroContent} relative`}>
+                    <div className={`${isSearchBoxActive ? styles.sBHeight : ""} ${styles.heroSectionContent}`}>
                         <div className={`${styles.sectionContent} section-content text-white`}>
                             <HtmlRender htmlString={title} />
                         </div>
-                        <BreadCrumb />
+                        <ClientBreadcrumb />
                     </div>
                     {isSearchBoxActive && (
                         <div className={styles.searchBoxContainer}>

@@ -22,7 +22,7 @@
   font-family: Poppins;
   font-weight: 700;
   font-style: normal;
-  font-size: clamp(20px, 2vw, 32px); /* Desktop: 32px */
+  font-size: clamp(22px, 2vw, 32px); /* Desktop: 32px */
   line-height: clamp(24px, 2.2vw, 28.6px);
   letter-spacing: 0%;
   vertical-align: middle;
@@ -109,6 +109,12 @@
   padding: 4px 4px 4px 16px;
 }
 
+.shimmerSelectBoxCSS {
+  width: 140px;
+  border-radius: 20px;
+  height: 100%;
+}
+
 @media (max-width: 576px) {
   .jobCard {
     height: auto;
@@ -120,5 +126,24 @@
     justify-content: flex-start;
     align-items: flex-start;
     gap: 1rem;
+  }
+  .sectionContent h2 {
+    font-size: clamp(18px, 2vw, 32px);
+    line-height: clamp(24px, 2.2vw, 28.6px);
+  }
+  .selectBoxJobsToolBarWrapper .react-select {
+    width: 78px !important;
+  }
+  .jobHeaderJobRoleBtn > div:nth-child(2) > div {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  .jobHeaderJobRoleBtn > div:nth-child(2) > div > ul {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 13px;
+    gap: 0px;
   }
 }

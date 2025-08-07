@@ -1,0 +1,18 @@
+.sectionContent h2 {
+  font-family: Poppins;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: clamp(16px, 2.5vw, 32px);
+  line-height: clamp(24px, 3vw, 40px);
+  letter-spacing: 0%;
+  vertical-align: middle;
+  color: #0e0e0e;
+}
+.jobInfoAction li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.jobInfoAction ul {
+  gap: clamp(1rem, 2.1vw, 2rem);
+}

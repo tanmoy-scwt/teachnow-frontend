@@ -19,16 +19,16 @@ const dummyString = `
 
 
 const ResourceDescription = () => {
-    return (
-        <section className='section'>
-            <Container>
-                <div className={style.sectionContent}>
-                    <h3>Description</h3>
-                    <HtmlRender htmlString={dummyString} />
-                </div>
-            </Container>
-        </section>
-    )
+  return (
+    <div className={style.resDes}>
+      <Container>
+        <div className={style.sectionContent}>
+          <h3>Description</h3>
+          <HtmlRender htmlString={dummyString} />
+        </div>
+      </Container>
+    </div>
+  )
 }
 
 export default ResourceDescription
