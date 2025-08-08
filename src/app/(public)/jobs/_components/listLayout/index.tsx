@@ -1,5 +1,4 @@
 import React from "react";
-import style from "./style.module.css";
 import Pagination from "@/components/ui/Pagination";
 import LayoutWithSidebar from "@/components/layout/LayoutWithSidebar";
 import { Suspense } from "react";
