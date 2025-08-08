@@ -1,5 +1,6 @@
 'use client';
 
+import { AiOutlineClose } from "react-icons/ai";
 import JobsFilter from "../JobsFilter";
 
 
@@ -11,12 +12,15 @@ type Props = {
 export default function MobileFilterDrawer({ open, setOpen }: Props) {
     if (!open) return null;
     return (
-        <div style={{ zIndex: 50 }} className="fixed inset-0 bg-black/30 flex  lg:hidden border">
+        <div className="fixed z-50 inset-0 bg-black/30 flex  lg:hidden border">
             <div className="w-[80vw] max-w-xs bg-white h-full p-6 shadow-lg animate-slideIn">
-                <div className="flex items-center justify-between mb-5">
-                    <span className="font-bold text-lg">Filters</span>
-                    <button onClick={() => setOpen(false)} aria-label="Close" className="p-1">
-                        ✕
+                <div className="flex items-center justify-end mb-5">
+                    <button
+                        onClick={() => setOpen(false)}
+                        aria-label="Close"
+                        className="p-2 rounded bg-red-500 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-400 transition"
+                    >
+                        <AiOutlineClose className="w-5 h-5 text-white hover:text-red-700" />
                     </button>
                 </div>
                 <aside>

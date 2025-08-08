@@ -146,4 +146,23 @@
     font-size: 13px;
     gap: 0px;
   }
+
+  .toolbarWrapper {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .toolbarWrapper > div {
+    width: 100%;
+    flex: 1;
+    justify-content: space-between;
+  }
+  .toolbarWrapper > div:nth-child(1) {
+    width: 100%;
+    flex: 1;
+    justify-content: flex-start;
+  }
+  .toolbarWrapper > div:nth-child(2) > div {
+    flex: 1;
+  }
 }

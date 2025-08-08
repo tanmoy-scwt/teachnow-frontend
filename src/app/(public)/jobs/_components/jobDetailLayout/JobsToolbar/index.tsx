@@ -70,7 +70,7 @@ const JobsToolbar = ({ total = 184, page = 1, perPage = 10 }: JobsToolbarProps) 
     }, []);
 
     return (
-        <div className="flex items-center justify-between gap-4">
+        <div className={`${style.toolbarWrapper} flex items-center justify-between gap-4`}>
             <div className='flex items-center gap-4'>
                 <button
                     className="block lg:hidden bg-white border border-[#4679B5] rounded-lg px-4 py-2 shadow-inner hover:shadow-md active:translate-y-[1px] active:shadow-sm transition-all duration-150"
@@ -78,7 +78,7 @@ const JobsToolbar = ({ total = 184, page = 1, perPage = 10 }: JobsToolbarProps) 
                 >
                     <BiMenuAltLeft size={30} color="#4679B5" />
                 </button>
-                <p style={{ fontSize: `clamp(11px , 1vw , 16px)` }} className={`text-gray-800 font-medium`}>
+                <p className={`text-gray-800 font-medium`}>
                     Showing {start}–{end} of {total} jobs
                 </p>
             </div>

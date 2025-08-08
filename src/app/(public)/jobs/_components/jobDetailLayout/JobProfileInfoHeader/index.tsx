@@ -24,7 +24,7 @@ const JobProfileInfoHeader = ({ className, buttonClass = "bgOutlined", btnText =
                         </li>
                         <li>
                             <HiCurrencyDollar size={21} />
-                            <span>50k – 60k INR</span>
+                            <span>60,000 INR</span>
                         </li>
                     </ul>
                     <div>

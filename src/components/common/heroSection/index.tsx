@@ -15,7 +15,7 @@ const HeroSection = ({ isSearchBoxActive = false, title = "" }: HeroSectionProps
 
     return (
         <div>
-            <div className={styles.heroSectionContainer}>
+            <div className={`${styles.heroSectionContainer} ${isSearchBoxActive ? "" : styles.sBMargin}`}>
                 <Container>
                     <div className={`${styles.heroContent} relative`}>
                         <div className={`${isSearchBoxActive ? styles.sBHeight : ""} ${styles.heroSectionContent}`}>
