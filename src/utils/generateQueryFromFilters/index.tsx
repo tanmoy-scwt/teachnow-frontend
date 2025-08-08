@@ -24,7 +24,7 @@ export const generateQueryFromFilters = (
         }
     }
 
-    const orderedKeys = ['title', 'location', 'job_type', "work_type", "salary_type", "sort", 'page'];
+    const orderedKeys = ['title', 'location', 'job-type', "work-type", "salary-type", "sort", 'page'];
     const resultParams = new URLSearchParams();
 
     for (const key of orderedKeys) {
