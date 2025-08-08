@@ -12,13 +12,15 @@ type LayoutWithSidebarProps = {
 const LayoutWithSidebar = ({ sidebar, main, asideOrder, mainOrder }: LayoutWithSidebarProps) => {
     return (
         <>
-            <Container className="flex gap-8 flex-wrap md:flex-nowrap relative">
-                <aside className={`hidden lg:block w-[30%] ${asideOrder}`}>
-                    {sidebar}
-                </aside>
-                <main className={`w-full lg:w-[70%] ${mainOrder}`}>
-                    {main}
-                </main>
+            <Container>
+                <div className="flex gap-8 flex-wrap md:flex-nowrap relative">
+                    <aside className={`hidden lg:block w-[30%] ${asideOrder}`}>
+                        {sidebar}
+                    </aside>
+                    <main className={`w-full lg:w-[70%] ${mainOrder}`}>
+                        {main}
+                    </main>
+                </div>
             </Container>
         </>
     );

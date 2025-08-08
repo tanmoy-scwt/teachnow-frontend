@@ -48,9 +48,9 @@ const ImageCarousel: React.FC<CarouselProps> = ({
         setTimeout(() => setIsTransitioning(false), 300);
     };
 
-    const togglePlayPause = () => {
-        setIsPlaying(!isPlaying);
-    };
+    const togglePlayPause = useCallback(() => {
+        setIsPlaying((prev) => !prev);
+    }, []);
 
     const scrollToActiveThumbnail = useCallback(() => {
         if (thumbnailContainerRef.current) {
@@ -91,7 +91,7 @@ const ImageCarousel: React.FC<CarouselProps> = ({
         };
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
-    }, [nextSlide, prevSlide]);
+    }, [nextSlide, prevSlide, togglePlayPause]);
 
     const handleMouseDown = (e: React.MouseEvent) => {
         if (!thumbnailContainerRef.current) return;

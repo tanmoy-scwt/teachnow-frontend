@@ -37,18 +37,18 @@ const JobDescription = () => {
 
 `
   return (
-    <div>
+    <section>
       <div className={style.sectionContent}>
         <h3 className={style.sectionContentH3}>Job Desription</h3>
         <HtmlRender htmlString={data} />
       </div>
-      <section className="section">
+      <div className="section">
         <div className={`grid grid-cols-1 gap-6 ${style.sectionContent}`}>
           <h3 className={style.sectionContentH3}>Related Jobs</h3>
           {Array.from({ length: 2 })?.map((_, index) => (<JobsListingCard key={`jobs${index}`} className={style.jobCard} />))}
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   )
 }
 

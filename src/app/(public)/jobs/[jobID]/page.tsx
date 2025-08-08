@@ -14,12 +14,14 @@ const Page = () => {
         <>
             <HeroSection title={`<h1>ABC Tech Innovators</h1>`} />
             <section className='section'>
-                <Container className='flex flex-col  gap-8'>
-                    <div className='flex flex-col gap-4'>
-                        <JobHeaderCompany />
-                        <Divider height={1} color='#D9D9D9' />
+                <Container>
+                    <div className='flex flex-col  gap-8'>
+                        <div className='flex flex-col gap-4'>
+                            <JobHeaderCompany />
+                            <Divider height={1} color='#D9D9D9' />
+                        </div>
+                        <JobHeaderJobRole className={style.jobHeaderJobRoleBtn} buttonClass='bgFilled' btnText={'Login to apply'} />
                     </div>
-                    <JobHeaderJobRole className={style.jobHeaderJobRoleBtn} buttonClass='bgFilled' btnText={'Login to apply'} />
                 </Container>
             </section>
             <LayoutWithSidebar
