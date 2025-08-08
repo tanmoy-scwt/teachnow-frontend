@@ -2,6 +2,7 @@
   background: linear-gradient(238.2deg, #9bc9ff 8.27%, #4e96ea 96%);
   position: relative;
   margin-bottom: 50px;
+  z-index: 2;
 }
 .searchBox {
   position: relative;
@@ -17,7 +18,10 @@
   position: relative;
   z-index: 2;
 }
-
+.heroContent {
+  position: relative;
+  z-index: 3;
+}
 .sectionContent h1 {
   color: #ffffff;
   font-family: Poppins;
