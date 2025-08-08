@@ -1,7 +1,6 @@
 .header {
   padding: 20px 0px;
   position: relative;
-  z-index: 10;
   background: var(--background);
 }
 
@@ -111,7 +110,6 @@
 @media (max-width: 1260px) {
   .mobileMenuIcon {
     display: block;
-    z-index: 1100;
   }
 
   .navbar {

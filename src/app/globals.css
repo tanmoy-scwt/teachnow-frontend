@@ -118,13 +118,6 @@ button {
   height: 26px !important;
 }
 
-.drawerZ {
-  z-index: 11000000 !important;
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  background-color: red;
-}
 /* --------------------- select box css --------------- */
 .selectBoxCSS .react-select__control {
   border: 1px solid #9bc9ff;

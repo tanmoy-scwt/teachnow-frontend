@@ -15,7 +15,7 @@ interface ListLayoutProps { currentPage?: number; }
 
 const ListLayout = ({ currentPage }: ListLayoutProps) => {
   return (
-    <div style={{ position: 'relative', zIndex: 1000 }} className={`section ${style.jobSection}`}>
+    <div className={`section`}>
       <LayoutWithSidebar
         sidebar={<>
           <Suspense fallback={<div>Loading filters...</div>}>
@@ -26,7 +26,7 @@ const ListLayout = ({ currentPage }: ListLayoutProps) => {
           </Suspense>
         </>}
         main={<>
-          <section className="grid grid-cols-1 gap-6">
+          <section className="grid grid-cols-1 gap-6 relative">
             <Suspense fallback={<div>Loading filters...</div>}>
               <JobsToolbar
                 total={184}

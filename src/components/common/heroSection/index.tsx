@@ -14,25 +14,33 @@ interface HeroSectionProps {
 const HeroSection = ({ isSearchBoxActive = false, title = "" }: HeroSectionProps) => {
 
     return (
-        <div className={styles.heroSectionContainer}>
-            <Container>
-                <div className={`${styles.heroContent} relative`}>
-                    <div className={`${isSearchBoxActive ? styles.sBHeight : ""} ${styles.heroSectionContent}`}>
-                        <div className={`${styles.sectionContent} section-content text-white`}>
-                            <HtmlRender htmlString={title} />
+        <div>
+            <div className={styles.heroSectionContainer}>
+                <Container>
+                    <div className={`${styles.heroContent} relative`}>
+                        <div className={`${isSearchBoxActive ? styles.sBHeight : ""} ${styles.heroSectionContent}`}>
+                            <div className={`${styles.sectionContent} section-content text-white`}>
+                                <HtmlRender htmlString={title} />
+                            </div>
+                            <ClientBreadcrumb />
                         </div>
-                        <ClientBreadcrumb />
+
                     </div>
-                    {isSearchBoxActive && (
+                </Container >
+
+                <RingCircleBgElement size={335} position='rightBottomAlign' image={"/image/half-circle.png"} />
+                <RingCircleBgElement size={335} position='leftTopAlign' image={"/image/half-circle-left-top.png"} />
+            </div >
+            <Container>
+                {
+                    isSearchBoxActive && (
                         <div className={styles.searchBoxContainer}>
                             <SearchBox className={styles.searchBox} />
                         </div>
-                    )}
-                </div>
-            </Container >
-            <RingCircleBgElement size={335} position='rightBottomAlign' image={"/image/half-circle.png"} />
-            <RingCircleBgElement size={335} position='leftTopAlign' image={"/image/half-circle-left-top.png"} />
-        </div >
+                    )
+                }
+            </Container>
+        </div>
     )
 }
 

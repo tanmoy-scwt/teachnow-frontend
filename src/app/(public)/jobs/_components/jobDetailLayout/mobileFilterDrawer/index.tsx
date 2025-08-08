@@ -11,7 +11,7 @@ type Props = {
 export default function MobileFilterDrawer({ open, setOpen }: Props) {
     if (!open) return null;
     return (
-        <div style={{ zIndex: 1111111111111111 }} className="fixed inset-0 bg-black/30 flex  lg:hidden border">
+        <div style={{ zIndex: 50 }} className="fixed inset-0 bg-black/30 flex  lg:hidden border">
             <div className="w-[80vw] max-w-xs bg-white h-full p-6 shadow-lg animate-slideIn">
                 <div className="flex items-center justify-between mb-5">
                     <span className="font-bold text-lg">Filters</span>
