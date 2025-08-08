@@ -19,11 +19,13 @@ const ButtonRound = ({ name, goTo = "/", icon, className, type = 'Link', action,
             {type.toLowerCase() === 'link' ? (
                 <Link href={goTo} className={`${styles.roundBtn} ${styles[`${className}`]} ${extraClass}`}>
                     <span className={styles.btnText}>{name}</span>
+                    <span className="sr-only">{name}</span>
                     {icon || <MdOutlineArrowOutward size={30} className={styles.btnIcon} />}
                 </Link>
             ) : (
                 <button onClick={action} className={`${styles.roundBtn} ${styles[`${className}`]} ${extraClass}`}>
                     <span className={styles.btnText}>{name}</span>
+                    <span className="sr-only">{name}</span>
                     {icon || <MdOutlineArrowOutward size={30} className={styles.btnIcon} />}
                 </button>
             )}
