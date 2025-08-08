@@ -17,14 +17,17 @@ const jobDetails = [
 const JobOverview = () => {
     return (
         <div className={style.asideContainer}>
-            <div className="bg-white text-sm rounded-md p-4 flex flex-col gap-4 font-medium w-full max-w-xs text-[#2B2B2B]">
+            <div className={style.gridWrapper}>
                 {jobDetails.map((item, idx) => (
-                    <div key={idx} className="flex items-start justify-items-start gap-3">
-                        <div style={{ paddingTop: '.3rem' }} className="text-[#1E73BE] pt-[0.3rem] ">{item.icon}</div>
+                    <div
+                        key={idx}
+                        className={`${style.gridItem} ${idx === jobDetails.length - 1 ? style.fullWidthItem : ""}`}
+                    >
+                        <div className={style.icon}>{item.icon}</div>
                         <div>
-                            <p className="text-[#2B2B2B]">
-                                <span className="font-semibold text-[#505050]">{item.label}:</span> <br />
-                                <span className="text-[#505050]">{item.value}</span>
+                            <p className={style.text}>
+                                <span className={style.label}>{item.label}:</span><br />
+                                <span className={style.value}>{item.value}</span>
                             </p>
                         </div>
                     </div>

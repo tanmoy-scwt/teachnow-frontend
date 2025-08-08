@@ -2,6 +2,7 @@ import HtmlRender from '@/components/ui/htmlRender'
 import React from 'react'
 import style from './style.module.css'
 import JobsListingCard from '../JobsListingCard'
+import JobOverview from '../JobOverview'
 
 const JobDescription = () => {
   const data = `
@@ -38,6 +39,9 @@ const JobDescription = () => {
 `
   return (
     <section>
+      <div className={`block lg:hidden ${style.jobOverviewContainer}`}>
+        <JobOverview />
+      </div>
       <div className={style.sectionContent}>
         <h3 className={style.sectionContentH3}>Job Desription</h3>
         <HtmlRender htmlString={data} />
