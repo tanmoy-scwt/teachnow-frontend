@@ -3,12 +3,9 @@ import ButtonRound from "@/components/ui/button";
 import Container from "@/components/ui/container";
 import FiveCircleLoader from "@/components/ui/spinner/loader";
 import { MdHomeFilled } from "react-icons/md";
-import Header from "@/components/layout/header";
-import Footer from "@/components/layout/footer";
+
 export default function NotFound() {
     return (
-        <>
-        <Header />
         <div className="w-full flex flex-col gap-2 items-center relative top-20">
             <Container>
                 <div className="w-full flex flex-col gap-6 items-center">
@@ -52,7 +49,5 @@ export default function NotFound() {
                 <FiveCircleLoader />
             </Container>
         </div>
-        <Footer />
-        </>
     );
 }

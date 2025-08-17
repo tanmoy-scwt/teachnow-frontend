@@ -11,9 +11,10 @@ type ButtonRoundProps = {
     type?: string;
     action?: () => void;
     extraClass?: string;
+    buttonType?: 'button' | 'submit' | 'reset';
 };
 
-const ButtonRound = ({ name, goTo = "/", icon, className, type = 'Link', action, extraClass }: ButtonRoundProps) => {
+const ButtonRound = ({ name, goTo = "/", icon, className, type = 'Link', buttonType = "button" , action, extraClass }: ButtonRoundProps) => {
     return (
         <>
             {type.toLowerCase() === 'link' ? (
@@ -23,7 +24,7 @@ const ButtonRound = ({ name, goTo = "/", icon, className, type = 'Link', action,
                     {icon || <MdOutlineArrowOutward size={30} className={styles.btnIcon} />}
                 </Link>
             ) : (
-                <button onClick={action} className={`${styles.roundBtn} ${styles[`${className}`]} ${extraClass}`}>
+                <button type={buttonType} onClick={action} className={`${styles.roundBtn} ${styles[`${className}`]} ${extraClass}`}>
                     <span className={styles.btnText}>{name}</span>
                     <span className="sr-only">{name}</span>
                     {icon || <MdOutlineArrowOutward size={30} className={styles.btnIcon} />}

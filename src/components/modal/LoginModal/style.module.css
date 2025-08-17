@@ -1,0 +1,150 @@
+.loginModel {
+  position: fixed;
+  inset: 0;
+  background-color: #ffffff0c;
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  padding: 1rem;
+}
+
+.modalBox {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 380px;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.closeBtn {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  font-size: 1.5rem;
+  background: #4679B5;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background: none;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0px 4px 14.8px 0px #00000026;
+}
+
+.title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.inputBox {
+  position: relative;
+}
+
+.inputBox input {
+  width: 100%;
+  padding: 0.8rem 2.5rem 0.8rem 1rem;
+  border-radius: 30px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 0.95rem;
+}
+
+.eyeIcon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #777;
+}
+
+.error {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 3px;
+}
+
+.optionsRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+}
+
+.rememberMe {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.forgot {
+  color: #4679b5;
+  text-decoration: none;
+}
+
+.signInBtn {
+  background: #4679b5;
+  color: white;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.signInBtn:hover {
+  background: #38659a;
+}
+
+.googleBtn {
+  margin-top: 1rem;
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 0.8rem;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: white;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.googleBtn:hover {
+  background: #f8f8f8;
+}
+
+.signupText {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.signupText a {
+  color: #4679b5;
+  text-decoration: none;
+}
+
+@media (max-width: 480px) {
+  .modalBox {
+    padding: 1.5rem;
+    max-width: 95%;
+  }
+}
