@@ -32,7 +32,7 @@ export interface ProfileFormValues {
   lastName: string;
   phone: string;
   email: string;
-  dob: string; // can also be Date if you parse it
+  dob: string;
   gender: "male" | "female" | "other";
   maritalStatus: "single" | "married" | "divorced";
   website: string;
@@ -51,7 +51,7 @@ export default function PersonalInfo() {
       phone: "",
       email: "",
       dob: "",
-      gender: undefined as unknown as ProfileFormValues["gender"], // ✅ TS happy
+      gender: undefined as unknown as ProfileFormValues["gender"],
       maritalStatus: undefined as unknown as ProfileFormValues["maritalStatus"],
       website: "",
     },
@@ -62,7 +62,8 @@ export default function PersonalInfo() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)}
+    >
       {/* Grid Layout */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* First Name */}

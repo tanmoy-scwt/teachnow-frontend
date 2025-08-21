@@ -19,6 +19,7 @@ import {
 import styles from "./style.module.css";
 import Logo from "@/components/ui/logo";
 import UserCard from "@/components/ui/userCard";
+import Link from "next/link";
 
 interface DashboardClientProps {
     children: React.ReactNode;
@@ -106,7 +107,7 @@ const DashboardClient: React.FC<DashboardClientProps> = ({
             </aside>
 
             {/* Desktop Sidebar */}
-            <aside className={`${styles.sidebar} ${styles.sidebarDesktop}`}>
+            <aside style={{ boxShadow: "0px 4px 36.6px 0px #0000001A" }} className={`${styles.sidebar} ${styles.sidebarDesktop}`}>
                 <div className={styles.sidebarHeader}>
                     <Logo />
                 </div>
@@ -114,16 +115,15 @@ const DashboardClient: React.FC<DashboardClientProps> = ({
                     {navigationItems.map((item, index) => {
                         const Icon = iconMap[item.icon];
                         return (
-                            <a
+                            <Link
                                 key={index}
                                 href="#"
                                 className={`${styles.navItem} ${item.active ? styles.navItemActive : ""
                                     }`}
-                                onClick={(e) => e.preventDefault()}
                             >
                                 <Icon className={styles.navIcon} />
                                 {item.label}
-                            </a>
+                            </Link>
                         );
                     })}
                 </nav>
@@ -131,7 +131,7 @@ const DashboardClient: React.FC<DashboardClientProps> = ({
 
             {/* Main Content */}
             <main className={styles.mainContent}>
-                <header className={styles.header}>
+                <header style={{ boxShadow: "0px 4px 36.6px 0px #0000001A" }} className={styles.header}>
                     <div className={styles.headerLeft}>
                         {/* Sidebar Button (mobile) */}
                         <button

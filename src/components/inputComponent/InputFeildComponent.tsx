@@ -44,9 +44,9 @@ const InputFieldComponent = <T extends FieldValues>({
             id={name}
             type={type}
             placeholder={placeholder}
-            className={`w-full bg-white rounded-md border px-4 py-2 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 ${error
+            className={`w-full bg-white rounded-[12px] border border-[#B1B1B1] px-4 py-2 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 ${error
               ? "border-red-500 focus:ring-red-400"
-              : "border-gray-300 focus:ring-blue-500"
+              : "border-gray-300 focus:ring-[#9BC9FF]"
               }`}
           />
         )}

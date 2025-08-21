@@ -25,7 +25,7 @@ const FormSelectDropdown = <T extends FieldValues>({
 }: FormSelectDropdownProps<T>) => {
   return (
     <div className="flex flex-col mb-4 w-full">
-      <label className="mb-1 font-medium text-gray-700">
+      <label className="mb-1 !text-sm !text-black">
         {label} <span className="text-red-500">*</span>
       </label>
 
@@ -40,10 +40,18 @@ const FormSelectDropdown = <T extends FieldValues>({
             classNamePrefix="react-select"
             value={options.find((opt) => opt.value === field.value) || null}
             onChange={(selected) => field.onChange(selected ? selected.value : "")}
-            className={`${error ? 'border rounded border-red-500' : ''}`}
+            className={`${error ? 'border !rounded-[12px] border-red-500' : ''}`}
+            styles={{
+              control: (base) => ({
+                ...base,
+                borderRadius: "12px",
+                padding: "0.1rem"
+              }),
+            }}
           />
         )}
       />
+
       {error && <p className="mt-1 !text-sm !text-red-500">{error}</p>}
     </div>
   );
