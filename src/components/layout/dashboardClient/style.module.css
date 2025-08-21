@@ -87,7 +87,7 @@
 .header {
   background: #fff;
   border-bottom: 1px solid hsl(220, 13%, 91%);
-  padding: 0.55rem 1.5rem;
+  padding: 1rem 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;

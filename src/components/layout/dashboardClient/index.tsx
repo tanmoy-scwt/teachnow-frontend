@@ -188,7 +188,7 @@ const DashboardClient: React.FC<DashboardClientProps> = ({
                 {/* Mobile Top Nav */}
                 {isTopNavOpen && (
                     <div className={styles.mobileTopNav}>
-                        <nav className="flex flex-col p-4 space-y-3">
+                        <nav className="flex flex-col !p-4 space-y-3">
                             {headerNavItems.map((item, index) => (
                                 <a
                                     key={index}

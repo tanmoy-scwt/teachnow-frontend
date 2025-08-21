@@ -186,10 +186,10 @@ export default function PersonalInfo() {
       </div>
 
       {/* Submit Button */}
-      <div className="mt-6">
+      <div className="!mt-6">
         <button
           type="submit"
-          className="w-full md:w-auto px-6 py-2 rounded-md bg-blue-500 text-white hover:bg-blue-600"
+          className="w-full md:w-auto !px-6 !py-2 rounded-md bg-blue-500 text-white hover:bg-blue-600"
         >
           Submit
         </button>

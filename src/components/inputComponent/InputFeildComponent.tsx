@@ -25,11 +25,11 @@ const InputFieldComponent = <T extends FieldValues>({
   error,
 }: InputFieldComponentProps<T>) => {
   return (
-    <div className="flex flex-col w-full mb-4">
+    <div className="flex flex-col w-full !mb-4">
       {/* Label */}
       <label
         htmlFor={name}
-        className="text-sm font-medium text-gray-800 mb-1"
+        className="text-sm font-medium text-gray-800 !mb-1"
       >
         {label} <span className="text-red-500">*</span>
       </label>
@@ -44,7 +44,7 @@ const InputFieldComponent = <T extends FieldValues>({
             id={name}
             type={type}
             placeholder={placeholder}
-            className={`w-full bg-white rounded-[12px] border border-[#B1B1B1] px-4 py-2 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 ${error
+            className={`w-full bg-white rounded-[12px] border border-[#B1B1B1] !px-4 !py-2 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 ${error
               ? "border-red-500 focus:ring-red-400"
               : "border-gray-300 focus:ring-[#9BC9FF]"
               }`}
