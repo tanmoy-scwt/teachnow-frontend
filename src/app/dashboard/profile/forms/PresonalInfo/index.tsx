@@ -71,6 +71,7 @@ export default function PersonalInfo() {
   };
 
   return (
+
     <form onSubmit={handleSubmit(onSubmit)}>
       {/* Grid Layout */}
       <div className="flex flex-col gap-8">

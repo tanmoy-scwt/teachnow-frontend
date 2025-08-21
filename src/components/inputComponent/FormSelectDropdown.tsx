@@ -1,6 +1,10 @@
 "use client";
+import dynamic from "next/dynamic";
 import React from "react";
-import Select from "react-select";
+const Select = dynamic(() => import("react-select"), {
+  ssr: false,
+  loading: () => <p>Loading select...</p>,
+});
 import { Controller, Control, FieldValues, Path } from "react-hook-form";
 
 interface Option {
@@ -24,8 +28,8 @@ const FormSelectDropdown = <T extends FieldValues>({
   error,
 }: FormSelectDropdownProps<T>) => {
   return (
-    <div className="flex flex-col mb-4 w-full">
-      <label className="mb-1 !text-sm !text-black">
+    <div className="flex flex-col w-full">
+      <label className="!mb-1 !text-sm !text-black">
         {label} <span className="text-red-500">*</span>
       </label>
 
@@ -39,7 +43,7 @@ const FormSelectDropdown = <T extends FieldValues>({
             placeholder={`Select ${label}`}
             classNamePrefix="react-select"
             value={options.find((opt) => opt.value === field.value) || null}
-            onChange={(selected) => field.onChange(selected ? selected.value : "")}
+            onChange={(selected) => field.onChange(selected ? (selected as Option).value : "")}
             className={`${error ? 'border !rounded-[12px] border-red-500' : ''}`}
             styles={{
               control: (base) => ({
@@ -52,7 +56,7 @@ const FormSelectDropdown = <T extends FieldValues>({
         )}
       />
 
-      {error && <p className="mt-1 !text-sm !text-red-500">{error}</p>}
+      {error && <p className="mt-1 !text-xs !text-red-500">{error}</p>}
     </div>
   );
 };

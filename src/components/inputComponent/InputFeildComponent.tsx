@@ -25,7 +25,7 @@ const InputFieldComponent = <T extends FieldValues>({
   error,
 }: InputFieldComponentProps<T>) => {
   return (
-    <div className="flex flex-col w-full !mb-4">
+    <div className="flex flex-col w-full">
       {/* Label */}
       <label
         htmlFor={name}

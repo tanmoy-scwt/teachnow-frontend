@@ -14,7 +14,7 @@ type ButtonRoundProps = {
     buttonType?: 'button' | 'submit' | 'reset';
 };
 
-const ButtonRound = ({ name, goTo = "/", icon, className, type = 'Link', buttonType = "button" , action, extraClass }: ButtonRoundProps) => {
+const ButtonRound = ({ name, goTo = "/", icon, className, type = 'Link', buttonType = "button", action, extraClass }: ButtonRoundProps) => {
     return (
         <>
             {type.toLowerCase() === 'link' ? (
