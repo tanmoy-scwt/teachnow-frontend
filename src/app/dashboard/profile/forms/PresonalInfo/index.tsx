@@ -62,10 +62,7 @@ export default function PersonalInfo() {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      className="max-w-5xl mx-auto mt-6 p-6 bg-white shadow-md rounded-lg"
-    >
+    <form onSubmit={handleSubmit(onSubmit)}>
       {/* Grid Layout */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* First Name */}
