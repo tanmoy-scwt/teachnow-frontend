@@ -8,7 +8,7 @@ const CompanyHeader = () => {
             <div className={`${style.jobHeader} flex items-center gap-4 `}>
                 <div>
                     <div className={style.companyLogo}>
-                        <Image className='absolute' src="/image/jobs/job1.png" fill alt="ABC Tech Innovators logo" />
+                        <Image className='absolute' src="/image/jobs/job1.png" fill sizes='40px' alt="ABC Tech Innovators logo" />
                     </div>
                 </div>
                 <div className={`${style.sectionContent} `}>

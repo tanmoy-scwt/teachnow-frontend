@@ -130,13 +130,13 @@ const ImageCarousel: React.FC<CarouselProps> = ({
     return (
         <div className={`relative flex flex-col h-full ${className} gap-5`}>
             {/* Main Image Container - Takes up remaining space */}
-            <div className="relative flex-grow overflow-hidden  " style={{ borderRadius: '40px' }}>
+            <div className="relative flex-grow overflow-hidden rounded-[40px]">
                 <div
                     className="flex h-full transition-transform duration-300 ease-in-out"
                     style={{ transform: `translateX(-${currentIndex * 100}%)` }}
                 >
-                    {images.map((image, index) => (
-                        <div key={index} style={{ borderRadius: "40px" }} className="w-full h-full flex-shrink-0 relative">
+                    {images?.map((image, index) => (
+                        <div key={index} className="w-full h-full flex-shrink-0 relative rounded-[40px]">
                             <Image
                                 src={image}
                                 alt={`Slide ${index + 1}`}
@@ -204,15 +204,10 @@ const ImageCarousel: React.FC<CarouselProps> = ({
                                 key={index}
                                 onClick={() => goToSlide(index)}
                                 disabled={isTransitioning}
-                                className={`flex-shrink-0 rounded overflow-hidden border-2 transition-all duration-200 ${index === currentIndex
+                                className={`flex-shrink-0 w-[80px] h-[60px] rounded-[15px] overflow-hidden border-2 transition-all duration-200 ${index === currentIndex
                                     ? 'border-blue-600 scale-105 shadow-lg'
                                     : 'border-gray-300 hover:border-gray-400 opacity-70 hover:opacity-100'
                                     } disabled:cursor-not-allowed`}
-                                style={{
-                                    width: '80px',
-                                    height: '60px',
-                                    borderRadius: '15px',
-                                }}
                             >
                                 <Image
                                     src={image}

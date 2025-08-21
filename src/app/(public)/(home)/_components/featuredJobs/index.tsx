@@ -14,11 +14,10 @@ const FeaturedJobs = () => {
                         <h2>Featured <span>Jobs</span></h2>
                     </div>
                     <div className={styles.slidesDisplay}>
-
                         <SwiperCarousel>
                             {[1, 2, 3, 4, 5, 6].map((num) => (
                                 <div
-                                    style={{ padding: '1rem 0rem', width: '100%', height: '100%' }}
+                                    className="py-4 w-full h-full"
                                     key={num}
                                 >
                                     <FeaturedJobBox />

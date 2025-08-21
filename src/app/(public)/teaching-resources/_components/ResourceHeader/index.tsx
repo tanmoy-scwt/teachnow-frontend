@@ -65,7 +65,14 @@ const ResourceHeader = () => {
                                         {socialArr?.map((social, index) => (
                                             <div key={`socialLink${index}`} className={`inline-flex items-center justify-center transition-all duration-300 rounded-full hover:bg-[#E6F0FB]hover:shadow-[0_4px_12px_rgba(78,150,234,0.4)] hover:scale-105`}>
                                                 <Link area-label={social.label} href={social.link} className='hover' key={`social${index}`} aria-label={`Share on ${social.label}`}>
-                                                    <Image src={social.icon} height={30} width={30} alt={social.label} />
+                                                    <Image
+                                                        src={social.icon}
+                                                        alt={social.label}
+                                                        width={30}
+                                                        height={30}
+                                                        sizes="30px"
+                                                        className="w-[30px] h-[30px]"
+                                                    />
                                                 </Link>
                                             </div>
                                         ))}

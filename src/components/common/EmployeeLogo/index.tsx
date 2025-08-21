@@ -5,7 +5,7 @@ import Image from 'next/image'
 const EmployeeLogo = ({ employeeLogo }: { employeeLogo: string }) => {
     return (
         <div className={styles.employeeLogo}>
-            <Image className='absolute' src={employeeLogo} fill alt='Employee Logo' />
+            <Image className='absolute' src={employeeLogo} fill alt='Employee Logo' sizes="160px" />
         </div>
     )
 }

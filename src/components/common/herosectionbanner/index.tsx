@@ -18,7 +18,7 @@ const HeroSectionBanner = () => {
                     </div>
                     <div className={styles.bannnerBoxImage}>
                         <div>
-                            <Image src={box1} fill alt="Box 1" priority placeholder='blur' />
+                            <Image src={box1} fill alt="Box 1" priority placeholder='blur' sizes="300px" />
                         </div>
                     </div>
                 </div>
@@ -30,14 +30,14 @@ const HeroSectionBanner = () => {
                     </div>
                     <div className={styles.bannnerBoxImage}>
                         <div>
-                            <Image src={box2} fill alt="Box 1" priority placeholder='blur' />
+                            <Image src={box2} fill alt="Box 1" priority placeholder='blur' sizes="300px" />
                         </div>
                     </div>
                 </div>
                 <div className="box">
                     <div className={styles.bannnerBoxImage}>
                         <div>
-                            <Image src={box3} fill alt="Box 1" priority placeholder='blur' />
+                            <Image src={box3} fill alt="Box 1" priority placeholder='blur' sizes="300px" />
                         </div>
                     </div>
                     <div className={styles.sectionContent}>
@@ -54,7 +54,7 @@ const HeroSectionBanner = () => {
                     </div>
                     <div className={styles.bannnerBoxImage}>
                         <div>
-                            <Image src={box4} fill alt="Box 1" priority placeholder='blur' />
+                            <Image src={box4} fill alt="Box 1" priority placeholder='blur' sizes="300px" />
                         </div>
                     </div>
                 </div>

@@ -37,8 +37,7 @@ const SwiperCarousel = ({
 
     return (
         <div
-            style={{ background: '#ffffff' }}
-            className={`py-10 relative px-4 sm:px-6 lg:px-8 ${className}`}
+            className={`py-10 relative bg-white px-4 sm:px-6 lg:px-8 ${className}`}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
@@ -68,7 +67,7 @@ const SwiperCarousel = ({
                 navigation={isNavigation}
             >
                 {React.Children.map(children, (child, index) => (
-                    <SwiperSlide key={index} style={{ padding: '1rem' }}>
+                    <SwiperSlide key={index} className='p-4' >
                         <div className="h-full w-full flex justify-center items-center p-4">
                             {child}
                         </div>

@@ -18,6 +18,7 @@ const CarrerResourceBox = ({ isDateBadgeActive = true, isResourceOwnerProfileAct
                     alt="Interview session"
                     fill
                     className="absolute"
+                    sizes="250px"
                 />
                 {isDateBadgeActive && (<DateBadge date={20} month='MAR' year={2025} />)}
             </div>

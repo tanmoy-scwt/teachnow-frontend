@@ -19,7 +19,7 @@ const HireTheRightTalent = () => {
                     <div className={`${styles.imageWrapperContainer}`}>
                         <div >
                             <div className={styles.imageWrapper}>
-                                <Image src={"/image/hire.png"} alt='hire' width={325} height={325} />
+                                <Image src={"/image/hire.png"} alt='hire' width={325} height={325} className="w-full h-auto" />
                             </div>
                         </div>
                         <div className={styles.imageBtn}>

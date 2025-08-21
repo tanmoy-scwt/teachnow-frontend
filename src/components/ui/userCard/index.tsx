@@ -51,17 +51,17 @@ const UserCard: React.FC<UserCardProps> = ({
 
       {/* Dropdown Wrapper */}
       {isDropdownActive && (
-   <div className="relative">
-        <FaChevronDown
-          className={`w-4 h-4 ml-2 transition-transform`}
-        //   className={`w-4 h-4 ml-2 transition-transform ${
-        //     isDropdownActive ? "rotate-180 text-gray-900" : "text-gray-600"
-        //   }`}
-          onClick={onDropdown}
-        />
-      </div>
+        <div className="relative">
+          <FaChevronDown
+            className={`w-4 h-4 ml-2 transition-transform`}
+            //   className={`w-4 h-4 ml-2 transition-transform ${
+            //     isDropdownActive ? "rotate-180 text-gray-900" : "text-gray-600"
+            //   }`}
+            onClick={onDropdown}
+          />
+        </div>
       )}
-   
+
     </div>
   );
 };

@@ -10,7 +10,7 @@ interface RingCircleBgElementProps {
 const RingCircleBgElement = ({ size, position, image }: RingCircleBgElementProps) => {
     return (
         <div className={`ringCircleBgElement ${position}`}>
-            <Image src={image} alt='half-circle' width={size} height={size} />
+            <Image src={image} alt='half-circle' width={size} height={size} className="w-full h-auto" priority />
         </div>
     )
 }

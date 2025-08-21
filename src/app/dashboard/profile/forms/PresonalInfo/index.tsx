@@ -1,10 +1,10 @@
 "use client";
 import React from "react";
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import InputFieldComponent from "@/components/inputComponent/InputFeildComponent";
-import FormSelectDropdown from "@/components/inputComponent/FormSelectDropdown"; // ✅ import dropdown
+import FormSelectDropdown from "@/components/inputComponent/FormSelectDropdown";
 
 // ✅ Validation Schema
 const schema = yup.object().shape({
@@ -16,17 +16,34 @@ const schema = yup.object().shape({
     .required("Phone is required"),
   email: yup.string().email("Invalid email").required("Email is required"),
   dob: yup.string().required("Date of Birth is required"),
-  gender: yup.string().required("Gender is required"),
-  maritalStatus: yup.string().required("Marital Status is required"),
+  gender: yup
+    .string()
+    .oneOf(["male", "female", "other"], "Invalid gender")
+    .required("Gender is required"),
+  maritalStatus: yup
+    .string()
+    .oneOf(["single", "married", "divorced"], "Invalid status")
+    .required("Marital Status is required"),
   website: yup.string().url("Invalid URL").required("Website is required"),
 });
 
-export default function PresonalInfo() {
+export interface ProfileFormValues {
+  firstName: string;
+  lastName: string;
+  phone: string;
+  email: string;
+  dob: string; // can also be Date if you parse it
+  gender: "male" | "female" | "other";
+  maritalStatus: "single" | "married" | "divorced";
+  website: string;
+}
+
+export default function PersonalInfo() {
   const {
     handleSubmit,
     control,
     formState: { errors },
-  } = useForm({
+  } = useForm<ProfileFormValues>({
     resolver: yupResolver(schema),
     defaultValues: {
       firstName: "",
@@ -34,13 +51,13 @@ export default function PresonalInfo() {
       phone: "",
       email: "",
       dob: "",
-      gender: "",
-      maritalStatus: "",
+      gender: undefined as unknown as ProfileFormValues["gender"], // ✅ TS happy
+      maritalStatus: undefined as unknown as ProfileFormValues["maritalStatus"],
       website: "",
     },
   });
 
-  const onSubmit = (data: any) => {
+  const onSubmit: SubmitHandler<ProfileFormValues> = (data) => {
     console.log("Form Data:", data);
   };
 
@@ -98,7 +115,7 @@ export default function PresonalInfo() {
           error={errors.dob?.message}
         />
 
-        {/* Gender (Dropdown with Component) */}
+        {/* Gender */}
         <FormSelectDropdown
           name="gender"
           control={control}
@@ -111,7 +128,7 @@ export default function PresonalInfo() {
           error={errors.gender?.message}
         />
 
-        {/* Marital Status (Dropdown with Component) */}
+        {/* Marital Status */}
         <FormSelectDropdown
           name="maritalStatus"
           control={control}
