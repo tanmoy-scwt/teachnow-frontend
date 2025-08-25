@@ -20,11 +20,12 @@ import styles from "./style.module.css";
 import Logo from "@/components/ui/logo";
 import UserCard from "@/components/ui/userCard";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 interface DashboardClientProps {
     children: React.ReactNode;
-    navigationItems: { icon: string; label: string; active: boolean }[];
-    headerNavItems: string[];
+    navigationItems: { icon: string; label: string; navLink: string; active: boolean }[];
+    headerNavItems: { navLinks: string; itemName: string; }[];
 }
 
 const iconMap: Record<string, React.ElementType> = {
@@ -46,6 +47,7 @@ const DashboardClient: React.FC<DashboardClientProps> = ({
 }) => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isTopNavOpen, setIsTopNavOpen] = useState(false);
+    const pathName = usePathname()
 
     const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
     const toggleTopNav = () => setIsTopNavOpen(!isTopNavOpen);
@@ -88,10 +90,10 @@ const DashboardClient: React.FC<DashboardClientProps> = ({
                     {navigationItems.map((item, index) => {
                         const Icon = iconMap[item.icon];
                         return (
-                            <a
+                            <Link
                                 key={index}
-                                href="#"
-                                className={`${styles.navItem} ${item.active ? styles.navItemActive : ""
+                                href={item?.navLink}
+                                className={`${styles.navItem} ${pathName === item.navLink ? styles.navItemActive : ""
                                     }`}
                                 onClick={(e) => {
                                     e.preventDefault();
@@ -100,7 +102,7 @@ const DashboardClient: React.FC<DashboardClientProps> = ({
                             >
                                 <Icon className={styles.navIcon} />
                                 {item.label}
-                            </a>
+                            </Link>
                         );
                     })}
                 </nav>
@@ -117,8 +119,8 @@ const DashboardClient: React.FC<DashboardClientProps> = ({
                         return (
                             <Link
                                 key={index}
-                                href="#"
-                                className={`${styles.navItem} ${item.active ? styles.navItemActive : ""
+                                href={item?.navLink}
+                                className={`${styles.navItem} ${pathName === item.navLink ? styles.navItemActive : ""
                                     }`}
                             >
                                 <Icon className={styles.navIcon} />
@@ -149,14 +151,13 @@ const DashboardClient: React.FC<DashboardClientProps> = ({
                         {/* Desktop Header Nav */}
                         <nav className={styles.headerNav}>
                             {headerNavItems.map((item, index) => (
-                                <a
+                                <Link
                                     key={index}
-                                    href="#"
+                                    href={item?.navLinks}
                                     className={styles.headerNavLink}
-                                    onClick={(e) => e.preventDefault()}
                                 >
-                                    {item}
-                                </a>
+                                    {item?.itemName}
+                                </Link>
                             ))}
                         </nav>
 
@@ -190,17 +191,13 @@ const DashboardClient: React.FC<DashboardClientProps> = ({
                     <div className={styles.mobileTopNav}>
                         <nav className="flex flex-col !p-4 space-y-3">
                             {headerNavItems.map((item, index) => (
-                                <a
+                                <Link
                                     key={index}
-                                    href="#"
+                                    href={item?.navLinks}
                                     className={styles.mobileTopNavLink}
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        setIsTopNavOpen(false);
-                                    }}
                                 >
-                                    {item}
-                                </a>
+                                    {item?.itemName}
+                                </Link>
                             ))}
                         </nav>
                     </div>
