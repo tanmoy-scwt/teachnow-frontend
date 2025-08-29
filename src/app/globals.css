@@ -14,12 +14,36 @@
   --box-shadow: 0 12px 40px #0e37b18a;
 }
 
+/* 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
+*/
+
+
+/* in your globals.css or component css */
+@keyframes border-glow {
+  0% {
+    border-color: var(--primary-color); /* blue-500 */
+    box-shadow: 0 0 4px var(--primary-color);
+  }
+  50% {
+    border-color: var(--secondary-color); /* blue-600 */
+    box-shadow: 0 0 8px var(--secondary-color);
+  }
+  100% {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 1px var(--primary-color);
+  }
+}
+.border-animate-blue {
+  animation: border-glow 1.5s infinite ease-in-out;
+}
+
+
 
 p {
   color: var(--paragraph-light-color);

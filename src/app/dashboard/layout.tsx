@@ -1,4 +1,4 @@
-
+"use client"
 import DashboardClient from "@/components/layout/dashboardClient";
 import React from "react";
 import styles from "./dashboard.module.css";

@@ -9,8 +9,10 @@ import UserCardFeildComponent from "@/components/inputComponent/UserCardFeildCom
 import ButtonRound from "@/components/ui/button";
 import ToggleFieldComponent from "@/components/inputComponent/ToggleFeildComponent";
 
-// ✅ Validation Schema
-const schema = yup.object().shape({
+const genderOptions = ["male", "female", "other"] as const;
+const maritalStatusOptions = ["single", "married", "divorced"] as const;
+
+export const schema = yup.object().shape({
   firstName: yup.string().required("First Name is required"),
   lastName: yup.string().required("Last Name is required"),
   phone: yup
@@ -20,19 +22,30 @@ const schema = yup.object().shape({
   email: yup.string().email("Invalid email").required("Email is required"),
   dob: yup.string().required("Date of Birth is required"),
   gender: yup
-    .string()
-    .oneOf(["male", "female", "other"], "Invalid gender")
+    .mixed<(typeof genderOptions)[number]>() // TS autocomplete
+    .oneOf(genderOptions, "Invalid gender")
     .required("Gender is required"),
+
+  // Marital Status (array, dynamic options)
   maritalStatus: yup
-    .string()
-    .oneOf(["single", "married", "divorced"], "Invalid status")
+    .array()
+    .of(
+      yup
+        .mixed<(typeof maritalStatusOptions)[number]>()
+        .oneOf(maritalStatusOptions, "Invalid status")
+        .required()
+    )
+    .min(1, "At least one status must be selected")
     .required("Marital Status is required"),
+
   website: yup.string().url("Invalid URL").required("Website is required"),
+
   acceptTerms: yup
     .boolean()
-    .oneOf([true], "You must accept the terms") // ✅ must be true
+    .oneOf([true], "You must accept the terms")
     .required(),
 });
+
 
 export interface ProfileFormValues {
   firstName: string;
@@ -40,12 +53,11 @@ export interface ProfileFormValues {
   phone: string;
   email: string;
   dob: string;
-  gender: "male" | "female" | "other";
-  maritalStatus: "single" | "married" | "divorced";
+  gender: (typeof genderOptions)[number];
+  maritalStatus: Array<(typeof maritalStatusOptions)[number]>;
   website: string;
-  acceptTerms: boolean; // ✅ added
+  acceptTerms: boolean;
 }
-
 export default function PersonalInfo() {
   const {
     handleSubmit,
@@ -60,13 +72,13 @@ export default function PersonalInfo() {
       email: "",
       dob: "",
       gender: undefined as unknown as ProfileFormValues["gender"],
-      maritalStatus: undefined as unknown as ProfileFormValues["maritalStatus"],
+      maritalStatus: [] as unknown as ProfileFormValues["maritalStatus"],
       website: "",
-      acceptTerms: false, // ✅ default toggle off
+      acceptTerms: false,
     },
   });
 
-  const onSubmit: SubmitHandler<ProfileFormValues> = (data) => {
+  const onSubmit: SubmitHandler<ProfileFormValues> = (data : ProfileFormValues) => {
     console.log("Form Data:", data);
   };
 
@@ -163,9 +175,11 @@ export default function PersonalInfo() {
 
           {/* Marital Status */}
           <FormSelectDropdown
+          isMulti={true}
             name="maritalStatus"
             control={control}
             label="Marital Status"
+            isLoading={true}
             options={[
               { value: "single", label: "Single" },
               { value: "married", label: "Married" },
@@ -194,7 +208,6 @@ export default function PersonalInfo() {
           Submit
         </button>
         {/* <ButtonRound type="button" name="Edit" className="bgFilled" extraClass="!p-0" /> */}
-
       </div>
     </form>
   );

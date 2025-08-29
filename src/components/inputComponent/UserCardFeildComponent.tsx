@@ -18,7 +18,7 @@ const UserCardFeildComponent: React.FC<UserCardFeildComponentProps> = ({
     showsPencil = false,
     editable = false,
 }) => {
-    const [previewUrl, setPreviewUrl] = useState(imageUrl); // ✅ Local state for preview
+    const [previewUrl, setPreviewUrl] = useState(imageUrl);
     const fileInputRef = useRef<HTMLInputElement>(null);
 
     const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -31,7 +31,7 @@ const UserCardFeildComponent: React.FC<UserCardFeildComponentProps> = ({
 
     const handlePencilClick = () => {
         if (editable && fileInputRef.current) {
-            fileInputRef.current.click(); // ✅ Open file picker
+            fileInputRef.current.click();
         }
     };
 
