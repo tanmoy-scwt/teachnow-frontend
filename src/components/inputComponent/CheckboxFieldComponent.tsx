@@ -18,7 +18,7 @@ const CheckboxFieldComponent = <T extends FieldValues>({
     classname,
 }: CheckboxFieldComponentProps<T>) => {
     return (
-        <div className={`flex items-center ${classname} w-full mb-4`}>
+        <div className={`flex gap-3 items-center ${classname} w-full mb-4`}>
             <Controller
                 name={name}
                 control={control}

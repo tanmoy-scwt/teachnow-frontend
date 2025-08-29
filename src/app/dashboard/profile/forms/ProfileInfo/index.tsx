@@ -31,6 +31,7 @@ import {
 import SectionContent from "@/components/ui/SectionContent";
 import InputFieldComponent from "@/components/inputComponent/InputFeildComponent";
 import TextareaFieldComponent from "@/components/inputComponent/TextareaFieldComponent";
+import CheckboxFieldComponent from "@/components/inputComponent/CheckboxFieldComponent";
 
 const schema = yup.object().shape({
   preferredTypeOfEmployment: yup
@@ -75,6 +76,7 @@ const schema = yup.object().shape({
     .typeError("Expected CTC must be a number")
     .positive("Expected CTC must be positive")
     .required("Expected CTC is required"),
+  notDisclose: yup.boolean().default(false),
   isCTCNegotiable: yup
     .mixed<(typeof ctcNegotiableValues)[number]>()
     .oneOf(ctcNegotiableValues, "Invalid CTC negotiation status")
@@ -113,6 +115,7 @@ export interface ProfileFormValues {
   preferredCompanyType: (typeof preferredCompanyTypeValues)[number];
   diversityInclusionPreference: (typeof diversityInclusionValues)[number];
   expectedCTC: number;
+  notDisclose: boolean;
   isCTCNegotiable: (typeof ctcNegotiableValues)[number];
   languagesKnown: Array<(typeof languagesValues)[number]>;
   skills: Array<(typeof skillsValues)[number]>;
@@ -126,16 +129,23 @@ export default function ProfileInfo() {
   } = useForm<ProfileFormValues>({
     resolver: yupResolver(schema),
     defaultValues: {
-      preferredTypeOfEmployment:undefined as unknown as ProfileFormValues["preferredTypeOfEmployment"],
+      preferredTypeOfEmployment:
+        undefined as unknown as ProfileFormValues["preferredTypeOfEmployment"],
       salaryType: undefined as unknown as ProfileFormValues["salaryType"],
       expectedSalary: 0,
-      preferredShift:undefined as unknown as ProfileFormValues["preferredShift"],
+      preferredShift:
+        undefined as unknown as ProfileFormValues["preferredShift"],
       industry: undefined as unknown as ProfileFormValues["industry"],
-      keyFunctionalArea:undefined as unknown as ProfileFormValues["keyFunctionalArea"],
-      preferredCompanyType:undefined as unknown as ProfileFormValues["preferredCompanyType"],
-      diversityInclusionPreference:undefined as unknown as ProfileFormValues["diversityInclusionPreference"],
+      keyFunctionalArea:
+        undefined as unknown as ProfileFormValues["keyFunctionalArea"],
+      preferredCompanyType:
+        undefined as unknown as ProfileFormValues["preferredCompanyType"],
+      diversityInclusionPreference:
+        undefined as unknown as ProfileFormValues["diversityInclusionPreference"],
       expectedCTC: 0,
-      isCTCNegotiable:undefined as unknown as ProfileFormValues["isCTCNegotiable"],
+      notDisclose: false,
+      isCTCNegotiable:
+        undefined as unknown as ProfileFormValues["isCTCNegotiable"],
       languagesKnown: [] as unknown as ProfileFormValues["languagesKnown"],
       skills: [] as unknown as ProfileFormValues["skills"],
       description: "",
@@ -156,17 +166,14 @@ export default function ProfileInfo() {
       isContainerActive={false}
     >
       <form onSubmit={handleSubmit(onSubmit)}>
-        {/* Grid Layout */}
-        <div className="flex flex-col gap-8">
-          <div className="grid col-span-2 grid-cols-1 md:grid-cols-2 gap-4">
-            {/* Preferred Type of Employment */}
-            <FormSelectDropdown
-              name="preferredTypeOfEmployment"
-              control={control}
-              label="Preferred Type of Employment"
-              options={preferredEmploymentTypeOptions}
-              error={errors.preferredTypeOfEmployment?.message}
-            />
+        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-6 w-full">
+          <FormSelectDropdown
+            name="preferredTypeOfEmployment"
+            control={control}
+            label="Preferred Type of Employment"
+            options={preferredEmploymentTypeOptions}
+            error={errors.preferredTypeOfEmployment?.message}
+          />
             <FormSelectDropdown
               name="salaryType"
               control={control}
@@ -174,7 +181,7 @@ export default function ProfileInfo() {
               options={salaryTypeOptions}
               error={errors.salaryType?.message}
             />
-            <InputFieldComponent
+               <InputFieldComponent
               name="expectedSalary"
               control={control}
               label="Expected Salary"
@@ -182,7 +189,7 @@ export default function ProfileInfo() {
               placeholder="Enter expected salary"
               error={errors.expectedSalary?.message}
             />
-            <FormSelectDropdown
+              <FormSelectDropdown
               name="preferredShift"
               control={control}
               label="Preferred Shift"
@@ -196,21 +203,21 @@ export default function ProfileInfo() {
               options={jobLocationOptions}
               error={errors.jobLocation?.message}
             />
-            <FormSelectDropdown
+             <FormSelectDropdown
               name="industry"
               control={control}
               label="Industry"
               options={industryOptions}
               error={errors.industry?.message}
             />
-            <FormSelectDropdown
+              <FormSelectDropdown
               name="keyFunctionalArea"
               control={control}
               label="Key Functional Area"
               options={keyFunctionalAreaOptions}
               error={errors.keyFunctionalArea?.message}
             />
-            <FormSelectDropdown
+               <FormSelectDropdown
               name="preferredCompanyType"
               control={control}
               label="Preferred Company Type"
@@ -232,7 +239,17 @@ export default function ProfileInfo() {
               placeholder="Enter expected CTC"
               error={errors.expectedCTC?.message}
             />
-            <FormSelectDropdown
+             
+            <div className="col-span-1 lg:col-span-2">
+              <CheckboxFieldComponent
+                name="notDisclose"
+                control={control}
+                label="Not disclose"
+                error={errors.notDisclose?.message}
+                classname="mt-2"
+              />
+            </div>
+             <FormSelectDropdown
               name="isCTCNegotiable"
               control={control}
               label="CTC Negotiation Status"
@@ -247,7 +264,7 @@ export default function ProfileInfo() {
               isMulti={true}
               error={errors.languagesKnown?.message}
             />
-            <div className="flex flex-col gap-2 col-span-2">
+              <div className="col-span-1 lg:col-span-2">
               <FormSelectDropdown
                 name="skills"
                 control={control}
@@ -256,7 +273,8 @@ export default function ProfileInfo() {
                 isMulti={true}
                 error={errors.skills?.message}
               />
-
+            </div>
+            <div className="col-span-1 lg:col-span-2">
               <TextareaFieldComponent
                 name="description"
                 control={control}
@@ -266,7 +284,6 @@ export default function ProfileInfo() {
                 error={errors.description?.message}
               />
             </div>
-          </div>
         </div>
 
         {/* Submit Button */}
@@ -275,7 +292,7 @@ export default function ProfileInfo() {
             type="submit"
             className="w-full md:w-auto !px-6 !py-2 rounded-md bg-blue-500 text-white hover:bg-blue-600"
           >
-            Submit
+            Submit2
           </button>
         </div>
       </form>
