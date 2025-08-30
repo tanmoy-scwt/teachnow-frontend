@@ -162,7 +162,7 @@ export default function ProfileInfo() {
     <SectionContent
       variant="h2"
       title="Job Preferences and Details"
-      titleCSS="!text-3xl !font-medium text-[var(--primary-color)] !mb-6"
+     useCustomCSS={true}
       isContainerActive={false}
     >
       <form onSubmit={handleSubmit(onSubmit)}>

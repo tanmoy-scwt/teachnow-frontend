@@ -8,11 +8,17 @@
   --primary-color: #4679b5;
   --primary-color-dark: #3b5a8c;
   --secondary-color: #1e2d42;
-
   --light-black: #262626;
-
   --paragraph-light-color: #505050;
   --box-shadow: 0 12px 40px #0e37b18a;
+}
+.box-hover{
+  transition: all 0.3s ease;
+}
+
+.box-hover:hover{
+  box-shadow:0 6px 20px #0e37b159;
+  transform: scale(1.07);
 }
 
 /* 
@@ -24,6 +30,19 @@
 }
 */
 
+/* global.css or CSS module */
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.no-select {
+  user-select: none; /* Disable text selection */
+}
 
 /* in your globals.css or component css */
 @keyframes border-glow {

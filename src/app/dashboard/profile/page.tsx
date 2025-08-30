@@ -1,21 +1,12 @@
-"use client"
-import React from 'react'
-// import EducationDetails from './forms/EducationDetails'
-import WorkExperienceDetails from './forms/WorkExperienceDetails'
-
-// import PresonalInfo from './forms/PresonalInfo'
-// import ProfileInfo from './forms/ProfileInfo'
+import React from "react";
+import MyProfilePage from "./myprofile";
 
 const page = () => {
   return (
     <>
-      {/* <PresonalInfo /> */}
-      {/* <ProfileInfo /> */}
-      {/* <JobPreferencesForm /> */}
-      {/* <EducationDetails /> */}
-      <WorkExperienceDetails />
+      <MyProfilePage />
     </>
-  )
-}
+  );
+};
 
-export default page
+export default page;

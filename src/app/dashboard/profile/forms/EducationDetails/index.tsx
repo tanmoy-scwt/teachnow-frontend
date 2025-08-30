@@ -96,12 +96,12 @@ const EducationDetails = () => {
      <SectionContent
       variant="h2"
       title="Education Details"
-      titleCSS="!text-3xl !font-medium text-[var(--primary-color)] !mb-6"
+      useCustomCSS={true}
       isContainerActive={false}
     >
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
       {fields.map((field, index) => (
-        <div key={field.id} className="flex flex-col gap-6">
+        <div key={field.id} className="flex !mt-5 flex-col gap-6">
           <InputFieldComponent
             name={`educationDetails.${index}.degreeName`}
             control={control}

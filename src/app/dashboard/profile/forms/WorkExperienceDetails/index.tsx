@@ -83,12 +83,12 @@ const WorkExperienceDetails = () => {
      <SectionContent
       variant="h2"
       title="Work Experience Details"
-      titleCSS="!text-3xl !font-medium text-[var(--primary-color)] !mb-6"
+      useCustomCSS={true}
       isContainerActive={false}
     >
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
       {fields.map((field, index) => (
-        <div key={field.id} className="flex flex-col gap-6">
+        <div key={field.id} className="flex flex-col !mt-5 gap-6">
           <InputFieldComponent
             name={`workExperiences.${index}.companyName`}
             control={control}

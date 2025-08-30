@@ -73,7 +73,7 @@ const FormSelectDropdown = <T extends FieldValues>({
                 isDisabled={isLoading}
                 placeholder={
                   isLoading
-                    ? `wait a moment ${label} loading...`
+                    ? `wait ${label?.toLowerCase()} loading...`
                     : `Select ${label}`
                 }
                 classNamePrefix="react-select"

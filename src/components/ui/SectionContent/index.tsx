@@ -8,9 +8,10 @@ type SectionContentProps = {
     titleCSS?: string;
     title: string;
     isContainerActive?: boolean;
+    useCustomCSS?: boolean;
 };
 
-const SectionContent = ({ isContainerActive = true, variant, title, children, className = '', titleCSS = '' }: SectionContentProps) => {
+const SectionContent = ({ isContainerActive = true, variant, title, children, className = '', titleCSS = '', useCustomCSS = false }: SectionContentProps) => {
     const HeadingTag = variant;
     return (
         <section className={className}>
@@ -24,7 +25,7 @@ const SectionContent = ({ isContainerActive = true, variant, title, children, cl
             ) : (
                 <>
                     <div className='section-content'>
-                        <HeadingTag className={titleCSS}>{title}</HeadingTag>
+                        <HeadingTag className={`${titleCSS} ${useCustomCSS ? "!text-[clamp(22px,4vw,36px)] !font-medium text-[var(--primary-color)] !mb-6" : ''}`}>{title}</HeadingTag>
                     </div>
                     {children}
                 </>
