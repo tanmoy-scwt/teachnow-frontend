@@ -5,10 +5,10 @@ const Select = dynamic(() => import("react-select"), {
   ssr: false,
   loading: () => <SelectBoxShimmer />,
 });
-import { Hourglass } from "react-loader-spinner";
 import { Controller, Control, FieldValues, Path } from "react-hook-form";
 import { components } from "react-select";
 import SelectBoxShimmer from "../ui/shimmers/SelectBoxShimmer";
+import { GiSandsOfTime } from "react-icons/gi";
 
 interface Option {
   value: string;
@@ -87,15 +87,11 @@ const FormSelectDropdown = <T extends FieldValues>({
                 components={{
                   DropdownIndicator: (props) =>
                     isLoading ? (
-                      <div className="flex items-center !px-2">
-                        <Hourglass
-                          visible={true}
-                          height="16"
-                          width="16"
-                          ariaLabel="hourglass-loading"
-                          wrapperStyle={{}}
-                          wrapperClass=""
-                          colors={["#306cce", "#72a1ed"]}
+                      <div className="flex items-center justify-center !px-2">
+                        <GiSandsOfTime
+                          className="text-blue-600 animate-spin"
+                          size={20} // you can adjust size
+                          aria-label="loading"
                         />
                       </div>
                     ) : (
