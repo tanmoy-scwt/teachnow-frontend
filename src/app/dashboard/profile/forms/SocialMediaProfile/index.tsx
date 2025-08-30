@@ -1,3 +1,4 @@
+"use client"
 import FormSelectDropdown from "@/components/inputComponent/FormSelectDropdown";
 import InputFieldComponent from "@/components/inputComponent/InputFeildComponent";
 import SectionContent from "@/components/ui/SectionContent";

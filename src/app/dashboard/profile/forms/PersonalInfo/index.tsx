@@ -8,6 +8,7 @@ import FormSelectDropdown from "@/components/inputComponent/FormSelectDropdown";
 import UserCardFeildComponent from "@/components/inputComponent/UserCardFeildComponent";
 import ButtonRound from "@/components/ui/button";
 import ToggleFieldComponent from "@/components/inputComponent/ToggleFeildComponent";
+import { MdOutlineArrowOutward } from "react-icons/md";
 
 const genderOptions = ["male", "female", "other"] as const;
 const maritalStatusOptions = ["single", "married", "divorced"] as const;
@@ -46,7 +47,6 @@ export const schema = yup.object().shape({
     .required(),
 });
 
-
 export interface ProfileFormValues {
   firstName: string;
   lastName: string;
@@ -78,7 +78,9 @@ export default function PersonalInfo() {
     },
   });
 
-  const onSubmit: SubmitHandler<ProfileFormValues> = (data : ProfileFormValues) => {
+  const onSubmit: SubmitHandler<ProfileFormValues> = (
+    data: ProfileFormValues
+  ) => {
     console.log("Form Data:", data);
   };
 
@@ -175,7 +177,7 @@ export default function PersonalInfo() {
 
           {/* Marital Status */}
           <FormSelectDropdown
-          isMulti={true}
+            isMulti={true}
             name="maritalStatus"
             control={control}
             label="Marital Status"
@@ -203,9 +205,10 @@ export default function PersonalInfo() {
       <div className="!mt-6">
         <button
           type="submit"
-          className="w-full md:w-auto !px-6 !py-2 rounded-md bg-blue-500 text-white hover:bg-blue-600"
+          className="flex gap-2 items-center !pl-6 !pr-2 !py-2 rounded-[50px] bg-blue-500 text-white hover:bg-blue-600"
         >
-          Submit
+          <span>Submit</span>
+          <MdOutlineArrowOutward size={30} color="#ffffff" className="rounded-full !p-1 bg-[var(--primary-color)]" />
         </button>
         {/* <ButtonRound type="button" name="Edit" className="bgFilled" extraClass="!p-0" /> */}
       </div>

@@ -56,7 +56,7 @@ const ActiveIndicator: React.FC<ActiveIndicatorProps> = ({
   return (
     <div
       ref={containerRef}
-      className="flex gap-8 overflow-x-auto cursor-grab active:cursor-grabbing hide-scrollbar no-select"
+      className="flex gap-8 !mb-4 overflow-x-auto cursor-grab active:cursor-grabbing hide-scrollbar no-select"
       onMouseDown={handleMouseDown}
       onMouseLeave={handleMouseLeave}
       onMouseUp={handleMouseUp}

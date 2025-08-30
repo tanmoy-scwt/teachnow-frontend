@@ -16,7 +16,7 @@ const HeroSection = () => {
                             <HtmlRender htmlString={title} />
                             <p>Your one-stop job portal for teaching, training & education</p>
                         </div>
-                        <Suspense fallback={<div>Loading filters...</div>}>
+                        <Suspense fallback={<div>Loading Searchbox...</div>}>
                             <SearchBox />
                         </Suspense>
                         <div className={styles.sectionContents}>
