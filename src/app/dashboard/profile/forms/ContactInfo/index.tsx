@@ -8,6 +8,7 @@ import SectionContent from "@/components/ui/SectionContent";
 import InputFieldComponent from "@/components/inputComponent/InputFeildComponent";
 import CheckboxFieldComponent from "@/components/inputComponent/CheckboxFieldComponent";
 import FormSelectDropdown from "@/components/inputComponent/FormSelectDropdown";
+import FormButton from "@/components/inputComponent/FormButton";
 
 const countryOptions = [
   { value: "india", label: "India" },
@@ -203,14 +204,22 @@ const ContactInfo = () => {
       </SectionContent>
 
       {/* Submit */}
-      <div className="mt-6">
-        <button
-          type="submit"
-          className="w-full md:w-auto px-6 py-2 rounded-md bg-blue-500 text-white hover:bg-blue-600"
-        >
-          Submit
-        </button>
-      </div>
+      <div className="!mt-6 flex justify-between items-center">
+          <FormButton
+            title="back"
+            buttonType="button"
+            buttonVariant="outlined"
+            isSubmitting={false}
+            submittingMessage="Saving..."
+          />
+          <FormButton
+            title="Save"
+            buttonType="submit"
+            buttonVariant="filled"
+            isSubmitting={true}
+            submittingMessage="Saving..."
+          />
+        </div>
     </form>
   );
 };

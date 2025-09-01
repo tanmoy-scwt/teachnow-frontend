@@ -7,6 +7,7 @@ import InputFieldComponent from "@/components/inputComponent/InputFeildComponent
 import CheckboxFieldComponent from "@/components/inputComponent/CheckboxFieldComponent";
 import FormSelectDropdown from "@/components/inputComponent/FormSelectDropdown";
 import SectionContent from "@/components/ui/SectionContent";
+import FormButton from "@/components/inputComponent/FormButton";
 
 const employmentTypeOptions = [
   { value: "full_time", label: "Full-time" },
@@ -168,14 +169,22 @@ const WorkExperienceDetails = () => {
         + Add More
       </button>
 
-      <div>
-        <button
-          type="submit"
-          className="bg-green-500 text-white px-4 py-2 rounded mt-4"
-        >
-          Submit
-        </button>
-      </div>
+     <div className="!mt-6 flex justify-between items-center">
+          <FormButton
+            title="back"
+            buttonType="button"
+            buttonVariant="outlined"
+            isSubmitting={false}
+            submittingMessage="Saving..."
+          />
+          <FormButton
+            title="next"
+            buttonType="submit"
+            buttonVariant="filled"
+            isSubmitting={false}
+            submittingMessage="Saving..."
+          />
+        </div>
     </form>
     </SectionContent>
   );

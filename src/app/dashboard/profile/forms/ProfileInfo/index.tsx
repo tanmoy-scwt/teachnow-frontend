@@ -32,6 +32,7 @@ import SectionContent from "@/components/ui/SectionContent";
 import InputFieldComponent from "@/components/inputComponent/InputFeildComponent";
 import TextareaFieldComponent from "@/components/inputComponent/TextareaFieldComponent";
 import CheckboxFieldComponent from "@/components/inputComponent/CheckboxFieldComponent";
+import FormButton from "@/components/inputComponent/FormButton";
 
 const schema = yup.object().shape({
   preferredTypeOfEmployment: yup
@@ -162,7 +163,7 @@ export default function ProfileInfo() {
     <SectionContent
       variant="h2"
       title="Job Preferences and Details"
-     useCustomCSS={true}
+      useCustomCSS={true}
       isContainerActive={false}
     >
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -174,126 +175,134 @@ export default function ProfileInfo() {
             options={preferredEmploymentTypeOptions}
             error={errors.preferredTypeOfEmployment?.message}
           />
+          <FormSelectDropdown
+            name="salaryType"
+            control={control}
+            label="Salary Type"
+            options={salaryTypeOptions}
+            error={errors.salaryType?.message}
+          />
+          <InputFieldComponent
+            name="expectedSalary"
+            control={control}
+            label="Expected Salary"
+            type="number"
+            placeholder="Enter expected salary"
+            error={errors.expectedSalary?.message}
+          />
+          <FormSelectDropdown
+            name="preferredShift"
+            control={control}
+            label="Preferred Shift"
+            options={preferredShiftOptions}
+            error={errors.preferredShift?.message}
+          />
+          <FormSelectDropdown
+            name="jobLocation"
+            control={control}
+            label="Job Location"
+            options={jobLocationOptions}
+            error={errors.jobLocation?.message}
+          />
+          <FormSelectDropdown
+            name="industry"
+            control={control}
+            label="Industry"
+            options={industryOptions}
+            error={errors.industry?.message}
+          />
+          <FormSelectDropdown
+            name="keyFunctionalArea"
+            control={control}
+            label="Key Functional Area"
+            options={keyFunctionalAreaOptions}
+            error={errors.keyFunctionalArea?.message}
+          />
+          <FormSelectDropdown
+            name="preferredCompanyType"
+            control={control}
+            label="Preferred Company Type"
+            options={preferredCompanyTypeOptions}
+            error={errors.preferredCompanyType?.message}
+          />
+          <FormSelectDropdown
+            name="diversityInclusionPreference"
+            control={control}
+            label="Diversity & Inclusion Preference"
+            options={diversityInclusionOptions}
+            error={errors.diversityInclusionPreference?.message}
+          />
+          <InputFieldComponent
+            name="expectedCTC"
+            control={control}
+            label="Expected CTC"
+            type="number"
+            placeholder="Enter expected CTC"
+            error={errors.expectedCTC?.message}
+          />
+
+          <div className="col-span-1 lg:col-span-2">
+            <CheckboxFieldComponent
+              name="notDisclose"
+              control={control}
+              label="Not disclose"
+              error={errors.notDisclose?.message}
+              classname="mt-2"
+            />
+          </div>
+          <FormSelectDropdown
+            name="isCTCNegotiable"
+            control={control}
+            label="CTC Negotiation Status"
+            options={ctcNegotiableOptions}
+            error={errors.isCTCNegotiable?.message}
+          />
+          <FormSelectDropdown
+            name="languagesKnown"
+            control={control}
+            label="Languages Known"
+            options={languagesOptions}
+            isMulti={true}
+            error={errors.languagesKnown?.message}
+          />
+          <div className="col-span-1 lg:col-span-2">
             <FormSelectDropdown
-              name="salaryType"
+              name="skills"
               control={control}
-              label="Salary Type"
-              options={salaryTypeOptions}
-              error={errors.salaryType?.message}
-            />
-               <InputFieldComponent
-              name="expectedSalary"
-              control={control}
-              label="Expected Salary"
-              type="number"
-              placeholder="Enter expected salary"
-              error={errors.expectedSalary?.message}
-            />
-              <FormSelectDropdown
-              name="preferredShift"
-              control={control}
-              label="Preferred Shift"
-              options={preferredShiftOptions}
-              error={errors.preferredShift?.message}
-            />
-            <FormSelectDropdown
-              name="jobLocation"
-              control={control}
-              label="Job Location"
-              options={jobLocationOptions}
-              error={errors.jobLocation?.message}
-            />
-             <FormSelectDropdown
-              name="industry"
-              control={control}
-              label="Industry"
-              options={industryOptions}
-              error={errors.industry?.message}
-            />
-              <FormSelectDropdown
-              name="keyFunctionalArea"
-              control={control}
-              label="Key Functional Area"
-              options={keyFunctionalAreaOptions}
-              error={errors.keyFunctionalArea?.message}
-            />
-               <FormSelectDropdown
-              name="preferredCompanyType"
-              control={control}
-              label="Preferred Company Type"
-              options={preferredCompanyTypeOptions}
-              error={errors.preferredCompanyType?.message}
-            />
-            <FormSelectDropdown
-              name="diversityInclusionPreference"
-              control={control}
-              label="Diversity & Inclusion Preference"
-              options={diversityInclusionOptions}
-              error={errors.diversityInclusionPreference?.message}
-            />
-            <InputFieldComponent
-              name="expectedCTC"
-              control={control}
-              label="Expected CTC"
-              type="number"
-              placeholder="Enter expected CTC"
-              error={errors.expectedCTC?.message}
-            />
-             
-            <div className="col-span-1 lg:col-span-2">
-              <CheckboxFieldComponent
-                name="notDisclose"
-                control={control}
-                label="Not disclose"
-                error={errors.notDisclose?.message}
-                classname="mt-2"
-              />
-            </div>
-             <FormSelectDropdown
-              name="isCTCNegotiable"
-              control={control}
-              label="CTC Negotiation Status"
-              options={ctcNegotiableOptions}
-              error={errors.isCTCNegotiable?.message}
-            />
-            <FormSelectDropdown
-              name="languagesKnown"
-              control={control}
-              label="Languages Known"
-              options={languagesOptions}
+              label="Skills"
+              options={skillsOptions}
               isMulti={true}
-              error={errors.languagesKnown?.message}
+              error={errors.skills?.message}
             />
-              <div className="col-span-1 lg:col-span-2">
-              <FormSelectDropdown
-                name="skills"
-                control={control}
-                label="Skills"
-                options={skillsOptions}
-                isMulti={true}
-                error={errors.skills?.message}
-              />
-            </div>
-            <div className="col-span-1 lg:col-span-2">
-              <TextareaFieldComponent
-                name="description"
-                control={control}
-                label="Description"
-                placeholder="Write your description here..."
-                rows={5}
-                error={errors.description?.message}
-              />
-            </div>
+          </div>
+          <div className="col-span-1 lg:col-span-2">
+            <TextareaFieldComponent
+              name="description"
+              control={control}
+              label="Description"
+              placeholder="Write your description here..."
+              rows={5}
+              error={errors.description?.message}
+            />
+          </div>
         </div>
 
         {/* Submit Button */}
-        <div className="!mt-6">
-          <button
-            type="submit"
-            className="w-full md:w-auto !px-6 !py-2 rounded-md bg-blue-500 text-white hover:bg-blue-600"
-          >
-            Submit2
-          </button>
+        <div className="!mt-6 flex justify-between items-center">
+          <FormButton
+            title="back"
+            buttonType="button"
+            buttonVariant="outlined"
+            isSubmitting={false}
+            submittingMessage="Saving..."
+          />
+          <FormButton
+            title="next"
+            buttonType="submit"
+            buttonVariant="filled"
+            isSubmitting={true}
+            submittingMessage="Saving..."
+          />
         </div>
       </form>
     </SectionContent>

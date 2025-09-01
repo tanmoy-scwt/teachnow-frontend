@@ -1,4 +1,5 @@
 "use client"
+import FormButton from "@/components/inputComponent/FormButton";
 import FormSelectDropdown from "@/components/inputComponent/FormSelectDropdown";
 import InputFieldComponent from "@/components/inputComponent/InputFeildComponent";
 import SectionContent from "@/components/ui/SectionContent";
@@ -116,7 +117,7 @@ const SocialMediaProfile = () => {
         ))}
         <button
           type="button"
-          className="!mt-4"
+         className="text-base !my-4 text-[var(--primary-color)] hover:text-[var(--primary-color-dark)]"
           onClick={() =>
             append({
               social_platform:
@@ -125,9 +126,24 @@ const SocialMediaProfile = () => {
             })
           }
         >
-          Add More
+          + Add More
         </button>
-        <button type="submit">Submit</button>
+        <div className="!mt-6 flex justify-between items-center">
+          <FormButton
+            title="back"
+            buttonType="button"
+            buttonVariant="outlined"
+            isSubmitting={false}
+            submittingMessage="Saving..."
+          />
+          <FormButton
+            title="next"
+            buttonType="submit"
+            buttonVariant="filled"
+            isSubmitting={false}
+            submittingMessage="Saving..."
+          />
+        </div>
       </form>
     </SectionContent>
   );
