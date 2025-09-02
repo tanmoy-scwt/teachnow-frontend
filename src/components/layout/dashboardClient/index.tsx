@@ -96,7 +96,6 @@ const DashboardClient: React.FC<DashboardClientProps> = ({
                                 className={`${styles.navItem} ${pathName === item.navLink ? styles.navItemActive : ""
                                     }`}
                                 onClick={(e) => {
-                                    e.preventDefault();
                                     setIsMobileMenuOpen(false);
                                 }}
                             >
