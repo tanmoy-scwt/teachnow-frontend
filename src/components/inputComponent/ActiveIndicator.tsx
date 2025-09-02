@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from "react";
+import BackButton from "./BackButton";
 
 interface ActiveIndicatorProps {
   options: string[];
@@ -56,16 +57,17 @@ const ActiveIndicator: React.FC<ActiveIndicatorProps> = ({
   return (
     <div
       ref={containerRef}
-      className="flex gap-3 !mb-4 overflow-x-auto cursor-grab active:cursor-grabbing hide-scrollbar no-select"
+      className="flex gap-8 !mb-4 overflow-x-auto cursor-grab active:cursor-grabbing hide-scrollbar no-select"
       onMouseDown={handleMouseDown}
       onMouseLeave={handleMouseLeave}
       onMouseUp={handleMouseUp}
       onMouseMove={handleMouseMove}
     >
+      <BackButton className="!ml-1" />
       {options.map((option, index) => (
         <div
           key={option}
-          className="flex-shrink-0 !ml-5"
+          className="flex-shrink-0 "
           ref={(el) => {
             optionRefs.current[index + 1] = el;
           }}

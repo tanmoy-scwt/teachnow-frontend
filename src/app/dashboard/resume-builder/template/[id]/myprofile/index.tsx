@@ -8,6 +8,7 @@ import {
   WorkExperienceDetails,
 } from "@/app/dashboard/profile/forms";
 import ResumeTemplate from "../../_templates/ResumeTemplate";
+import BackButton from "@/components/inputComponent/BackButton";
 // import BackButton from "@/components/inputComponent/BackButton";
 
 const tabs = [
@@ -32,19 +33,16 @@ const MyProfilePage = () => {
   };
   return (
     <>
-      {/* <div className="flex gap-6 items-start"> */}
-        {/* <BackButton href="/dashboard/resume-builder" className="" /> */}
-        {/* <div className="flex-1"> */}
-          <ActiveIndicator
-            options={tabs}
-            activeOption={activeForm}
-            setActiveScreen={setActiveForm}
-          />
-        {/* </div> */}
-      {/* </div> */}
-      <div className="grid grid-cols-2 gap-8">
+      <ActiveIndicator
+        options={tabs}
+        activeOption={activeForm}
+        setActiveScreen={setActiveForm}
+      />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {renderScreen()}
-        <ResumeTemplate widthPercent={50} />
+        <div className="flex justify-center items-start ">
+          <ResumeTemplate widthPercent={60} />
+        </div>
       </div>
     </>
   );
