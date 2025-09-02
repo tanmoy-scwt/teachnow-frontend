@@ -8,8 +8,6 @@ import {
   WorkExperienceDetails,
 } from "@/app/dashboard/profile/forms";
 import ResumeTemplate from "../../_templates/ResumeTemplate";
-import BackButton from "@/components/inputComponent/BackButton";
-// import BackButton from "@/components/inputComponent/BackButton";
 
 const tabs = [
   "Personal Details",

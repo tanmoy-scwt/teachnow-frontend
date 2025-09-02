@@ -95,7 +95,7 @@ const DashboardClient: React.FC<DashboardClientProps> = ({
                                 href={item?.navLink}
                                 className={`${styles.navItem} ${pathName === item.navLink ? styles.navItemActive : ""
                                     }`}
-                                onClick={(e) => {
+                                onClick={() => {
                                     setIsMobileMenuOpen(false);
                                 }}
                             >
