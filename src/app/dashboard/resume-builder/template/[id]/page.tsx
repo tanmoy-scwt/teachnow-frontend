@@ -1,10 +1,10 @@
 import React from 'react'
-import MyProfilePage from './myprofile'
+import ResumeBuilderClient from '../_components/resumebuilderclient'
 
 const page = () => {
   return (
     <div >
-        <MyProfilePage/>
+        <ResumeBuilderClient/>
     </div>
   )
 }

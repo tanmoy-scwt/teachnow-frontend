@@ -13,17 +13,20 @@ import {
   FaFolderOpen, // FolderOpen
   FaUser, // User
 } from "react-icons/fa";
-import { resumeData } from "./resumedata";
 import Image from "next/image";
+import { resumeData } from "./resumedata";
+import { ResumeBuilderType } from "../formConfig/ResumeFormDefaultValues";
 
 type ResumeDataType = typeof resumeData;
 type EducationType = typeof resumeData.education[number];
 type WorkExperienceType = typeof resumeData.workExperience[number];
 type SkillType = typeof resumeData.technicalSkills.skills[number];
 type ProjectType = typeof resumeData.technicalSkills.projects[number];
+
 interface ResumeTemplate3Props {
   widthPercent?: number;
   data?: ResumeDataType;
+  previewData?:ResumeBuilderType
 }
 
 interface FormData {
@@ -33,6 +36,7 @@ interface FormData {
 const ResumeTemplate3: React.FC<ResumeTemplate3Props> = ({
   widthPercent = 100,
   data,
+  previewData,
 }) => {
   const scale = Math.max(0.6, widthPercent / 100);
   const fontSize = (base: number) => `${base * scale}rem`;
@@ -89,7 +93,8 @@ const ResumeTemplate3: React.FC<ResumeTemplate3Props> = ({
                   className="font-bold text-gray-900 !mb-1"
                   style={{ fontSize: fontSize(2.8), lineHeight: 1.1 }}
                 >
-                  {personal?.firstName} {personal?.lastName}
+                  {(previewData && previewData?.presonal_details?.firstName) ? `${previewData?.presonal_details?.firstName}` : `${personal?.firstName}`}&nbsp; 
+                  {(previewData && previewData?.presonal_details?.lastName) ? `${previewData?.presonal_details?.lastName}` : `${personal?.lastName}` }
                 </h1>
                 <p
                   className="text-red-600 font-semibold !mb-3"

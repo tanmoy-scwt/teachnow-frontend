@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React from "react";
 import { useForm, useFieldArray } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -78,7 +78,6 @@ const EducationDetails = () => {
   const {
     control,
     watch,
-    setValue,
     handleSubmit,
     formState: { errors },
   } = useForm<FormValues>({
@@ -89,7 +88,7 @@ const EducationDetails = () => {
   });
 
   const { fields, append, remove } = useFieldArray({
-    control,
+control,
     name: "educationDetails",
   });
 
@@ -97,16 +96,6 @@ const EducationDetails = () => {
     console.log("Form Data:", data);
   };
 
- useEffect(() => {
-  const subscription = watch((value) => {
-    value.educationDetails?.forEach((item, index) => {
-      if (item && item.currentlyPursuing) {
-        setValue(`educationDetails.${index}.toDate`, "");
-      }
-    });
-  });
-  return () => subscription.unsubscribe();
-}, [watch, setValue]);
 
   return (
     <SectionContent
@@ -117,9 +106,6 @@ const EducationDetails = () => {
     >
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         {fields.map((field, index) => {
-          const isCurrentlyPursuing = watch(
-            `educationDetails.${index}.currentlyPursuing`
-          );
 
           return (
             <div key={field.id} className="flex !mt-5 flex-col gap-6">
@@ -176,7 +162,7 @@ const EducationDetails = () => {
                 type="date"
               />
 
-              {!isCurrentlyPursuing && (
+              {!watch(`educationDetails.${index}.currentlyPursuing`) && (
                 <InputFieldComponent
                   name={`educationDetails.${index}.toDate`}
                   control={control}

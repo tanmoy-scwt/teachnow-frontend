@@ -6,6 +6,8 @@
 
   /* ---------------- main color ------------- */
   --primary-color: #4679b5;
+  --primary-bg:#9BC9FF;
+  --primary-bg-hover:#89b8f0;
   --primary-color-dark: #3b5a8c;
   --secondary-color: #1e2d42;
   --light-black: #262626;

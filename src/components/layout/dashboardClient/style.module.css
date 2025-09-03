@@ -62,17 +62,18 @@
   color: hsl(220, 9%, 46%);
   text-decoration: none;
   border-radius: 0.5rem;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.3s ease-in-out;
   margin-bottom: 0.25rem;
   font-weight: 500;
 }
 .navItem:hover {
-  background: hsl(220, 90%, 96%);
-  color: hsl(216, 15%, 15%);
+  background: var(--primary-bg-hover);
+  color: #ffffff;
+  box-shadow: var(--box-shadow);
 }
 .navItemActive {
-  background: hsl(200, 95%, 92%);
-  color: hsl(200, 95%, 55%);
+  background: #9BC9FF;
+  color: var(--primary-color);
   font-weight: 600;
 }
 .navIcon {
@@ -111,7 +112,7 @@
   transition: color 0.2s ease-in-out;
 }
 .headerNavLink:hover {
-  color: hsl(200, 95%, 55%);
+  color: var(--primary-bg-hover);
 }
 
 /* Mobile Header Elements */

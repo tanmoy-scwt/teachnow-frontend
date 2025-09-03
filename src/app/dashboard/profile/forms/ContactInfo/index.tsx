@@ -74,6 +74,9 @@ const ContactInfo = () => {
     },
   });
 
+  console.log(errors, "this error in contact info");
+  
+
   const isSameAddress = watch("isSameAddress");
   const currentAddress = watch("currentAddress");
 
@@ -216,7 +219,7 @@ const ContactInfo = () => {
             title="Save"
             buttonType="submit"
             buttonVariant="filled"
-            isSubmitting={true}
+            isSubmitting={false}
             submittingMessage="Saving..."
           />
         </div>
