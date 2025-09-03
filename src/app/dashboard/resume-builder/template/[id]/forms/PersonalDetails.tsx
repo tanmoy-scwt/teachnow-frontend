@@ -37,6 +37,7 @@ export const schema = yup.object().shape({
     .number()
     .min(0, "Experience year must be positive")
     .required("Experience year is required"),
+    jobRole: yup.string().required("Job Role is required"),
   industry: yup.string().required("Industry is required"),
 });
 
@@ -45,6 +46,7 @@ export interface ProfileFormValues {
   lastName: string;
   phone: string;
   email: string;
+  jobRole: string;
   website: string;
   summary: string;
   languages: Array<(typeof languageOptions)[number]>;
@@ -65,12 +67,13 @@ const PersonalDetails = () => {
       lastName: "",
       phone: "",
       email: "",
+      jobRole:'',
+      industry: "",
       website: "",
       summary: "",
       languages: [] as unknown as ProfileFormValues["languages"],
       address: "",
       experienceyear: 0,
-      industry: "",
     },
   });
 
@@ -138,9 +141,21 @@ const PersonalDetails = () => {
             error={errors.email?.message}
           />
           <FormSelectDropdown
+            name="jobRole"
+            control={control}
+            label="Job Role"
+            isLoading={false}
+            options={[
+              { value: "teacher", label: "Teacher" },
+              { value: "developer", label: "Developer" },
+              { value: "designer", label: "Designer" },
+            ]}
+            error={errors.jobRole?.message}
+          />
+          <FormSelectDropdown
             name="industry"
             control={control}
-            label="Industry"
+            label="Industry Name"
             isLoading={false}
             options={[
               { value: "school", label: "School" },
@@ -162,7 +177,7 @@ const PersonalDetails = () => {
             type="number"
             name="experienceyear"
             control={control}
-            label="Experience Year"
+            label="Experience (Year)"
             placeholder="Your Experience Year"
             error={errors.experienceyear?.message}
           />
@@ -179,16 +194,18 @@ const PersonalDetails = () => {
           <InputFieldComponent
             name="website"
             control={control}
-            label="Website"
+            isRequired={false}
+            label="Website (Optional)"
             placeholder="Your Website Details"
             error={errors.website?.message}
           />
           <FormSelectDropdown
             isMulti={true}
+            isRequired={false}
             name="languages"
             control={control}
-            label="Languages"
-            isLoading={true}
+            label="Languages (Optional)"
+            isLoading={false}
             options={[
               { value: "english", label: "English" },
               { value: "spanish", label: "Spanish" },

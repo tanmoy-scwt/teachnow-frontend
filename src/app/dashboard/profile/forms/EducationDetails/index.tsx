@@ -1,5 +1,5 @@
-"use client"
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
 import { useForm, useFieldArray } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -20,7 +20,11 @@ const educationSchema = yup.object({
         university: yup.string().required("University is required"),
         currentlyPursuing: yup.boolean(),
         fromDate: yup.string().required("From Date is required"),
-        toDate: yup.string().required("To Date is required"),
+        toDate: yup.string().when("currentlyPursuing", {
+          is: false,
+          then: (schema) => schema.required("To Date is required"),
+          otherwise: (schema) => schema.notRequired(),
+        }),
         gradeType: yup
           .string()
           .oneOf(["CGPA", "Percentage"])
@@ -74,14 +78,13 @@ const EducationDetails = () => {
   const {
     control,
     watch,
+    setValue,
     handleSubmit,
     formState: { errors },
   } = useForm<FormValues>({
     resolver: yupResolver(educationSchema),
     defaultValues: {
-      educationDetails: [
-        educationFieldObject
-      ],
+      educationDetails: [educationFieldObject],
     },
   });
 
@@ -94,137 +97,162 @@ const EducationDetails = () => {
     console.log("Form Data:", data);
   };
 
+ useEffect(() => {
+  const subscription = watch((value) => {
+    value.educationDetails?.forEach((item, index) => {
+      if (item && item.currentlyPursuing) {
+        setValue(`educationDetails.${index}.toDate`, "");
+      }
+    });
+  });
+  return () => subscription.unsubscribe();
+}, [watch, setValue]);
+
   return (
-     <SectionContent
+    <SectionContent
       variant="h2"
       title="Education Details"
       useCustomCSS={true}
       isContainerActive={false}
     >
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-      {fields.map((field, index) => (
-        <div key={field.id} className="flex !mt-5 flex-col gap-6">
-          <InputFieldComponent
-            name={`educationDetails.${index}.degreeName`}
-            control={control}
-            label="Degree Name"
-            placeholder="Enter Degree Name"
-            error={errors.educationDetails?.[index]?.degreeName?.message}
-          />
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+        {fields.map((field, index) => {
+          const isCurrentlyPursuing = watch(
+            `educationDetails.${index}.currentlyPursuing`
+          );
 
-          <InputFieldComponent
-            name={`educationDetails.${index}.course`}
-            control={control}
-            label="Course"
-            placeholder="Enter Course"
-            error={errors.educationDetails?.[index]?.course?.message}
-          />
-
-          <InputFieldComponent
-            name={`educationDetails.${index}.instituteName`}
-            control={control}
-            label="Institute Name"
-            placeholder="Enter Institute Name"
-            error={errors.educationDetails?.[index]?.instituteName?.message}
-          />
-
-          <InputFieldComponent
-            name={`educationDetails.${index}.university`}
-            control={control}
-            label="University"
-            placeholder="Enter University"
-            error={errors.educationDetails?.[index]?.university?.message}
-          />
-
-          <CheckboxFieldComponent
-            name={`educationDetails.${index}.currentlyPursuing`}
-            control={control}
-            label="Currently Pursuing"
-            error={errors.educationDetails?.[index]?.currentlyPursuing?.message}
-            classname="mt-2"
-          />
-
-          <InputFieldComponent
-            name={`educationDetails.${index}.fromDate`}
-            control={control}
-            label="From Date"
-            placeholder="Select From Date"
-            error={errors.educationDetails?.[index]?.fromDate?.message}
-            type="date"
-          />
-
-          <InputFieldComponent
-            name={`educationDetails.${index}.toDate`}
-            control={control}
-            label="To Date"
-            placeholder="Select To Date"
-            error={errors.educationDetails?.[index]?.toDate?.message}
-            type="date"
-          />
-          <div className="flex gap-6">
-            <div>
-              <RadioButtonFieldComponent
-                name={`educationDetails.${index}.gradeType`}
+          return (
+            <div key={field.id} className="flex !mt-5 flex-col gap-6">
+              <InputFieldComponent
+                name={`educationDetails.${index}.degreeName`}
                 control={control}
-                label="CGPA"
-                value="CGPA"
-                error={errors.educationDetails?.[index]?.gradeType?.message}
+                label="Degree Name"
+                placeholder="Enter Degree Name"
+                error={errors.educationDetails?.[index]?.degreeName?.message}
               />
-            </div>
-            <div>
-              <RadioButtonFieldComponent
-                name={`educationDetails.${index}.gradeType`}
+
+              <InputFieldComponent
+                name={`educationDetails.${index}.course`}
                 control={control}
-                label="Percentage"
-                value="Percentage"
-                error={errors.educationDetails?.[index]?.gradeType?.message}
+                label="Course"
+                placeholder="Enter Course"
+                error={errors.educationDetails?.[index]?.course?.message}
               />
+
+              <InputFieldComponent
+                name={`educationDetails.${index}.instituteName`}
+                control={control}
+                label="Institute Name"
+                placeholder="Enter Institute Name"
+                error={
+                  errors.educationDetails?.[index]?.instituteName?.message
+                }
+              />
+
+              <InputFieldComponent
+                name={`educationDetails.${index}.university`}
+                control={control}
+                label="University"
+                placeholder="Enter University"
+                error={errors.educationDetails?.[index]?.university?.message}
+              />
+
+              <CheckboxFieldComponent
+                name={`educationDetails.${index}.currentlyPursuing`}
+                control={control}
+                label="Currently Pursuing"
+                error={
+                  errors.educationDetails?.[index]?.currentlyPursuing?.message
+                }
+                classname="mt-2"
+              />
+
+              <InputFieldComponent
+                name={`educationDetails.${index}.fromDate`}
+                control={control}
+                label="From Date"
+                placeholder="Select From Date"
+                error={errors.educationDetails?.[index]?.fromDate?.message}
+                type="date"
+              />
+
+              {!isCurrentlyPursuing && (
+                <InputFieldComponent
+                  name={`educationDetails.${index}.toDate`}
+                  control={control}
+                  label="To Date"
+                  placeholder="Select To Date"
+                  error={errors.educationDetails?.[index]?.toDate?.message}
+                  type="date"
+                />
+              )}
+
+              <div className="flex gap-6">
+                <RadioButtonFieldComponent
+                  name={`educationDetails.${index}.gradeType`}
+                  control={control}
+                  label="CGPA"
+                  value="CGPA"
+                  error={
+                    errors.educationDetails?.[index]?.gradeType?.message
+                  }
+                />
+                <RadioButtonFieldComponent
+                  name={`educationDetails.${index}.gradeType`}
+                  control={control}
+                  label="Percentage"
+                  value="Percentage"
+                  error={
+                    errors.educationDetails?.[index]?.gradeType?.message
+                  }
+                />
+              </div>
+
+              <InputFieldComponent
+                type="number"
+                name={
+                  watch(`educationDetails.${index}.gradeType`) === "CGPA"
+                    ? `educationDetails.${index}.cgpa`
+                    : `educationDetails.${index}.percentage`
+                }
+                control={control}
+                label={
+                  watch(`educationDetails.${index}.gradeType`) === "CGPA"
+                    ? "CGPA"
+                    : "Percentage"
+                }
+                placeholder={
+                  watch(`educationDetails.${index}.gradeType`) === "CGPA"
+                    ? "Enter CGPA"
+                    : "Enter Percentage"
+                }
+                error={
+                  watch(`educationDetails.${index}.gradeType`) === "CGPA"
+                    ? errors.educationDetails?.[index]?.cgpa?.message
+                    : errors.educationDetails?.[index]?.percentage?.message
+                }
+              />
+
+              <button
+                type="button"
+                onClick={() => remove(index)}
+                className="self-start mt-2 text-base text-red-500 hover:text-red-700"
+              >
+                Remove
+              </button>
             </div>
-          </div>
-          <InputFieldComponent
-            type="number"
-            name={
-              watch(`educationDetails.${index}.gradeType`) === "CGPA"
-                ? `educationDetails.${index}.cgpa`
-                : `educationDetails.${index}.percentage`
-            }
-            control={control}
-            label={
-              watch(`educationDetails.${index}.gradeType`) === "CGPA"
-                ? "CGPA"
-                : "Percentage"
-            }
-            placeholder={
-              watch(`educationDetails.${index}.gradeType`) === "CGPA"
-                ? "Enter CGPA"
-                : "Enter Percentage"
-            }
-            error={
-              watch(`educationDetails.${index}.gradeType`) === "CGPA"
-                ? errors.educationDetails?.[index]?.cgpa?.message
-                : errors.educationDetails?.[index]?.percentage?.message
-            }
-          />
+          );
+        })}
 
-          <button
-            type="button"
-            onClick={() => remove(index)}
-            className="self-start mt-2 text-base text-red-500 hover:text-red-700"
-          >
-            Remove
-          </button>
-        </div>
-      ))}
+        <button
+          type="button"
+          onClick={() => append(educationFieldObject)}
+          className="text-base !my-4 text-[var(--primary-color)] hover:text-[var(--primary-color-dark)]"
+        >
+          + Add More
+        </button>
 
-      <button
-        type="button"
-        onClick={() => append(educationFieldObject)}
-        className="text-base !my-4 text-[var(--primary-color)] hover:text-[var(--primary-color-dark)]"
-      >
-        + Add More
-      </button>
-
-      <div className="!mt-6 flex justify-between items-center">
+        <div className="!mt-6 flex justify-between items-center">
           <FormButton
             title="back"
             buttonType="button"
@@ -240,7 +268,7 @@ const EducationDetails = () => {
             submittingMessage="Saving..."
           />
         </div>
-    </form>
+      </form>
     </SectionContent>
   );
 };

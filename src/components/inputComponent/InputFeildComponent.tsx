@@ -11,6 +11,7 @@ interface InputFieldComponentProps<T extends FieldValues> {
   name: Path<T>;
   control: Control<T>;
   label: string;
+  labelStyle?: string;
   placeholder?: string;
   type?: string;
   error?: string;
@@ -21,6 +22,7 @@ const InputFieldComponent = <T extends FieldValues>({
   name,
   control,
   label,
+  labelStyle,
   placeholder,
   isRequired = true,
   type = "text",
@@ -31,7 +33,7 @@ const InputFieldComponent = <T extends FieldValues>({
       {/* Label */}
       <label
         htmlFor={name}
-        className="text-sm font-medium text-gray-800 !mb-1"
+        className={`text-sm font-medium text-gray-800 !mb-1 ${labelStyle}`}
       >
         {label} {isRequired && <span className="text-red-500">*</span>}
       </label>

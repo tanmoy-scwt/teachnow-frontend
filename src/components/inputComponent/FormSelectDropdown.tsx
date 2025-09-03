@@ -23,6 +23,8 @@ interface FormSelectDropdownProps<T extends FieldValues> {
   error?: string;
   isMulti?: boolean;
   isLoading?: boolean;
+  isRequired?: boolean;
+  addButtonComponent?: React.ReactNode;
 }
 
 const FormSelectDropdown = <T extends FieldValues>({
@@ -31,15 +33,20 @@ const FormSelectDropdown = <T extends FieldValues>({
   label,
   options,
   error,
+  isRequired = true,
   isMulti = false,
   isLoading = false,
+  addButtonComponent,
 }: FormSelectDropdownProps<T>) => {
   return (
     <div>
       <div className="flex flex-col w-full">
-        <label className="!mb-1 !text-sm !text-black">
-          {label} <span className="text-red-500">*</span>
-        </label>
+        <div className="flex items-center justify-between !mb-1">
+          <label className="!text-sm !text-black">
+            {label} {isRequired && <span className="text-red-500">*</span>}
+          </label>
+          {(addButtonComponent) && <div className="ml-auto">{addButtonComponent}</div>}
+        </div>
 
         <Controller
           name={name}

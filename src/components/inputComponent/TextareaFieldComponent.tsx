@@ -6,6 +6,7 @@ interface TextareaFieldComponentProps<T extends FieldValues> {
   name: Path<T>;
   control: Control<T>;
   label: string;
+  labelStyle?: string;
   placeholder?: string;
   rows?: number;
   error?: string;
@@ -16,6 +17,7 @@ const TextareaFieldComponent = <T extends FieldValues>({
   name,
   control,
   label,
+  labelStyle,
   placeholder,
   rows = 4,
   isRequired = true,
@@ -26,7 +28,7 @@ const TextareaFieldComponent = <T extends FieldValues>({
       {/* Label */}
       <label
         htmlFor={name}
-        className="text-sm font-medium text-gray-800 !mb-1"
+        className={`text-sm font-medium text-gray-800 !mb-1 ${labelStyle}`}
       >
         {label} {isRequired && <span className="text-red-500">*</span>}
       </label>

@@ -1,0 +1,204 @@
+
+/* General Resume Container */
+.resumeContainer {
+  width: 100%;
+  max-width: 210mm;
+  margin: 0 auto;
+  background-color: white;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+/* Resume scroll container */
+.resumeContent {
+  width: 100%;
+  background-color: white;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #d1d5db transparent;
+  height: 297mm;
+  max-height: 100vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 2px solid #f3f4f6;
+}
+
+.headerName {
+  font-weight: 700;
+  color: #111827;
+}
+
+.headerJobRole {
+  color: #dc2626;
+  font-weight: 600;
+}
+
+/* Contact Info */
+.contactInfo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  color: #4b5563;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* Section */
+.section {
+  margin-bottom: 1.5rem;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 0.75rem;
+}
+
+.sectionLine {
+  width: 0.25rem;
+  height: 1.5rem;
+  background-color: var(--primary-color, #4679b5);
+  border-radius: 9999px;
+}
+
+.sectionContent {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #374151;
+  white-space: pre-line;
+}
+
+/* Work Experience / Education Item */
+.timelineItem {
+  padding-left: 1rem;
+  border-left: 2px solid #e5e7eb;
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.timelineDot {
+  position: absolute;
+  left: -4.7px;
+  top: 0;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: var(--primary-color, #4679b5);
+  border-radius: 9999px;
+}
+
+.timelineTitle {
+  font-weight: 600;
+  color: #111827;
+}
+
+.timelineCompany {
+  color: #dc2626;
+  font-weight: 500;
+}
+
+.timelineDate {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #6b7280;
+}
+
+.timelineBadge {
+  margin-left: 0.5rem;
+  background-color: #f3f4f6;
+  color: #374151;
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+}
+
+/* Education Badge */
+.gradeBadge {
+  background-color: #d1fae5;
+  color: #065f46;
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+}
+
+/* Skills */
+.skillItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.skillHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.25rem;
+  font-weight: 500;
+  color: #4b5563;
+}
+
+.skillValue {
+  color: #dc2626;
+  font-weight: 600;
+}
+
+/* Projects */
+.projectItem {
+  padding-left: 1rem;
+  border-left: 2px solid #e5e7eb;
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.projectDot {
+  position: absolute;
+  left: -4.7px;
+  top: 0;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: var(--primary-color, #4679b5);
+  border-radius: 9999px;
+}
+
+.projectTitle {
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+.projectDesc {
+  color: #374151;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+/* Additional Info */
+.additionalGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media(min-width:768px){
+  .additionalGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

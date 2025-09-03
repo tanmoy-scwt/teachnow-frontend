@@ -34,7 +34,7 @@ const CheckboxFieldComponent = <T extends FieldValues>({
             />
 
             {/* Label after checkbox */}
-            <label htmlFor={name} className="ml-2 text-sm font-medium text-black">
+            <label htmlFor={name} className="ml-2 text-sm font-medium text-[#B1B1B1]">
                 {label}
             </label>
 
