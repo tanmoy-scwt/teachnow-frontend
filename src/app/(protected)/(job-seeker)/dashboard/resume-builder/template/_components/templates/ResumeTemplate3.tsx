@@ -15,7 +15,7 @@ import {
 } from "react-icons/fa";
 import Image from "next/image";
 import { resumeData } from "./resumedata";
-import { ResumeBuilderType } from "../formConfig/ResumeFormDefaultValues";
+import { ResumeBuilderSchemaType } from "../formConfig/ResumeFormValidationSchema";
 
 type ResumeDataType = typeof resumeData;
 type EducationType = typeof resumeData.education[number];
@@ -26,7 +26,7 @@ type ProjectType = typeof resumeData.technicalSkills.projects[number];
 interface ResumeTemplate3Props {
   widthPercent?: number;
   data?: ResumeDataType;
-  previewData?:ResumeBuilderType
+  previewData?:ResumeBuilderSchemaType
 }
 
 interface FormData {

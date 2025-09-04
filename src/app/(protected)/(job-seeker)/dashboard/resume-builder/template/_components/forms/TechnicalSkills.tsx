@@ -1,12 +1,13 @@
 "use client";
 import React from "react";
-import { useForm, useFieldArray } from "react-hook-form";
+import { useForm, useFieldArray, useFormContext } from "react-hook-form";
 import FormSelectDropdown from "@/components/inputComponent/FormSelectDropdown";
 import SkillRangeFieldComponent from "@/components/inputComponent/SkillRangeFeildComponent";
 import InputFieldComponent from "@/components/inputComponent/InputFeildComponent";
 import TextareaFieldComponent from "@/components/inputComponent/TextareaFieldComponent";
 import SectionContent from "@/components/ui/SectionContent";
 import FormButton from "@/components/inputComponent/FormButton";
+import { ResumeBuilderSchemaType } from "../formConfig/ResumeFormValidationSchema";
 
 interface SkillItem {
   skill: string;
@@ -24,16 +25,11 @@ interface FormData {
 }
 
 const TechnicalSkills = () => {
-  const { control, handleSubmit } = useForm<FormData>({
-    defaultValues: {
-      skills: [{ skill: "", proficiency: 35 }],
-      projects: [{ title: "", description: "" }],
-    },
-  });
+const {control , watch , formState: { errors } } = useFormContext<ResumeBuilderSchemaType>();
 
   const { fields, append, remove } = useFieldArray({
     control,
-    name: "skills",
+    name: "technical_skills.skills",
   });
   const {
     fields: projectFeilds,
@@ -41,7 +37,7 @@ const TechnicalSkills = () => {
     remove: removeProject,
   } = useFieldArray({
     control,
-    name: "projects",
+    name: "technical_skills.projects",
   });
 
   const ButtonControllers = (index: number, addButtonActive: boolean) => {
@@ -82,14 +78,14 @@ const TechnicalSkills = () => {
       useCustomCSS={true}
       isContainerActive={false}
     >
-      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4">
         <div>
           {fields.map((field, index) => {
             const addButtonActive = index === fields.length - 1;
             return (
               <div key={field.id} className="flex flex-col gap-4 !pb-8">
                 <FormSelectDropdown
-                  name={`skills.${index}.skill`}
+                  name={`technical_skills.skills.${index}.skill`}
                   control={control}
                   label="Skill Type"
                   isLoading={false}
@@ -103,7 +99,7 @@ const TechnicalSkills = () => {
                   addButtonComponent={ButtonControllers(index, addButtonActive)}
                 />
                 <SkillRangeFieldComponent
-                  name={`skills.${index}.proficiency`}
+                  name={`technical_skills.skills.${index}.proficiency`}
                   control={control}
                   label="Proficiency:"
                   options={["Beginner", "Intermediate", "Advanced", "Expert"]}
@@ -117,7 +113,7 @@ const TechnicalSkills = () => {
             return (
               <div key={field.id} className={`flex flex-col gap-4 ${projectFeilds.length - 1 ? "!pb-8":"!pb-3"}`}>
                 <InputFieldComponent
-                  name={`projects.${index}.title`}
+                  name={`technical_skills.projects.${index}.title`}
                   control={control}
                   label="Project Title"
                   labelStyle="!font-bold"
@@ -125,7 +121,7 @@ const TechnicalSkills = () => {
                   // error={errors.educationDetails?.[index]?.university?.message}
                 />
                 <TextareaFieldComponent
-                  name={`projects.${index}.description`}
+                  name={`technical_skills.projects.${index}.description`}
                   control={control}
                   label="About The Project"
                   labelStyle="!font-bold"
@@ -155,24 +151,7 @@ const TechnicalSkills = () => {
             </button>
           </div>
         </div>
-
-        <div className="!mt-6 flex justify-between items-center">
-          <FormButton
-            title="back"
-            buttonType="button"
-            buttonVariant="outlined"
-            isSubmitting={false}
-            submittingMessage="Saving..."
-          />
-          <FormButton
-            title="next"
-            buttonType="submit"
-            buttonVariant="filled"
-            isSubmitting={false}
-            submittingMessage="Saving..."
-          />
-        </div>
-      </form>
+      </div>
     </SectionContent>
   );
 };

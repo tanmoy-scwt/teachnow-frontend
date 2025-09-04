@@ -1,12 +1,11 @@
 "use client";
-import React, { useMemo, useState } from "react";
-
+import React, { useState } from "react";
 import ActiveIndicator from "@/components/inputComponent/ActiveIndicator";
-// import {
-//   EducationDetails,
-//   WorkExperienceDetails,
-// } from "@/app/dashboard/profile/forms";
-import { PersonalDetails } from "../forms";
+import {
+  EducationDetails,
+  WorkExperienceDetails,
+} from "@/app/(protected)/(job-seeker)/dashboard/profile/forms";
+import { PersonalDetails, TechnicalSkills } from "../forms";
 import { ResumeTemplate3 } from "../templates";
 import { resumeData } from "../templates/resumedata";
 import {
@@ -20,9 +19,9 @@ import {
   ResumeFormValidationSchema,
 } from "../formConfig";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { ResumeBuilderType } from "../formConfig/ResumeFormDefaultValues";
 import FormButton from "@/components/inputComponent/FormButton";
 import ProgressBar from "@/components/ui/ProgressBar";
+import { ResumeBuilderSchemaType } from "../formConfig/ResumeFormValidationSchema";
 
 const tabs = [
   "Personal Details",
@@ -35,12 +34,12 @@ const renderScreen = (activeForm: number) => {
   switch (activeForm) {
     case 1:
       return <PersonalDetails />;
-    // case 2:
-    //   return <EducationDetails />;
-    // case 3:
-    //   return <WorkExperienceDetails />;
-    // case 4:
-    //   return <TechnicalSkills />;
+    case 2:
+      return <EducationDetails />;
+    case 3:
+      return <WorkExperienceDetails />;
+    case 4:
+      return <TechnicalSkills />;
     default:
       return null;
   }
@@ -49,47 +48,14 @@ const renderScreen = (activeForm: number) => {
 const ResumeBuilderClient = () => {
   const [activeForm, setActiveForm] = useState(1);
 
-  const methods = useForm({
-    defaultValues: ResumeFormDefaultValues,
+  const methods = useForm<ResumeBuilderSchemaType>({
+    defaultValues: ResumeFormDefaultValues as ResumeBuilderSchemaType,
     resolver: yupResolver(ResumeFormValidationSchema),
   });
 
-  const { control } = methods;
+  const resumeFormPreviewValues = methods.watch();
 
-  // subscribe to all form values
-  
-  const resumeFormPreviewValues2 = methods.watch();
-  const resumeFormPreviewValues = methods.watch("presonal_details");
-  const values2 = useWatch({ control });
-  
-  const progress = useMemo(() => {
-    const values = Object.entries(resumeFormPreviewValues);
-
-    let filledCount = 0;
-    const totalCount = values.length;
-
-    values.forEach(([key , value]) => {
-      console.log(key , "key");
-      
-      if (Array.isArray(value)) {
-        if (value.some((item) => item && item.trim() !== "")) {
-          filledCount++;
-        }
-      } else if (typeof value === "number") {
-        if (value > 0) {
-          filledCount++;
-        }
-      } else {
-        if (value && String(value).trim() !== "") {
-          filledCount++;
-        }
-      }
-    });
-
-    return Math.round((filledCount / totalCount) * 100);
-  }, [values2]);
-
-  const onSubmit: SubmitHandler<ResumeBuilderType> = (data) => {
+  const onSubmit: SubmitHandler<ResumeBuilderSchemaType> = (data) => {
     console.log("Form Data:", data);
   };
   return (
@@ -105,7 +71,14 @@ const ResumeBuilderClient = () => {
             {renderScreen(activeForm)}
             {/* <button type="submit">Hello my name is khan</button> */}
             {/* Submit Button */}
-            <div className="!mt-6 flex justify-end items-center">
+            <div className="!mt-6 flex justify-between items-center">
+              <FormButton
+                title="back"
+                buttonType="button"
+                buttonVariant="outlined"
+                isSubmitting={false}
+                submittingMessage="Saving..."
+              />
               <FormButton
                 title="next"
                 buttonType="submit"
@@ -119,16 +92,16 @@ const ResumeBuilderClient = () => {
         <div className="flex flex-col items-start ">
           <div className="flex w-full items-center gap-5">
             <div className="w-[95%]">
-            <ProgressBar percentage={+progress} height={8} />
+              <ProgressBar percentage={+50} height={8} />
             </div>
             <div className="w-[5%]">
-            <p>{progress}%</p>
+              <p>{0}%</p>
             </div>
           </div>
           <ResumeTemplate3
             widthPercent={60}
             data={resumeData}
-            previewData={resumeFormPreviewValues2}
+            previewData={resumeFormPreviewValues}
           />
         </div>
       </div>
